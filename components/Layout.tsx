@@ -40,7 +40,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => {
     </Head>
     <header>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-        <img src="/a.jpg"></img>
+        <img src={'/static/a.jpg'}></img>
         <Button variant="contained" color="primary" onClick={handleClick}>
           Open Popover
       </Button>
