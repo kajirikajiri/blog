@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
-import Image from 'next/image'
 import { Button, createStyles, makeStyles, Popover, Typography, Theme } from '@material-ui/core'
 
 type Props = {
@@ -41,7 +40,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => {
     </Head>
     <header>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-        <Image src="/a.jpg" width="256" height="68"></Image>
+        <img src="/a.jpg"></img>
         <Button variant="contained" color="primary" onClick={handleClick}>
           Open Popover
       </Button>
