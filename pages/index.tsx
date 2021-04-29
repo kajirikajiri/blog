@@ -1,7 +1,19 @@
+import { Button, createStyles, makeStyles, Theme } from '@material-ui/core'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+  }),
+);
+
 export default function Home() {
+  const classes = useStyles();
   return (
     <div className={styles.container}>
       <Head>
@@ -10,6 +22,47 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+            <div className={classes.root}>
+
+      <Button variant="contained">Default</Button>
+      <Button variant="contained" color="primary">
+        Primary
+      </Button>
+      <Button variant="contained" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="contained" disabled>
+        Disabled
+      </Button>
+      <Button variant="contained" color="primary" href="#contained-buttons">
+        Link
+      </Button>
+      </div>
+          <div className={classes.root}>
+
+      <Button>Default</Button>
+<Button color="primary">Primary</Button>
+<Button color="secondary">Secondary</Button>
+<Button disabled>Disabled</Button>
+<Button href="#text-buttons" color="primary">
+  Link
+</Button>
+</div>
+    <div className={classes.root}>
+<Button variant="outlined">Default</Button>
+<Button variant="outlined" color="primary">
+  Primary
+</Button>
+<Button variant="outlined" color="secondary">
+  Secondary
+</Button>
+<Button variant="outlined" disabled>
+  Disabled
+</Button>
+<Button variant="outlined" color="primary" href="#outlined-buttons">
+  Link
+</Button>
+</div>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
