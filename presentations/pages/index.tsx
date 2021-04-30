@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
     childRight: {
       [theme.breakpoints.up("ss")]: {
         height: "40%",
-        paddingBottom: 10,
+        paddingBottom: 0,
         paddingRight: 0,
       },
       [theme.breakpoints.up("s")]: {
