@@ -9,7 +9,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const Layout = ({ preview, children }: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <Box bgcolor="#EAEDF2">
       <Meta />

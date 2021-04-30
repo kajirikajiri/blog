@@ -39,10 +39,9 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "tsc --noEmit",
       "eslint --fix",
       "prettier --write",
-      "git add"
+      "bash -c tsc --noEmit"
     ]
   }
 }
