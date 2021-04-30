@@ -1,28 +1,27 @@
 import { Box } from "@material-ui/core";
-import Image from "next/image";
 
 type Props = {
   title: string;
   src: string;
-  height: number;
-  width: number;
   slug?: string;
 };
 
-const CoverImage = ({ title, src, width, height }: Props) => {
+const CoverImage = ({ title, src }: Props) => {
   return (
-    <Box height="100%" display="flex" alignItems="center">
-      <Image
+    <Box
+      height="100%"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <img
+        loading="lazy"
+        width="100%"
+        height="100%"
         src={src}
+        style={{ objectFit: "contain" }}
         alt={`Cover Image for ${title}`}
-        width={width}
-        height={height}
       />
-      {/* <img
-        style={{ height: "100%", width: "100%", objectFit: "contain" }}
-        src={src}
-        alt={`Cover Image for ${title}`}
-      /> */}
     </Box>
   );
 };

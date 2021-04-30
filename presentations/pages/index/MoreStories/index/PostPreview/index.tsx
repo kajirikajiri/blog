@@ -85,13 +85,7 @@ export const PostPreview = ({
         alignItems="center"
         justifyContent="center"
       >
-        <CoverImage
-          slug={slug}
-          title={title}
-          src={coverImage}
-          width={219}
-          height={111}
-        />
+        <CoverImage slug={slug} title={title} src={coverImage} />
       </Box>
       <Box className={classes.childRight}>
         <Box height="70%" display="flex" alignItems="center">
