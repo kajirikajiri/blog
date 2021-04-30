@@ -1,4 +1,7 @@
 .next
 .vscode
+.eslintrc.js
+.husky
 node_modules
 out
+lint-staged.config.js
