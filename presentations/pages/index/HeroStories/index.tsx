@@ -30,7 +30,13 @@ export const HeroPost = ({
         style={{ height: "100%", width: "100%", position: "absolute" }}
       ></a>
       <Box height="62%">
-        <CoverImage title={title} src={coverImage} slug={slug} />
+        <CoverImage
+          title={title}
+          src={coverImage}
+          slug={slug}
+          height={202}
+          width={398}
+        />
       </Box>
       <Box height="38%">
         <Box display="flex" alignItems="center" height="70%">

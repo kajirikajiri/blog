@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "100%",
       },
       [theme.breakpoints.up("s")]: {
-        height: "70%",
+        height: "100%",
         width: "100%",
         margin: "0",
       },
@@ -79,8 +79,19 @@ export const PostPreview = ({
         href={`/${slug}`}
         style={{ height: "100%", width: "100%", position: "absolute" }}
       ></a>
-      <Box className={classes.childLeft}>
-        <CoverImage slug={slug} title={title} src={coverImage} />
+      <Box
+        className={classes.childLeft}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <CoverImage
+          slug={slug}
+          title={title}
+          src={coverImage}
+          width={219}
+          height={111}
+        />
       </Box>
       <Box className={classes.childRight}>
         <Box height="70%" display="flex" alignItems="center">
