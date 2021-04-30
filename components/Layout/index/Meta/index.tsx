@@ -38,6 +38,10 @@ export const Meta = () => {
         content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
       />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet"
+      ></link>
     </Head>
   );
 };

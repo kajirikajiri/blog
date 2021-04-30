@@ -1,4 +1,4 @@
-import cn from "classnames";
+import { Box } from "@material-ui/core";
 import Link from "next/link";
 
 type Props = {
@@ -10,15 +10,13 @@ type Props = {
 const CoverImage = ({ title, src, slug }: Props) => {
   const image = (
     <img
+      style={{ height: "100%", width: "100%" }}
       src={src}
       alt={`Cover Image for ${title}`}
-      className={cn("shadow-small", {
-        "hover:shadow-medium transition-shadow duration-200": slug,
-      })}
     />
   );
   return (
-    <div className="sm:mx-0">
+    <Box height="100%" style={{ objectFit: "contain" }}>
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
@@ -26,7 +24,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
       ) : (
         image
       )}
-    </div>
+    </Box>
   );
 };
 

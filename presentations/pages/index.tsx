@@ -16,17 +16,23 @@ export const Index = ({ allPosts }: Props) => {
     <>
       <Layout>
         <Box paddingX={"30px"} paddingY={"40px"}>
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          <Box display="flex">
+            <Box>
+              {heroPost && (
+                <HeroPost
+                  title={heroPost.title}
+                  coverImage={heroPost.coverImage}
+                  date={heroPost.date}
+                  author={heroPost.author}
+                  slug={heroPost.slug}
+                  excerpt={heroPost.excerpt}
+                />
+              )}
+            </Box>
+            <Box>
+              {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+            </Box>
+          </Box>
         </Box>
       </Layout>
     </>
