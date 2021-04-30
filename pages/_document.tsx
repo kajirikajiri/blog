@@ -1,11 +1,17 @@
-import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet as StyledComponentSheets } from 'styled-components';
-import { ServerStyleSheets as MaterialUiServerStyleSheets } from '@material-ui/styles';
+import Document, {
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
+import { ServerStyleSheet as StyledComponentSheets } from "styled-components";
+import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@material-ui/styles";
 
 class CustomDocument extends Document {
   render(): JSX.Element {
     return (
-      <Html lang='ja'>
+      <Html lang="ja">
         <Head />
         <body>
           <Main />
@@ -27,7 +33,9 @@ CustomDocument.getInitialProps = async (ctx: DocumentContext) => {
     ctx.renderPage = () =>
       originalRenderPage({
         enhanceApp: (App) => (props) =>
-          styledComponentSheets.collectStyles(materialUiServerStyleSheets.collect(<App {...props} />)),
+          styledComponentSheets.collectStyles(
+            materialUiServerStyleSheets.collect(<App {...props} />)
+          ),
       });
 
     const initialProps = await Document.getInitialProps(ctx);
