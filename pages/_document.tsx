@@ -16,6 +16,7 @@ class CustomDocument extends Document {
   }
 }
 
+
 export default CustomDocument;
 
 CustomDocument.getInitialProps = async (ctx: DocumentContext) => {
