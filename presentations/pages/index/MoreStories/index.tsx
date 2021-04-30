@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
         height: "100%",
         width: "100%",
         display: "flex",
+        justifyContent: "space-between",
         flexDirection: "row",
         overflow: "scroll",
       },
@@ -22,6 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
         display: "flex",
         justifyContent: "space-between",
         flexDirection: "column",
+        overflow: "visible",
       },
     },
   })
