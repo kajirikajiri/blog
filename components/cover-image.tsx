@@ -1,5 +1,4 @@
 import { Box } from "@material-ui/core";
-import Link from "next/link";
 
 type Props = {
   title: string;
@@ -7,23 +6,14 @@ type Props = {
   slug?: string;
 };
 
-const CoverImage = ({ title, src, slug }: Props) => {
-  const image = (
-    <img
-      style={{ height: "100%", width: "100%" }}
-      src={src}
-      alt={`Cover Image for ${title}`}
-    />
-  );
+const CoverImage = ({ title, src }: Props) => {
   return (
-    <Box height="100%" style={{ objectFit: "contain" }}>
-      {slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a aria-label={title}>{image}</a>
-        </Link>
-      ) : (
-        image
-      )}
+    <Box height="100%" style={{}}>
+      <img
+        style={{ height: "100%", width: "100%", objectFit: "contain" }}
+        src={src}
+        alt={`Cover Image for ${title}`}
+      />
     </Box>
   );
 };
