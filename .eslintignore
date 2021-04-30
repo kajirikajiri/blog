@@ -6,6 +6,7 @@
 lighthouserc.js
 lint-staged.config.js
 next-sitemap.js
+next.config.js
 
 node_modules
 out

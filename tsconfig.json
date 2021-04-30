@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*":["components/*"],
+      "@/styles/*":["styles/*"],
+      "@/lib/*":["lib/*"],
+      "@/presentations/*":["presentations/*"]
+    },
     "allowJs": true,
     "alwaysStrict": true,
     "esModuleInterop": true,

@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "../lib/constants";
+import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
 
-const Meta = () => {
+export const Meta = () => {
   return (
     <Head>
+      <title>Next.js Blog Example with {CMS_NAME}</title>
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -40,5 +41,3 @@ const Meta = () => {
     </Head>
   );
 };
-
-export default Meta;
