@@ -19,5 +19,5 @@
     "target": "esnext"
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "pages/api/hello.js"]
+  "include": ["**/*.ts", "**/*.tsx", "pages/api/hello.js", "lib/api.js"]
 }
