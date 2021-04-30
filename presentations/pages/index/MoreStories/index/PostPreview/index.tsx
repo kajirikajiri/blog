@@ -1,7 +1,7 @@
 import DateFormatter from "@/components/date-formatter";
 import CoverImage from "@/components/cover-image";
 import Author from "@/types/author";
-import { Box } from "@material-ui/core";
+import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { AccessTime } from "@material-ui/icons";
 import { grey } from "@material-ui/core/colors";
 
@@ -14,6 +14,55 @@ type Props = {
   slug: string;
 };
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    parent: {
+      [theme.breakpoints.up("ss")]: {
+        minWidth: "80vw",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        margin: "0 5px",
+      },
+      [theme.breakpoints.up("s")]: {
+        minWidth: "auto",
+        width: "100%",
+        height: "31.5%",
+        display: "flex",
+        flexDirection: "row",
+        margin: "0 5px",
+      },
+    },
+    childLeft: {
+      [theme.breakpoints.up("ss")]: {
+        height: "70%",
+        width: "100%",
+      },
+      [theme.breakpoints.up("s")]: {
+        height: "70%",
+        width: "100%",
+        margin: "0",
+      },
+    },
+    childRight: {
+      [theme.breakpoints.up("ss")]: {
+        height: "30%",
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+      },
+      [theme.breakpoints.up("s")]: {
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+      },
+    },
+  })
+);
+
 export const PostPreview = ({
   title,
   coverImage,
@@ -22,22 +71,18 @@ export const PostPreview = ({
   // author,
   slug,
 }: Props) => {
+  const classes = useStyles();
   return (
-    <Box width="100%" height="31.5%" display="flex" position="relative">
+    <Box className={classes.parent} position="relative">
       <a
         aria-label={title}
         href={`/${slug}`}
         style={{ height: "100%", width: "100%", position: "absolute" }}
       ></a>
-      <Box height="100%" width="50%">
+      <Box className={classes.childLeft}>
         <CoverImage slug={slug} title={title} src={coverImage} />
       </Box>
-      <Box
-        width="50%"
-        display="flex"
-        justifyContent="center"
-        flexDirection="column"
-      >
+      <Box className={classes.childRight}>
         <Box height="70%" display="flex" alignItems="center">
           <Box
             fontWeight="bold"

@@ -13,30 +13,45 @@ type Props = {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
-      [theme.breakpoints.up("s")]: {
-        padding: "25px 30px",
+      [theme.breakpoints.up("ss")]: {
+        padding: "30px 15px",
+      },
+      [theme.breakpoints.up("t")]: {
+        padding: "30px 25px",
       },
       [theme.breakpoints.up("l")]: {
         padding: "30px 40px",
       },
     },
     parent: {
-      [theme.breakpoints.up("s")]: {
-        height: 620,
+      [theme.breakpoints.up("ss")]: {
+        height: 560,
         flexDirection: "column",
       },
-      [theme.breakpoints.up("l")]: {
+      [theme.breakpoints.up("s")]: {
         height: 310,
         flexDirection: "row",
       },
     },
-    child: {
-      [theme.breakpoints.up("s")]: {
-        height: "50%",
+    childLeft: {
+      [theme.breakpoints.up("ss")]: {
+        height: "60%",
         paddingBottom: 10,
         paddingRight: 0,
       },
-      [theme.breakpoints.up("l")]: {
+      [theme.breakpoints.up("s")]: {
+        height: "100%",
+        paddingBottom: 0,
+        paddingRight: 10,
+      },
+    },
+    childRight: {
+      [theme.breakpoints.up("ss")]: {
+        height: "40%",
+        paddingBottom: 10,
+        paddingRight: 0,
+      },
+      [theme.breakpoints.up("s")]: {
         height: "100%",
         paddingBottom: 0,
         paddingRight: 10,
@@ -74,7 +89,7 @@ export const Index = ({ allPosts }: Props) => {
             </Box>
           </Box>
           <Box className={classes.parent} display="flex" alignItems="center">
-            <Box className={classes.child} width={"100%"}>
+            <Box className={classes.childLeft} width={"100%"}>
               {heroPost && (
                 <HeroPost
                   title={heroPost.title}
@@ -86,7 +101,7 @@ export const Index = ({ allPosts }: Props) => {
                 />
               )}
             </Box>
-            <Box className={classes.child} width="100%">
+            <Box className={classes.childRight} width="100%">
               {morePosts.length > 0 && <MoreStories posts={morePosts} />}
             </Box>
           </Box>

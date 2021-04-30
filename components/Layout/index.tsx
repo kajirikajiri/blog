@@ -12,6 +12,9 @@ type Props = {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     parent: {
+      [theme.breakpoints.up("ss")]: {
+        flexDirection: "column",
+      },
       [theme.breakpoints.up("s")]: {
         flexDirection: "column",
       },
@@ -20,6 +23,10 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     childLeft: {
+      [theme.breakpoints.up("ss")]: {
+        marginRight: 10,
+        width: "100%",
+      },
       [theme.breakpoints.up("s")]: {
         marginRight: 10,
         width: "100%",
@@ -34,6 +41,9 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     childRight: {
+      [theme.breakpoints.up("ss")]: {
+        width: "100%",
+      },
       [theme.breakpoints.up("s")]: {
         width: "100%",
       },

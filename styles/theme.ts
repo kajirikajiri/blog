@@ -9,6 +9,7 @@ declare module "@material-ui/core/styles/createBreakpoints" {
     md: false;
     lg: false;
     xl: false;
+    ss: true; // small smart phone
     s: true; // smart phone
     t: true; // tablet
     l: true; // laptop
@@ -19,7 +20,8 @@ declare module "@material-ui/core/styles/createBreakpoints" {
 const theme = createMuiTheme({
   breakpoints: {
     values: {
-      s: 0,
+      ss: 0,
+      s: 480,
       t: 768,
       l: 1030,
       d: 1240,
