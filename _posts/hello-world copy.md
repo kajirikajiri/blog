@@ -9,7 +9,7 @@ author:
 ogImage:
   url: "/assets/blog/dynamic-routing/cover.svg"
 category: 
-  first: エディタ
+  first: editor
   second: obsidian
 tag: obsidian
 ---

@@ -1,10 +1,12 @@
 import Layout from "@/components/Layout";
-import { getAllPosts, getOrderPosts } from "@/lib/api";
+import { getAllPosts, getOrderPosts, getTreemapData } from "@/lib/api";
 import Post from "@/types/post";
+import { TreemapData } from "@/types/treemapData";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { Left1Right3Layout } from "./index/Left1Right3Layout";
 
 type Props = {
+  treemapData: TreemapData;
   editorCategoryPosts: Post[];
 };
 
@@ -35,11 +37,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const Index = ({ editorCategoryPosts }: Props) => {
+export const Index = ({ editorCategoryPosts, treemapData }: Props) => {
   const classes = useStyles();
   return (
     <>
-      <Layout>
+      <Layout treemapData={treemapData}>
         <Box className={classes.container}>
           <Left1Right3Layout
             category={"エディタ"}
@@ -62,7 +64,11 @@ export const getStaticProps = async () => {
     "author",
     "coverImage",
     "excerpt",
+    "category",
+    "tag",
   ]);
+
+  const treemapData = getTreemapData(allPosts);
 
   type Slugs = string[];
   const editorCategorySlugs: Slugs = [
@@ -73,6 +79,6 @@ export const getStaticProps = async () => {
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
   return {
-    props: { editorCategoryPosts },
+    props: { editorCategoryPosts, treemapData },
   };
 };

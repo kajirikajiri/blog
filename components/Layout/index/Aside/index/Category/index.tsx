@@ -1,46 +1,14 @@
 // https://www.d3-graph-gallery.com/graph/treemap_basic.html
 
+import { TreemapData } from "@/types/treemapData";
 import * as d3 from "d3";
 import React from "react";
 
-function drawChart(svgRef: React.RefObject<SVGSVGElement>) {
-  const data = [
-    {
-      name: "Origin",
-      parent: "",
-      value: "",
-    },
-    {
-      name: "grp1",
-      parent: "Origin",
-      value: "12",
-    },
-    {
-      name: "grp2",
-      parent: "Origin",
-      value: "23",
-    },
-    {
-      name: "grp3",
-      parent: "Origin",
-      value: "11",
-    },
-    {
-      name: "grp4",
-      parent: "Origin",
-      value: "40",
-    },
-    {
-      name: "grp5",
-      parent: "Origin",
-      value: "30",
-    },
-    {
-      name: "grp6",
-      parent: "Origin",
-      value: "25",
-    },
-  ] as any;
+function drawChart(
+  svgRef: React.RefObject<SVGSVGElement>,
+  treemapData: TreemapData
+) {
+  const data = treemapData as any;
   const svg = d3.select(svgRef.current);
   const h = svgRef.current?.clientHeight as number;
   const w = svgRef.current?.clientWidth as number;
@@ -123,11 +91,15 @@ function drawChart(svgRef: React.RefObject<SVGSVGElement>) {
     .attr("fill", "white");
 }
 
-export const Category: React.FunctionComponent = () => {
+type Props = {
+  treemapData: TreemapData;
+};
+
+export const Category = ({ treemapData }: Props) => {
   const svg = React.useRef<SVGSVGElement>(null);
 
   React.useEffect(() => {
-    drawChart(svg);
+    drawChart(svg, treemapData);
   }, [svg]);
 
   return <svg width="100%" height="100%" ref={svg} />;

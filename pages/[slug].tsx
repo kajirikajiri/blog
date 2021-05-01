@@ -5,26 +5,28 @@ import PostBody from "../components/post-body";
 import Header from "../components/header";
 import PostHeader from "../components/post-header";
 import Layout from "@/components/Layout";
-import { getPostBySlug, getAllPosts } from "../lib/api";
+import { getPostBySlug, getAllPosts, getTreemapData } from "../lib/api";
 import PostTitle from "../components/post-title";
 import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import markdownToHtml from "../lib/markdownToHtml";
 import PostType from "../types/post";
+import { TreemapData } from "@/types/treemapData";
 
 type Props = {
   post: PostType;
   morePosts: PostType[];
   preview?: boolean;
+  treemapData: TreemapData;
 };
 
-const Post = ({ post, preview }: Props) => {
+const Post = ({ post, preview, treemapData }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} treemapData={treemapData}>
       <Container>
         <Header />
         {router.isFallback ? (
@@ -71,10 +73,23 @@ export async function getStaticProps({ params }: Params) {
     "ogImage",
     "coverImage",
   ]);
-  const content = await markdownToHtml(post.content || "");
+  const allPosts = getAllPosts([
+    "title",
+    "date",
+    "slug",
+    "author",
+    "coverImage",
+    "excerpt",
+    "category",
+    "tag",
+  ]);
+  const treemapData = getTreemapData(allPosts);
+
+  const content = await markdownToHtml((post.content as string) || "");
 
   return {
     props: {
+      treemapData,
       post: {
         ...post,
         content,

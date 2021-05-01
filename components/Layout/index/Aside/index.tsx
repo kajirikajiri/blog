@@ -1,8 +1,13 @@
+import { TreemapData } from "@/types/treemapData";
 import { Box } from "@material-ui/core";
 import { Category } from "./index/Category";
 import { Profile } from "./index/Profile";
 
-export const Aside = () => {
+type Props = {
+  treemapData: TreemapData;
+};
+
+export const Aside = ({ treemapData }: Props) => {
   return (
     <aside>
       {/* <Box height={300} bgcolor="pink" marginBottom={"42px"}>
@@ -14,7 +19,7 @@ export const Aside = () => {
       <Profile />
       <Box height={20}> </Box>
       <Box width="100%" height="300px">
-        <Category />
+        <Category treemapData={treemapData} />
       </Box>
       {/* <Box height={10} bgcolor="pink" marginBottom={"45px"}>
         TOC

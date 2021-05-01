@@ -9,8 +9,8 @@ author:
 ogImage:
   url: "/dummy.png"
 category: 
-  first: エディタ
-  second: エディタ
+  first: editor
+  second: editor
 tag: obsidian
 ---
 
