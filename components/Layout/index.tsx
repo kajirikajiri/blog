@@ -51,6 +51,14 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "32%",
       },
     },
+    asidePad: {
+      [theme.breakpoints.up("ss")]: {
+        height: 20,
+      },
+      [theme.breakpoints.up("t")]: {
+        height: 0,
+      },
+    },
   })
 );
 
@@ -76,6 +84,7 @@ const Layout = ({ children }: Props) => {
           {children}
         </main>
         <Box className={classes.childRight}>
+          <Box className={classes.asidePad}></Box>
           <Aside />
         </Box>
       </Box>

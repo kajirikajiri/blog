@@ -1,13 +1,11 @@
-import { MoreStories } from "./index/MoreStories";
-import { HeroPost } from "./index/HeroStories";
 import Layout from "@/components/Layout";
-import { getAllPosts } from "../../lib/api";
-import Post from "../../types/post";
-import { Box, createStyles, Link, makeStyles, Theme } from "@material-ui/core";
-import { ChevronRight } from "@material-ui/icons";
+import { getAllPosts, getOrderPosts } from "@/lib/api";
+import Post from "@/types/post";
+import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+import { Left1Right3Layout } from "./index/Left1Right3Layout";
 
 type Props = {
-  allPosts: Post[];
+  editorCategoryPosts: Post[];
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -23,94 +21,39 @@ const useStyles = makeStyles((theme: Theme) =>
         padding: "30px 40px",
       },
     },
-    parent: {
+    pad: {
       [theme.breakpoints.up("ss")]: {
-        height: 560,
-        flexDirection: "column",
+        height: 30,
       },
-      [theme.breakpoints.up("s")]: {
-        height: 310,
-        flexDirection: "row",
+      [theme.breakpoints.up("t")]: {
+        height: 40,
       },
-    },
-    childLeft: {
-      [theme.breakpoints.up("ss")]: {
-        height: "60%",
-        paddingBottom: 10,
-        paddingRight: 0,
-      },
-      [theme.breakpoints.up("s")]: {
-        height: "100%",
-        paddingBottom: 0,
-        paddingRight: 10,
-      },
-    },
-    childRight: {
-      [theme.breakpoints.up("ss")]: {
-        height: "40%",
-        paddingBottom: 0,
-        paddingRight: 0,
-      },
-      [theme.breakpoints.up("s")]: {
-        height: "100%",
-        paddingBottom: 0,
-        paddingRight: 10,
+      [theme.breakpoints.up("l")]: {
+        height: 50,
       },
     },
   })
 );
 
-export const Index = ({ allPosts }: Props) => {
+export const Index = ({ editorCategoryPosts }: Props) => {
   const classes = useStyles();
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
   return (
     <>
       <Layout>
         <Box className={classes.container}>
-          <Box
-            height={40}
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Box
-              borderLeft="thick solid #1c73bd"
-              paddingLeft={1}
-              component="h2"
-            >
-              エディタ
-            </Box>
-            <Box display="flex" alignItems="center" fontSize="13px">
-              <Link color="inherit" href="/category/editor">
-                エディタの記事一覧
-              </Link>
-              <ChevronRight fontSize="small" />
-            </Box>
-          </Box>
-          <Box className={classes.parent} display="flex" alignItems="center">
-            <Box className={classes.childLeft} width={"100%"}>
-              {heroPost && (
-                <HeroPost
-                  title={heroPost.title}
-                  coverImage={heroPost.coverImage}
-                  date={heroPost.date}
-                  author={heroPost.author}
-                  slug={heroPost.slug}
-                  excerpt={heroPost.excerpt}
-                />
-              )}
-            </Box>
-            <Box className={classes.childRight} width="100%">
-              {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-            </Box>
-          </Box>
+          <Left1Right3Layout
+            category={"エディタ"}
+            orderPosts={editorCategoryPosts}
+          />
+          <Box width="100%" className={classes.pad}></Box>
         </Box>
       </Layout>
     </>
   );
 };
 
+// ビルド時に実行される
+// https://qiita.com/matamatanot/items/1735984f40540b8bdf91
 export const getStaticProps = async () => {
   const allPosts = getAllPosts([
     "title",
@@ -121,7 +64,15 @@ export const getStaticProps = async () => {
     "excerpt",
   ]);
 
+  type Slugs = string[];
+  const editorCategorySlugs: Slugs = [
+    "dynamic-routing",
+    "hello-world copy",
+    "hello-world",
+  ];
+  const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
+
   return {
-    props: { allPosts },
+    props: { editorCategoryPosts },
   };
 };

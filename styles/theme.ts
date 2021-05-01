@@ -27,5 +27,6 @@ const theme = createMuiTheme({
       d: 1240,
     },
   },
+  typography: {},
 });
 export default theme;

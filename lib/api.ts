@@ -2,6 +2,10 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 
+type Items = {
+  [key: string]: string;
+};
+
 const postsDirectory = join(process.cwd(), "_posts");
 
 export function getPostSlugs() {
@@ -14,14 +18,9 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  type Items = {
-    [key: string]: string;
-  };
-
   const items: Items = {};
 
   // Ensure only the minimal needed data is exposed
-  console.log(fields, "fields");
   fields.forEach((field) => {
     if (field === "slug") {
       items[field] = realSlug;
@@ -46,3 +45,11 @@ export function getAllPosts(fields: string[] = []) {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
+
+export const getOrderPosts = (allPosts: Items[], orderSlugs: string[]) => {
+  const filteredPosts = allPosts.filter((p) => orderSlugs.includes(p.slug));
+  const orderPosts = orderSlugs.map(
+    (s) => filteredPosts.filter((p) => p.slug === s)[0]
+  );
+  return orderPosts;
+};

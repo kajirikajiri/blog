@@ -19,7 +19,7 @@ export const HeroPost = ({
   coverImage,
   date,
   // excerpt,
-  // author,
+  author,
   slug,
 }: Props) => {
   return (
@@ -51,21 +51,29 @@ export const HeroPost = ({
         <Box
           alignItems="center"
           display="flex"
-          color={grey[700]}
+          justifyContent="space-between"
           fontSize={13}
           height="30%"
         >
-          <AccessTime
-            fontSize="inherit"
-            style={{ marginBottom: 1 }}
-            color="inherit"
-          />
-          <DateFormatter dateString={date} />
+          <Box alignItems="center" color={grey[700]} display="flex">
+            <AccessTime
+              fontSize="inherit"
+              style={{ marginBottom: 1, marginRight: 2 }}
+              color="inherit"
+            />
+            <DateFormatter dateString={date} />
+          </Box>
+          <Box>
+            by{" "}
+            <span
+              itemType="https://schema.org/Person"
+              itemProp="author"
+              itemScope
+            >
+              {author.name}
+            </span>
+          </Box>
         </Box>
-        {/* <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
-        </div> */}
       </Box>
     </Box>
   );

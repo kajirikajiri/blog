@@ -1,26 +1,24 @@
 import { Box } from "@material-ui/core";
+import { Category } from "./index/Category";
+import { Profile } from "./index/Profile";
 
 export const Aside = () => {
   return (
     <aside>
-      <Box height={300} bgcolor="pink" marginBottom={"42px"}>
+      {/* <Box height={300} bgcolor="pink" marginBottom={"42px"}>
         広告
-      </Box>
-      <Box height={45} bgcolor="pink" marginBottom={"45px"}>
+      </Box> */}
+      {/* <Box height={45} bgcolor="pink" marginBottom={"45px"}>
         検索
+      </Box> */}
+      <Profile />
+      <Box height={20}> </Box>
+      <Box width="100%" height="300px">
+        <Category />
       </Box>
-      <Box height={317} bgcolor="pink" marginBottom={"45px"}>
-        プロフ
-      </Box>
-      <Box height={256} bgcolor="pink" marginBottom={"45px"}>
-        問い合わせ
-      </Box>
-      <Box height={270} bgcolor="pink" marginBottom={"45px"}>
-        カテゴリ
-      </Box>
-      <Box height={10} bgcolor="pink" marginBottom={"45px"}>
+      {/* <Box height={10} bgcolor="pink" marginBottom={"45px"}>
         TOC
-      </Box>
+      </Box> */}
     </aside>
   );
 };
