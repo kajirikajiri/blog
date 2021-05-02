@@ -4,6 +4,8 @@ import { getAllPosts, getTreemapData } from "@/lib/api";
 import { PostType } from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
 import { Box } from "@material-ui/core";
+import { Posts } from "../Posts";
+import { useCategoryOuterStyles } from "../useCategoryOuterStyles";
 
 type Props = {
   categorizedPosts: PostType[];
@@ -16,10 +18,13 @@ export const FirstCategory = ({
   treemapData,
   categorizedPosts,
 }: Props) => {
-  console.log(categorizedPosts);
+  const classes = useCategoryOuterStyles();
   return (
-    <Layout treemapData={treemapData}>
-      <Box height={300}>
+    <Layout
+      treemapData={treemapData}
+      posts={<Posts posts={categorizedPosts} />}
+    >
+      <Box height={300} className={classes.categoryOuter}>
         <Category treemapData={categorizedTreemapData} />
       </Box>
     </Layout>

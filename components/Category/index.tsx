@@ -146,9 +146,9 @@ function drawChart(
   d3
     .treemap()
     .size([width, height])
-    .paddingRight(2)
-    .paddingLeft(2)
-    .paddingInner(1) // Padding between each rectangle
+    .paddingRight(1)
+    .paddingLeft(1)
+    .paddingInner(3) // Padding between each rectangle
     .paddingTop(28)(root);
   // .paddingOuter(6)
   // .padding(20)
@@ -280,13 +280,18 @@ function drawChart(
   // Add title for the 3 groups
   svg
     .append("text")
+    .style("cursor", "pointer")
+    .attr("id", "category-text")
     .attr("x", "50%")
     .attr("y", 24) // +20 to adjust position (lower)
     .text("カテゴリ")
     .attr("text-anchor", "middle")
     .attr("font-family", "DotGothic 16")
     .attr("font-size", "19px")
-    .attr("fill", "grey");
+    .attr("fill", "grey")
+    .on("click", function (_) {
+      location.href = `/category`;
+    }); // e.parent.dataに親要素の名前入ってる
 
   // var root = d3.hierarchy(data).sum(function(d:any){ return d.value}) // Here the size of each leave is given in the 'value' field in input data
 

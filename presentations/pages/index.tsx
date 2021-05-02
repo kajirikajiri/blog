@@ -12,17 +12,6 @@ type Props = {
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    container: {
-      [theme.breakpoints.up("ss")]: {
-        padding: "30px 15px",
-      },
-      [theme.breakpoints.up("t")]: {
-        padding: "30px 25px",
-      },
-      [theme.breakpoints.up("l")]: {
-        padding: "30px 40px",
-      },
-    },
     pad: {
       [theme.breakpoints.up("ss")]: {
         height: 30,
@@ -42,13 +31,11 @@ export const Index = ({ editorCategoryPosts, treemapData }: Props) => {
   return (
     <>
       <Layout treemapData={treemapData}>
-        <Box className={classes.container}>
-          <Left1Right3Layout
-            category={"エディタ"}
-            orderPosts={editorCategoryPosts}
-          />
-          <Box width="100%" className={classes.pad}></Box>
-        </Box>
+        <Left1Right3Layout
+          category={"エディタ"}
+          orderPosts={editorCategoryPosts}
+        />
+        <Box width="100%" className={classes.pad}></Box>
       </Layout>
     </>
   );

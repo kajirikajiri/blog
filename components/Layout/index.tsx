@@ -7,6 +7,25 @@ import { Meta } from "./index/Meta";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    outer: {
+      [theme.breakpoints.up("ss")]: {
+        padding: "30px 15px",
+      },
+      [theme.breakpoints.up("t")]: {
+        padding: "30px 25px",
+      },
+    },
+    container: {
+      [theme.breakpoints.up("ss")]: {
+        padding: "30px 15px",
+      },
+      [theme.breakpoints.up("t")]: {
+        padding: "30px 25px",
+      },
+      [theme.breakpoints.up("l")]: {
+        padding: "30px 40px",
+      },
+    },
     parent: {
       [theme.breakpoints.up("ss")]: {
         flexDirection: "column",
@@ -62,9 +81,16 @@ type Props = {
   treemapData: TreemapData;
   preview?: boolean;
   children: React.ReactNode;
+  posts?: React.ReactNode;
+  containerClassName?: string;
 };
 
-const Layout = ({ children, treemapData }: Props) => {
+const Layout = ({
+  children,
+  treemapData,
+  posts,
+  containerClassName,
+}: Props) => {
   const classes = useStyles();
   return (
     <Box
@@ -73,6 +99,7 @@ const Layout = ({ children, treemapData }: Props) => {
       flexDirection="column"
       alignItems="center"
       minHeight="100vh"
+      className={classes.outer}
     >
       <Meta />
       <Header />
@@ -85,7 +112,10 @@ const Layout = ({ children, treemapData }: Props) => {
         width="100%"
       >
         <main className={classes.childLeft} style={{ background: "#fff" }}>
-          {children}
+          <Box className={containerClassName ?? classes.container}>
+            {children}
+          </Box>
+          {posts}
         </main>
         <Box className={classes.childRight}>
           <Box className={classes.asidePad}></Box>

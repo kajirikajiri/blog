@@ -9,7 +9,7 @@ import Head from "next/head";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { PostType } from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
-import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import { MyBreadcrumbs } from "./MyBreadcrumbs";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -42,32 +42,34 @@ export const Slug = ({ post, preview, treemapData }: Props) => {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={preview} treemapData={treemapData}>
-      <Box className={classes.container}>
-        <MyBreadcrumbs
-          firstCategory={post.category.first}
-          secondCategory={post.category.second}
-        />
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article>
-              <Head>
-                <title>{post.title} | かじりブログ</title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-            </article>
-          </>
-        )}
-      </Box>
+    <Layout
+      containerClassName={classes.container}
+      preview={preview}
+      treemapData={treemapData}
+    >
+      <MyBreadcrumbs
+        firstCategory={post.category.first}
+        secondCategory={post.category.second}
+      />
+      {router.isFallback ? (
+        <PostTitle>Loading…</PostTitle>
+      ) : (
+        <>
+          <article>
+            <Head>
+              <title>{post.title} | かじりブログ</title>
+              <meta property="og:image" content={post.ogImage.url} />
+            </Head>
+            <PostHeader
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              author={post.author}
+            />
+            <PostBody content={post.content} />
+          </article>
+        </>
+      )}
     </Layout>
   );
 };

@@ -3,15 +3,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 module.exports = withBundleAnalyzer({
-  async redirects() {
-    return [
-      {
-        source: "/category",
-        destination: "/",
-        permanent: true,
-      },
-    ];
-  },
   experimental: {
     optimizeFonts: true,
   },
