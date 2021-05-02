@@ -3,6 +3,7 @@ import { HeroPost } from "./index/HeroPost";
 import { Box, createStyles, Link, makeStyles, Theme } from "@material-ui/core";
 import { ChevronRight } from "@material-ui/icons";
 import Post from "@/types/post";
+import { blue } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -60,7 +61,11 @@ export const Left1Right3Layout = ({ orderPosts, category }: Props) => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Box borderLeft="thick solid #1c73bd" paddingLeft={1} component="h2">
+        <Box
+          borderLeft={`thick solid ${blue[600]}`}
+          paddingLeft={1}
+          component="h2"
+        >
           {category}
         </Box>
         <Box display="flex" alignItems="center" fontSize="13px">

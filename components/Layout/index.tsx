@@ -72,10 +72,12 @@ const Layout = ({ children, treemapData }: Props) => {
       display="flex"
       flexDirection="column"
       alignItems="center"
+      minHeight="100vh"
     >
       <Meta />
       <Header />
       <Box
+        flex={1}
         className={classes.parent}
         display="flex"
         justifyContent="center"

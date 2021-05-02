@@ -1,12 +1,15 @@
+import { Box } from "@material-ui/core";
+import styles from "./githubMarkdown.module.css";
+
 type Props = {
   content: string;
 };
 
 const PostBody = ({ content }: Props) => {
   return (
-    <div className="max-w-2xl mx-auto">
+    <Box className={[styles["markdown-body"]].join(" ")}>
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </div>
+    </Box>
   );
 };
 

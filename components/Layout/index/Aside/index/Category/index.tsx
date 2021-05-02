@@ -1,6 +1,7 @@
 // https://www.d3-graph-gallery.com/graph/treemap_basic.html
 
 import { TreemapData } from "@/types/treemapData";
+import { blue } from "@material-ui/core/colors";
 import * as d3 from "d3";
 import React from "react";
 
@@ -71,7 +72,7 @@ function drawChart(
       return d.y1 - d.y0;
     })
     .style("stroke", "black")
-    .style("fill", "#69b3a2");
+    .style("fill", blue[600]);
 
   svg
     .selectAll("text")

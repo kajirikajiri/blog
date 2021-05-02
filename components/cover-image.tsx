@@ -10,6 +10,7 @@ const CoverImage = ({ title, src }: Props) => {
   return (
     <Box
       height="100%"
+      width="100%"
       display="flex"
       alignItems="center"
       justifyContent="center"

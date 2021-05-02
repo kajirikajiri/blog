@@ -11,6 +11,11 @@ type PostType = {
     url: string;
   };
   content: string;
+  category: {
+    first: string;
+    second: string;
+  };
+  tags: string[];
 };
 
 export default PostType;

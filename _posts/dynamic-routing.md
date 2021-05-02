@@ -2,7 +2,7 @@
 title: "20代におすすめのエディタ13選。ランキング形式で比較紹介！"
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
 coverImage: "/assets/blog/dynamic-routing/cover.svg"
-date: "2020-03-16T05:35:07.322Z"
+date: "2021-05-02 16:19:55"
 author:
   name: かじり
   picture: "/assets/blog/authors/jj.jpeg"
@@ -11,7 +11,7 @@ ogImage:
 category: 
   first: editor
   second: obsidian
-tag: obsidian
+tags: [obsidian]
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.

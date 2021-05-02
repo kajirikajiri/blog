@@ -1,17 +1,32 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Container from "../components/container";
-import PostBody from "../components/post-body";
-import Header from "../components/header";
-import PostHeader from "../components/post-header";
+import PostBody from "@/presentations/pages/[slug]/post-body";
+import PostHeader from "@/presentations/pages/[slug]/post-header";
 import Layout from "@/components/Layout";
-import { getPostBySlug, getAllPosts, getTreemapData } from "../lib/api";
-import PostTitle from "../components/post-title";
+import { getPostBySlug, getAllPosts, getTreemapData } from "@/lib/api";
+import PostTitle from "@/components/post-title";
 import Head from "next/head";
-import { CMS_NAME } from "../lib/constants";
-import markdownToHtml from "../lib/markdownToHtml";
-import PostType from "../types/post";
+import markdownToHtml from "@/lib/markdownToHtml";
+import PostType from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
+import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+import { MyBreadcrumbs } from "./MyBreadcrumbs";
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    container: {
+      [theme.breakpoints.up("ss")]: {
+        padding: 15,
+      },
+      [theme.breakpoints.up("s")]: {
+        padding: 15,
+      },
+      [theme.breakpoints.up("t")]: {
+        padding: 45,
+      },
+    },
+  })
+);
 
 type Props = {
   post: PostType;
@@ -20,24 +35,26 @@ type Props = {
   treemapData: TreemapData;
 };
 
-const Post = ({ post, preview, treemapData }: Props) => {
+export const Slug = ({ post, preview, treemapData }: Props) => {
+  const classes = useStyles();
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
     <Layout preview={preview} treemapData={treemapData}>
-      <Container>
-        <Header />
+      <Box className={classes.container}>
+        <MyBreadcrumbs
+          firstCategory={post.category.first}
+          secondCategory={post.category.second}
+        />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
+            <article>
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
+                <title>{post.title} | かじりブログ</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader
@@ -50,12 +67,10 @@ const Post = ({ post, preview, treemapData }: Props) => {
             </article>
           </>
         )}
-      </Container>
+      </Box>
     </Layout>
   );
 };
-
-export default Post;
 
 type Params = {
   params: {
@@ -72,6 +87,7 @@ export async function getStaticProps({ params }: Params) {
     "content",
     "ogImage",
     "coverImage",
+    "category",
   ]);
   const allPosts = getAllPosts([
     "title",
@@ -102,7 +118,7 @@ export async function getStaticPaths() {
   const posts = getAllPosts(["slug"]);
 
   return {
-    paths: posts.map((posts) => {
+    paths: posts.map((posts: any) => {
       return {
         params: {
           slug: posts.slug,

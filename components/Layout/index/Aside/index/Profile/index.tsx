@@ -29,7 +29,7 @@ export const Profile = () => {
         flexDirection="column"
         marginTop={1}
       >
-        <Box fontSize={20}>
+        <Box fontSize={20} paddingBottom={1}>
           中村一貴/
           <span itemType="https://schema.org/Person" itemProp="name" itemScope>
             かじり

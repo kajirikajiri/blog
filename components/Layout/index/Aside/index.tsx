@@ -18,7 +18,17 @@ export const Aside = ({ treemapData }: Props) => {
       </Box> */}
       <Profile />
       <Box height={20}> </Box>
-      <Box width="100%" height="300px">
+      <Box
+        fontFamily="DotGothic16"
+        fontSize={19}
+        display="flex"
+        justifyContent="center"
+        paddingBottom={1}
+        paddingTop={4}
+      >
+        カテゴリ
+      </Box>
+      <Box width="100%" height="200px">
         <Category treemapData={treemapData} />
       </Box>
       {/* <Box height={10} bgcolor="pink" marginBottom={"45px"}>
