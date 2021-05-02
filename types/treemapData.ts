@@ -1,5 +1,10 @@
 export type TreemapData = {
-  name: string;
-  parent: string;
-  value: string | number;
+  name: "category";
+  children: {
+    name: string;
+    children: {
+      name: string;
+      value: string | number;
+    }[];
+  }[];
 };

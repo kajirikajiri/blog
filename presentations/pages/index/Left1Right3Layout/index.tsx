@@ -2,7 +2,7 @@ import { MoreStories } from "./index/MoreStories";
 import { HeroPost } from "./index/HeroPost";
 import { Box, createStyles, Link, makeStyles, Theme } from "@material-ui/core";
 import { ChevronRight } from "@material-ui/icons";
-import Post from "@/types/post";
+import { PostType } from "@/types/post";
 import { blue } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type Props = {
-  orderPosts: Post[];
+  orderPosts: PostType[];
   category: string;
 };
 

@@ -1,4 +1,1 @@
-const a = () => {
-  return <></>;
-};
-export default a;
+export { SecondCategory as default } from "@/presentations/pages/category/[firstCategory]/[secondCategory]";

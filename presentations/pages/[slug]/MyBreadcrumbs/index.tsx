@@ -15,10 +15,13 @@ export const MyBreadcrumbs = ({ firstCategory, secondCategory }: Props) => {
         <Link color="inherit" href={`/`} style={{ display: "flex" }}>
           <Home />
         </Link>
-        <Link color="inherit" href={`/${firstCategory}`}>
+        <Link color="inherit" href={`/category/${firstCategory}`}>
           {firstCategory}
         </Link>
-        <Link color="inherit" href={`/${firstCategory}/${secondCategory}`}>
+        <Link
+          color="inherit"
+          href={`/category/${firstCategory}/${secondCategory}`}
+        >
           {secondCategory}
         </Link>
       </Breadcrumbs>

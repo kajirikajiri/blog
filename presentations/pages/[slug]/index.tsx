@@ -7,7 +7,7 @@ import { getPostBySlug, getAllPosts, getTreemapData } from "@/lib/api";
 import PostTitle from "@/components/post-title";
 import Head from "next/head";
 import markdownToHtml from "@/lib/markdownToHtml";
-import PostType from "@/types/post";
+import { PostType } from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { MyBreadcrumbs } from "./MyBreadcrumbs";

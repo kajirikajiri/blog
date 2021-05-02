@@ -1,13 +1,13 @@
 import Layout from "@/components/Layout";
 import { getAllPosts, getOrderPosts, getTreemapData } from "@/lib/api";
-import Post from "@/types/post";
+import { PostType } from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { Left1Right3Layout } from "./index/Left1Right3Layout";
 
 type Props = {
   treemapData: TreemapData;
-  editorCategoryPosts: Post[];
+  editorCategoryPosts: PostType[];
 };
 
 const useStyles = makeStyles((theme: Theme) =>

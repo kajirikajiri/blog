@@ -9,8 +9,8 @@ author:
 ogImage:
   url: "/dummy.png"
 category: 
-  first: dummy
-  second: dummy
+  first: dummy1
+  second: dummy22
 tags: [obsidian]
 ---
 

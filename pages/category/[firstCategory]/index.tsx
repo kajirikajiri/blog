@@ -1,4 +1,5 @@
-const a = () => {
-  return <></>;
-};
-export default a;
+export {
+  FirstCategory as default,
+  getStaticProps,
+  getStaticPaths,
+} from "@/presentations/pages/category/[firstCategory]";

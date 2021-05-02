@@ -1,9 +1,9 @@
-import Post from "@/types/post";
+import { PostType } from "@/types/post";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { PostPreview } from "./index/PostPreview";
 
 type Props = {
-  posts: Post[];
+  posts: PostType[];
 };
 
 const useStyles = makeStyles((theme: Theme) =>

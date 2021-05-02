@@ -57,38 +57,74 @@ export const getOrderPosts = (allPosts: Items[], orderSlugs: string[]) => {
   return orderPosts;
 };
 
-export const getTreemapData = (allPosts: Items[]): TreemapData[] => {
-  const result: { [key: string]: { [key: string]: number } } = {};
+type CategorizeData = { [key: string]: { [key: string]: number } };
+
+// firstCategoryを引数に渡すと、指定したfirstCategoryのデータのみ取得
+export const getTreemapData = (
+  allPosts: Items[],
+  firstCategory?: string
+): TreemapData => {
+  const categorizeData: CategorizeData = {};
   allPosts.forEach((p) => {
     const pp = p as { category: { first: string; second: string } };
-    if (!(pp.category.first in result)) {
-      result[pp.category.first] = {};
+    if (!(pp.category.first in categorizeData)) {
+      categorizeData[pp.category.first] = {};
     }
-    if (!(pp.category.second in result[pp.category.first])) {
-      result[pp.category.first][pp.category.second] = 1;
+    if (!(pp.category.second in categorizeData[pp.category.first])) {
+      categorizeData[pp.category.first][pp.category.second] = 1;
     }
-    ++result[pp.category.first][pp.category.second];
+    ++categorizeData[pp.category.first][pp.category.second];
   });
-  const resultArrays: {
-    name: string;
-    parent: string;
-    value: string | number;
-  }[] = [];
-  const keys = Object.keys(result);
-  keys.map((k) => {
-    const parent = `__firstCategory__${k}`;
-    resultArrays.push({
-      name: parent,
-      parent: "",
-      value: "",
-    });
-    Object.keys(result[k]).map((kk) => {
-      resultArrays.push({
-        name: kk,
-        parent: parent,
-        value: result[k][kk],
+  const viewableFormats = generateTreemapData(categorizeData, firstCategory);
+  return viewableFormats;
+};
+
+const generateTreemapData = (
+  categorizeData: CategorizeData,
+  firstCategory?: string
+) => {
+  const viewableFormats: {
+    name: "category";
+    children: {
+      name: string;
+      children?: {
+        name: string;
+        value: number;
+      }[];
+    }[];
+  } = { name: "category", children: [] };
+  const keys = Object.keys(categorizeData);
+  keys
+    .filter((k) => {
+      // firstCategoryがアレば絞り込み
+      if (typeof firstCategory === "string") {
+        return k === firstCategory;
+      } else {
+        return true;
+      }
+    })
+    .map((k) => {
+      Object.keys(categorizeData[k]).map((kk) => {
+        const hasKey = viewableFormats.children.some((c) => c.name === k);
+        if (!hasKey) {
+          viewableFormats.children.push({ name: k, children: [] });
+        }
+        const index = viewableFormats.children.findIndex((c) => c.name === k);
+        const hasKeyDepth2 = viewableFormats.children[index].children!.some(
+          (c) => c.name === kk
+        );
+        if (!hasKeyDepth2) {
+          viewableFormats.children[index].children!.push({
+            name: kk,
+            value: 1,
+          });
+        } else {
+          const indexDepth2 = viewableFormats.children[
+            index
+          ].children!.findIndex((c) => c.name === k);
+          ++viewableFormats.children[index].children![indexDepth2].value;
+        }
       });
     });
-  });
-  return resultArrays;
+  return viewableFormats as TreemapData;
 };

@@ -47,5 +47,5 @@
     "**/*.tsx",
     "pages/api/hello.js",
     "lib/api.js"
-, "components/Layout/index/Aside/index/Category/index.jsx", "components/Layout/index/Aside/index/Category/index.jsx"  ]
+, "components/Category/index.jsx", "components/Category/index.jsx"  ]
 }
