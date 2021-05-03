@@ -173,6 +173,10 @@ function drawChart(
     .selectAll("rect")
     .data(root.leaves())
     .enter()
+    .append("a")
+    .attr("xlink:href", function (d: any) {
+      return `/category/${d.parent.data.name}/${d.data.name}`;
+    }) // <-- reading the new "url" property
     .append("rect")
     .attr("x", function (d: any) {
       return d.x0;
@@ -194,10 +198,10 @@ function drawChart(
     })
     .style("opacity", function (d: any) {
       return opacity(d.data.value);
-    })
-    .on("click", function (_, d: any) {
-      location.href = `/category/${d.parent.data.name}/${d.data.name}`;
-    }); // e.parent.dataに親要素の名前入ってる
+    });
+  // .on("click", function (_, d: any) {
+  //   location.href = `/category/${d.parent.data.name}/${d.data.name}`;
+  // }); // e.parent.dataに親要素の名前入ってる
 
   // and to add the text labels
   svg
@@ -255,6 +259,10 @@ function drawChart(
       })
     )
     .enter()
+    .append("a")
+    .attr("xlink:href", function (d: any) {
+      return `/category/${d.data.name}`;
+    }) // <-- reading the new "url" property
     .append("text")
     .style("cursor", "pointer")
     .attr("x", function (d: any) {
@@ -269,29 +277,33 @@ function drawChart(
     .text(function (d: any) {
       return d.data.name;
     })
-    .attr("font-size", "16px")
+    .attr("font-size", "18px")
     .attr("fill", function (d: any) {
       return color(d.data.name);
-    })
-    .on("click", function (_, d) {
-      location.href = `/category/${d.data.name}`;
-    }); // e.parent.dataに親要素の名前入ってる
+    });
+  // .on("click", function (_, d) {
+  //   location.href = `/category/${d.data.name}`;
+  // }); // e.parent.dataに親要素の名前入ってる
 
   // Add title for the 3 groups
   svg
+    .append("a")
+    .attr("xlink:href", function (_) {
+      return `/category`;
+    }) // <-- reading the new "url" property
     .append("text")
     .style("cursor", "pointer")
     .attr("id", "category-text")
     .attr("x", "50%")
     .attr("y", 24) // +20 to adjust position (lower)
-    .text("カテゴリ")
+    .text("カテゴリ一覧")
     .attr("text-anchor", "middle")
     .attr("font-family", "DotGothic 16")
-    .attr("font-size", "19px")
-    .attr("fill", "grey")
-    .on("click", function (_) {
-      location.href = `/category`;
-    }); // e.parent.dataに親要素の名前入ってる
+    .attr("font-size", "22px")
+    .attr("fill", "grey");
+  // .on("click", function (_) {
+  //   location.href = `/category`;
+  // }); // e.parent.dataに親要素の名前入ってる
 
   // var root = d3.hierarchy(data).sum(function(d:any){ return d.value}) // Here the size of each leave is given in the 'value' field in input data
 

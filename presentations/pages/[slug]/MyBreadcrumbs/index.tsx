@@ -6,15 +6,25 @@ import { Box } from "@material-ui/core";
 type Props = {
   firstCategory?: string;
   secondCategory?: string;
+  showCategory?: boolean;
 };
 
-export const MyBreadcrumbs = ({ firstCategory, secondCategory }: Props) => {
+export const MyBreadcrumbs = ({
+  firstCategory,
+  secondCategory,
+  showCategory,
+}: Props) => {
   return (
     <Box display="flex" alignItems="center">
       <Breadcrumbs separator={<ChevronRight color="disabled" />}>
         <Link color="inherit" href={`/`} style={{ display: "flex" }}>
           <Home />
         </Link>
+        {showCategory && (
+          <Link color="inherit" href={`/category`}>
+            {"カテゴリ一覧"}
+          </Link>
+        )}
         {firstCategory && (
           <Link color="inherit" href={`/category/${firstCategory}`}>
             {firstCategory}

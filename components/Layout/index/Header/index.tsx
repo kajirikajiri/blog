@@ -1,6 +1,11 @@
 import { Box } from "@material-ui/core";
+import { ElementType } from "react";
 
-export const Header = () => {
+type Props = {
+  headerComponent?: ElementType;
+};
+
+export const Header = ({ headerComponent }: Props) => {
   return (
     <header>
       <Box
@@ -11,7 +16,7 @@ export const Header = () => {
         justifyContent="center"
         alignItems="center"
         fontSize={30}
-        component={"h1"}
+        component={headerComponent}
         margin={0}
       >
         <span itemType="https://schema.org/Person" itemProp="name" itemScope>

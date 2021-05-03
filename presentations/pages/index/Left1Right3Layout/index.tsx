@@ -47,9 +47,14 @@ const useStyles = makeStyles((theme: Theme) =>
 type Props = {
   orderPosts: PostType[];
   category: string;
+  categoryLink: string;
 };
 
-export const Left1Right3Layout = ({ orderPosts, category }: Props) => {
+export const Left1Right3Layout = ({
+  orderPosts,
+  category,
+  categoryLink,
+}: Props) => {
   const classes = useStyles();
   const heroPost = orderPosts[0];
   const morePosts = orderPosts.slice(1);
@@ -69,7 +74,7 @@ export const Left1Right3Layout = ({ orderPosts, category }: Props) => {
           {category}
         </Box>
         <Box display="flex" alignItems="center" fontSize="13px">
-          <Link color="inherit" href="/category/editor">
+          <Link color="inherit" href={categoryLink}>
             {category}の記事一覧
           </Link>
           <ChevronRight fontSize="small" />

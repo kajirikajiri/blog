@@ -30,8 +30,9 @@ export const Index = ({ editorCategoryPosts, treemapData }: Props) => {
   const classes = useStyles();
   return (
     <>
-      <Layout treemapData={treemapData}>
+      <Layout treemapData={treemapData} headerComponent={"h1"}>
         <Left1Right3Layout
+          categoryLink={"/category/editor"}
           category={"エディタ"}
           orderPosts={editorCategoryPosts}
         />

@@ -1,4 +1,5 @@
 import { Category } from "@/components/Category";
+import { H2Header } from "@/components/h2Header";
 import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { PostType } from "@/types/post";
@@ -51,12 +52,16 @@ type Props = {
 export const CategoryPage = ({ treemapData, allPosts }: Props) => {
   const classes = { ...useStyles(), ...useCategoryOuterStyles() };
   return (
-    <Layout treemapData={treemapData} posts={<Posts posts={allPosts} />}>
+    <Layout treemapData={treemapData}>
       <Box>
         <MyBreadcrumbs />
+        <Box height={10}></Box>
+        <H2Header word="カテゴリ" />
         <Box className={classes.categoryOuter}>
           <Category treemapData={treemapData} />
         </Box>
+        <Box height={40}></Box>
+        <Posts posts={allPosts} />
       </Box>
     </Layout>
   );

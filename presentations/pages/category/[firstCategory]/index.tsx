@@ -1,9 +1,11 @@
 import { Category } from "@/components/Category";
+import { H2Header } from "@/components/h2Header";
 import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { PostType } from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
 import { Box } from "@material-ui/core";
+import { MyBreadcrumbs } from "../../[slug]/MyBreadcrumbs";
 import { Posts } from "../Posts";
 import { useCategoryOuterStyles } from "../useCategoryOuterStyles";
 
@@ -20,13 +22,15 @@ export const FirstCategory = ({
 }: Props) => {
   const classes = useCategoryOuterStyles();
   return (
-    <Layout
-      treemapData={treemapData}
-      posts={<Posts posts={categorizedPosts} />}
-    >
+    <Layout headerComponent={"h1"} treemapData={treemapData}>
+      <MyBreadcrumbs showCategory />
+      <Box height={10}></Box>
+      <H2Header word="カテゴリ" />
       <Box height={300} className={classes.categoryOuter}>
         <Category treemapData={categorizedTreemapData} />
       </Box>
+      <Box height={40}></Box>
+      <Posts posts={categorizedPosts} />
     </Layout>
   );
 };

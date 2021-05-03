@@ -1,1 +1,5 @@
-export { SecondCategory as default } from "@/presentations/pages/category/[firstCategory]/[secondCategory]";
+export {
+  SecondCategory as default,
+  getStaticPaths,
+  getStaticProps,
+} from "@/presentations/pages/category/[firstCategory]/[secondCategory]";
