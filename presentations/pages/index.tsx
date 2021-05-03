@@ -59,11 +59,7 @@ export const getStaticProps = async () => {
   const treemapData = getTreemapData(allPosts);
 
   type Slugs = string[];
-  const editorCategorySlugs: Slugs = [
-    "dynamic-routing",
-    "hello-world copy",
-    "hello-world",
-  ];
+  const editorCategorySlugs: Slugs = ["obsidian-operation-2021"];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
   return {

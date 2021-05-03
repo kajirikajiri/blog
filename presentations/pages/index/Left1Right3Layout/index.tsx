@@ -94,7 +94,7 @@ export const Left1Right3Layout = ({
           )}
         </Box>
         <Box className={classes.childRight} width="100%">
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          {<MoreStories posts={morePosts} />}
         </Box>
       </Box>
     </>
