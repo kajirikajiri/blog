@@ -14,9 +14,12 @@ class CustomDocument extends Document {
       <Html lang="ja">
         <Head>
           <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-ZVM11X3LRK"
+          ></script>
+          <script
             dangerouslySetInnerHTML={{
               __html: `
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVM11X3LRK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
