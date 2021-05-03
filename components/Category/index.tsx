@@ -182,13 +182,13 @@ function drawChart(
       return d.x0;
     })
     .attr("y", function (d: any) {
-      return d.y0; // tilesとの間隔が近すぎるってlighthouseが言ってきた
+      return d.y0;
     })
     .attr("width", function (d: any) {
       return d.x1 - d.x0;
     })
     .attr("height", function (d: any) {
-      return d.y1 - d.y0; // tilesとの間隔が近すぎるってlighthouseが言ってきた
+      return d.y1 - d.y0;
     })
     .style("cursor", "pointer")
     .style("stroke", "black")
@@ -277,7 +277,7 @@ function drawChart(
     .text(function (d: any) {
       return d.data.name;
     })
-    .attr("font-size", "22px") // 18px だとlighthouseに怒られた
+    .attr("font-size", "20px") // 18px だとlighthouseに怒られた
     .attr("fill", function (d: any) {
       return color(d.data.name);
     });
