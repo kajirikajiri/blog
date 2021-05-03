@@ -7,7 +7,12 @@ type Props = {
 
 export const Header = ({ headerComponent }: Props) => {
   return (
-    <header>
+    <header style={{ position: "relative" }}>
+      <a
+        style={{ position: "absolute", height: "100%", width: "100%" }}
+        href="/"
+        aria-label="home"
+      ></a>
       <Box
         fontFamily="DotGothic16"
         width="258px"

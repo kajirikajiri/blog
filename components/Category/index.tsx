@@ -178,6 +178,9 @@ function drawChart(
       return `/category/${d.parent.data.name}/${d.data.name}`;
     }) // <-- reading the new "url" property
     .append("rect")
+    .attr("aria-label", function (d: any) {
+      return d.data.name;
+    })
     .attr("x", function (d: any) {
       return d.x0;
     })
@@ -193,7 +196,6 @@ function drawChart(
     .style("cursor", "pointer")
     .style("stroke", "black")
     .style("fill", function (d: any) {
-      console.log(d, 2222);
       return color(d.parent.data.name);
     })
     .style("opacity", function (d: any) {

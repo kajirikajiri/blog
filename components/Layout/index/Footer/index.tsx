@@ -28,10 +28,11 @@ export const Footer = () => {
             position="absolute"
             component="a"
             {...{ href: "/" }}
+            aria-label="home"
           ></Box>
           <Home />
         </Box>
-        <Box color={grey[600]}>©{new Date().getFullYear()} kajiri.dev</Box>
+        <Box color={grey[800]}>©{new Date().getFullYear()} kajiri.dev</Box>
       </Box>
     </footer>
   );
