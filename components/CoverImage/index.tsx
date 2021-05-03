@@ -6,7 +6,7 @@ type Props = {
   slug?: string;
 };
 
-const CoverImage = ({ title, src }: Props) => {
+export const CoverImage = ({ title, src }: Props) => {
   return (
     <Box
       height="100%"
@@ -26,5 +26,3 @@ const CoverImage = ({ title, src }: Props) => {
     </Box>
   );
 };
-
-export default CoverImage;

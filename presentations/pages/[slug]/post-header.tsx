@@ -1,7 +1,7 @@
-import DateFormatter from "../../../components/date-formatter";
-import CoverImage from "../../../components/cover-image";
-import PostTitle from "../../../components/post-title";
-import Author from "../../../types/author";
+import { DateFormatter } from "@/components/DateFormatter";
+import { CoverImage } from "@/components/CoverImage";
+import { PostTitle } from "@/components/PostTitle";
+import Author from "@/types/author";
 import { AccessTime } from "@material-ui/icons";
 import { Box } from "@material-ui/core";
 import { grey } from "@material-ui/core/colors";

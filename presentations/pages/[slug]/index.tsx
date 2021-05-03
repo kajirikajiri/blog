@@ -4,7 +4,7 @@ import PostBody from "@/presentations/pages/[slug]/post-body";
 import PostHeader from "@/presentations/pages/[slug]/post-header";
 import Layout from "@/components/Layout";
 import { getPostBySlug, getAllPosts, getTreemapData } from "@/lib/api";
-import PostTitle from "@/components/post-title";
+import { PostTitle } from "@/components/PostTitle";
 import Head from "next/head";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { PostType } from "@/types/post";

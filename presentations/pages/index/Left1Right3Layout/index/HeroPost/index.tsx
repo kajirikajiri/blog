@@ -1,5 +1,5 @@
-import DateFormatter from "@/components/date-formatter";
-import CoverImage from "@/components/cover-image";
+import { DateFormatter } from "@/components/DateFormatter";
+import { CoverImage } from "@/components/CoverImage";
 import Author from "@/types/author";
 import { Box } from "@material-ui/core";
 import { AccessTime } from "@material-ui/icons";
