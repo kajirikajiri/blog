@@ -10,6 +10,8 @@ export const Profile = () => {
           width="70%"
           borderRadius="50%"
           overflow="hidden"
+          component={"a"}
+          {...{ href: "/profile" }}
         >
           <img
             loading="lazy"
