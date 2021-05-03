@@ -30,17 +30,6 @@ export const Index = ({ editorCategoryPosts, treemapData }: Props) => {
   const classes = useStyles();
   return (
     <>
-      <Box
-        fontFamily="DotGothic16"
-        fontSize={150}
-        width={1200}
-        height={630}
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-      >
-        かじりブログ
-      </Box>
       <Layout treemapData={treemapData} headerComponent={"h1"}>
         <Left1Right3Layout
           categoryLink={"/category/editor"}
