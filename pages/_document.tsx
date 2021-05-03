@@ -12,7 +12,20 @@ class CustomDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="ja">
-        <Head />
+        <Head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QH9YMTP6SF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QH9YMTP6SF');
+</script>`,
+            }}
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

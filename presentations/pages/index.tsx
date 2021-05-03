@@ -62,6 +62,14 @@ export const getStaticProps = async () => {
   const editorCategorySlugs: Slugs = ["obsidian-operation-2021"];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
+  // error handling // そのままreturnしようとするとよくわからないエラーが発生するため。
+  const error = editorCategoryPosts.some((p) => p === void 0);
+  if (error) {
+    throw Error(
+      "存在しないファイル名をeditorCategorySlugsに指定していませんか??"
+    );
+  }
+
   return {
     props: { editorCategoryPosts, treemapData },
   };
