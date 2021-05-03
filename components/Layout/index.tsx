@@ -1,16 +1,32 @@
+import { TreemapData } from "@/types/treemapData";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+import { ElementType } from "react";
 import { Aside } from "./index/Aside";
 import { Footer } from "./index/Footer";
 import { Header } from "./index/Header";
 import { Meta } from "./index/Meta";
 
-type Props = {
-  preview?: boolean;
-  children: React.ReactNode;
-};
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    outer: {
+      [theme.breakpoints.up("ss")]: {
+        padding: "30px 15px",
+      },
+      [theme.breakpoints.up("t")]: {
+        padding: "30px 25px",
+      },
+    },
+    container: {
+      [theme.breakpoints.up("ss")]: {
+        padding: "30px 15px",
+      },
+      [theme.breakpoints.up("t")]: {
+        padding: "30px 25px",
+      },
+      [theme.breakpoints.up("l")]: {
+        padding: "30px 40px",
+      },
+    },
     parent: {
       [theme.breakpoints.up("ss")]: {
         flexDirection: "column",
@@ -51,10 +67,31 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "32%",
       },
     },
+    asidePad: {
+      [theme.breakpoints.up("ss")]: {
+        height: 20,
+      },
+      [theme.breakpoints.up("t")]: {
+        height: 0,
+      },
+    },
   })
 );
 
-const Layout = ({ children }: Props) => {
+type Props = {
+  treemapData: TreemapData;
+  preview?: boolean;
+  children: React.ReactNode;
+  containerClassName?: string;
+  headerComponent?: ElementType;
+};
+
+const Layout = ({
+  children,
+  treemapData,
+  containerClassName,
+  headerComponent,
+}: Props) => {
   const classes = useStyles();
   return (
     <Box
@@ -62,21 +99,34 @@ const Layout = ({ children }: Props) => {
       display="flex"
       flexDirection="column"
       alignItems="center"
+      minHeight="100vh"
+      className={classes.outer}
     >
       <Meta />
-      <Header />
+      <Header headerComponent={headerComponent} />
       <Box
+        flex={1}
         className={classes.parent}
         display="flex"
         justifyContent="center"
         maxWidth="1180px"
         width="100%"
       >
-        <main className={classes.childLeft} style={{ background: "#fff" }}>
-          {children}
-        </main>
+        <Box
+          className={classes.childLeft}
+          display="flex"
+          flexDirection="column"
+        >
+          <Box
+            component="main"
+            className={containerClassName ?? classes.container}
+          >
+            {children}
+          </Box>
+        </Box>
         <Box className={classes.childRight}>
-          <Aside />
+          <Box className={classes.asidePad}></Box>
+          <Aside treemapData={treemapData} />
         </Box>
       </Box>
       <Footer />
