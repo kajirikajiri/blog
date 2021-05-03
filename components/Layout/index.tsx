@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type Props = {
-  treemapData: TreemapData;
+  treemapData?: TreemapData;
   preview?: boolean;
   children: React.ReactNode;
   containerClassName?: string;
@@ -126,7 +126,7 @@ const Layout = ({
         </Box>
         <Box className={classes.childRight}>
           <Box className={classes.asidePad}></Box>
-          <Aside treemapData={treemapData} />
+          {treemapData && <Aside treemapData={treemapData} />}
         </Box>
       </Box>
       <Footer />
