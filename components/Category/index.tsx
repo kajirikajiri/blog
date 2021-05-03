@@ -149,7 +149,7 @@ function drawChart(
     .paddingRight(1)
     .paddingLeft(1)
     .paddingInner(3) // Padding between each rectangle
-    .paddingTop(28)(root);
+    .paddingTop(40)(root);
   // .paddingOuter(6)
   // .padding(20)
 
@@ -182,13 +182,13 @@ function drawChart(
       return d.x0;
     })
     .attr("y", function (d: any) {
-      return d.y0;
+      return d.y0; // tilesとの間隔が近すぎるってlighthouseが言ってきた
     })
     .attr("width", function (d: any) {
       return d.x1 - d.x0;
     })
     .attr("height", function (d: any) {
-      return d.y1 - d.y0;
+      return d.y1 - d.y0; // tilesとの間隔が近すぎるってlighthouseが言ってきた
     })
     .style("cursor", "pointer")
     .style("stroke", "black")
@@ -269,7 +269,7 @@ function drawChart(
       return d.x0;
     })
     .attr("y", function (d: any) {
-      return d.y0 + 21;
+      return d.y0 + 25;
     })
     // .attr("xlink:href", function (d: any) {
     //   return `/category/${d.data.name}`;
@@ -277,7 +277,7 @@ function drawChart(
     .text(function (d: any) {
       return d.data.name;
     })
-    .attr("font-size", "18px")
+    .attr("font-size", "22px") // 18px だとlighthouseに怒られた
     .attr("fill", function (d: any) {
       return color(d.data.name);
     });
