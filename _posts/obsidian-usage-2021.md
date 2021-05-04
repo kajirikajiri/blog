@@ -2,7 +2,7 @@
 title: "２年使ってわかったObsidianの使い方"
 excerpt: "Obsidianの使い方は最初すごく悩みました。Obsidianは細かいところに手が届く感じで使いやすいのですが、どのように使っていけばいいのかわからなかったです。今回は自分のObsidian使い方を経験を踏まえてまとめてみました。"
 coverImage: "/assets/blog/obsidian-usage-2021/cover.svg"
-date: "2021-05-04 15:08:21"
+date: "2021-05-04 16:54:15"
 author:
   name: かじり
   picture: "/me.png"
