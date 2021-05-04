@@ -2,7 +2,7 @@
 title: "Obsidian MOCの使い方"
 excerpt: "ObsidianのMOCの使い方は最初すごく悩みました。Obsidianはいろんな機能があり、便利そうなのは使ってみるとわかるのですが、どのように使っていけばいいのかわからなかったです。今回は自分のObsidian使い方です"
 coverImage: "/assets/blog/obsidian-operation-2021/cover.svg"
-date: "2021-05-03 18:45:30"
+date: "2021-05-04 11:36:26"
 author:
   name: かじり
   picture: "/me.png"
@@ -18,6 +18,8 @@ Obsidianは多機能でちょっと使ってみると便利そうって感じる
 
 あ、いろんなObsidianのまとめサイト見て感じるんですが、古くなってしまってる記事が多いです。Obsidianが活発に開発されてて、記事がすぐ古くなるからだと思ってます。てことでこの記事もたぶんすぐにボロくなるんで、記事の公開日とバージョン見て判断してください。自分の今のバージョンは、設定のAboutから見れますが、 v0.11.13って書いてますね。Aboutの中に自動更新もあるんでONにするといいかもですね。
 
+## Table of Contents
+
 ## 参考にしている使い方
 
 [Obsidian](https://obsidian.md/)の[公式フォーラム](https://forum.obsidian.md/t/lyt-kit-now-downloadable/390)から引用します。この記事の中で[Obsidian](https://obsidian.md/)をpublishして、使い方を[公開しているサイト(lyt-kit)](https://publish.obsidian.md/lyt-kit/)があります。このサイトを最初に参考にしたのが去年くらいだったと思います。ここで紹介されているのが、[LYT(Linking Your Thinking)](https://publish.obsidian.md/lyt-kit/LYT+System)や[MOC(Maps of Contents)](https://publish.obsidian.md/lyt-kit/MOCs+Overview)です。[MOC](https://publish.obsidian.md/lyt-kit/MOCs+Overview)は[HOME MOC](https://publish.obsidian.md/lyt-kit/%2BHome)を基点に他のノートを辿れるようにしようぜって感じです。[LYT](https://publish.obsidian.md/lyt-kit/LYT+System)は[MOC](https://publish.obsidian.md/lyt-kit/MOCs+Overview)とか[HOME MOC](https://publish.obsidian.md/lyt-kit/%2BHome)を使って情報を構造化しようぜって感じです。
@@ -30,7 +32,7 @@ Obsidianは多機能でちょっと使ってみると便利そうって感じる
 
 ![lyt-kitのMOC](/assets/blog/obsidian-operation-2021/homemoc.png)
 
-上から(🐑は使ってるやつ)
+上から見ていきます(🐑は使ってるやつ)
 
 **[Mindsets MOC](https://publish.obsidian.md/lyt-kit/Mindsets+MOC)**
 - [quora](https://jp.quora.com/?digest_story=271998080&source=4)とかみてると考え方てきなものが流れてきますね。そういうのに使いました(１回)
@@ -65,15 +67,10 @@ Obsidianは多機能でちょっと使ってみると便利そうって感じる
 自分も使ってるのは４つでした。
 
 ### 自分のMOC
-
 次は自分のHOME MOCです。
-
 上から(🐑は使ってるやつ)
-
 ![自分のMOC](/assets/blog/obsidian-operation-2021/my-home-moc.png)
-
 tagの使い方がいまいち思いつかず、MOCを大量に作ってみたらこうなりましたね。
-
 上で紹介したのは省きます。
 
 **🐑 名言 MOC**
@@ -141,13 +138,11 @@ function obsidian() {
 ## 削除設定
 
 デフォルトだと削除するとシステムのゴミ箱に入っちゃうんで別のフォルダに移動するようにしましょう
-
 「設定の上から２番目Files&Links > Deleted filesのセレクトボックスでMove to Obsidian trash (.trash folder) 」にしましょう
 
 ## 新規作成したファイルの保存先
 
 デフォルトだと新規作成したノートがrootに保存されるのでrootがどんどん膨れていきます。個人的（個人的にです）に嫌なので、これを別のフォルダにしましょう。
-
 「設定の上から２番目Files&Links > Folder to create new notes in  にフォルダを設定」すれば全部そのディレクトリに入ります。
 
 画像も保存先を変えましょう。Obsidianは画像を直接貼り付ける事ができますが、これもrootに保存されます。
@@ -156,5 +151,9 @@ function obsidian() {
 ## あとがき
 
 obsidian使い始めたら[[入力しよう。便利だよ。[[# [[^ とかいいよ。
-
 [ぐだふわエブリデー](https://www.google.com/search?q=%E3%81%90%E3%81%A0%E3%81%B5%E3%82%8F%E3%82%A8%E3%83%96%E3%83%AA%E3%83%87%E3%83%BC&rlz=1C1QABZ_jaJP893JP893&oq=%E3%81%90%E3%81%A0%E3%83%95%E3%83%AF&aqs=chrome.1.69i57j0i4i131i433j0i4l4j0i4i10j0i4l3.2582j0j4&sourceid=chrome&ie=UTF-8)いいよ。
+
+[^1]
+
+[^1]: dfsadkfsjak
+
