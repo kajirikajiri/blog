@@ -59,7 +59,10 @@ export const getStaticProps = async () => {
   const treemapData = getTreemapData(allPosts);
 
   type Slugs = string[];
-  const editorCategorySlugs: Slugs = ["obsidian-operation-2021"];
+  const editorCategorySlugs: Slugs = [
+    "obsidian-moc-usage-2021",
+    "obsidian-usage-2021",
+  ];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
   // error handling // そのままreturnしようとするとよくわからないエラーが発生するため。
