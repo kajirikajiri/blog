@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     parent: {
       [theme.breakpoints.up("ss")]: {
-        minWidth: "80vw",
+        minWidth: "76vw",
         height: "100%",
         display: "flex",
         flexDirection: "column",
