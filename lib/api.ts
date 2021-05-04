@@ -70,10 +70,11 @@ export const getTreemapData = (
     if (!(pp.category.first in categorizeData)) {
       categorizeData[pp.category.first] = {};
     }
-    if (!(pp.category.second in categorizeData[pp.category.first])) {
+    if (pp.category.second in categorizeData[pp.category.first]) {
+      ++categorizeData[pp.category.first][pp.category.second];
+    } else {
       categorizeData[pp.category.first][pp.category.second] = 1;
     }
-    ++categorizeData[pp.category.first][pp.category.second];
   });
   const viewableFormats = generateTreemapData(categorizeData, firstCategory);
   return viewableFormats;
@@ -105,25 +106,13 @@ const generateTreemapData = (
     })
     .map((k) => {
       Object.keys(categorizeData[k]).map((kk) => {
-        const hasKey = viewableFormats.children.some((c) => c.name === k);
-        if (!hasKey) {
-          viewableFormats.children.push({ name: k, children: [] });
-        }
-        const index = viewableFormats.children.findIndex((c) => c.name === k);
-        const hasKeyDepth2 = viewableFormats.children[index].children!.some(
-          (c) => c.name === kk
-        );
-        if (!hasKeyDepth2) {
-          viewableFormats.children[index].children!.push({
-            name: kk,
-            value: 1,
-          });
-        } else {
-          const indexDepth2 = viewableFormats.children[
-            index
-          ].children!.findIndex((c) => c.name === k);
-          ++viewableFormats.children[index].children![indexDepth2].value;
-        }
+        viewableFormats.children.push({ name: k, children: [] });
+        viewableFormats.children[
+          viewableFormats.children.length - 1
+        ].children!.push({
+          name: kk,
+          value: categorizeData[k][kk],
+        });
       });
     });
   return viewableFormats as TreemapData;
