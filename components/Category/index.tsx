@@ -211,6 +211,9 @@ function drawChart(
     .data(root.leaves())
     .enter()
     .append("text")
+    .attr("aria-label", function (d: any) {
+      return d.data.name;
+    })
     .style("cursor", "pointer")
     .attr("x", function (d: any) {
       return d.x0 + 5;
@@ -219,7 +222,7 @@ function drawChart(
       return d.y0 + 20;
     }) // +20 to adjust position (lower)
     .text(function (d: any) {
-      return d.data.name;
+      return d.data.name + "↗";
     })
     .attr("font-size", "14px")
     .attr("fill", "white")
@@ -265,6 +268,9 @@ function drawChart(
     .attr("xlink:href", function (d: any) {
       return `/category/${d.data.name}`;
     }) // <-- reading the new "url" property
+    .attr("aria-label", function (d: any) {
+      return d.data.name;
+    })
     .append("text")
     .style("cursor", "pointer")
     .attr("x", function (d: any) {
@@ -277,7 +283,7 @@ function drawChart(
     //   return `/category/${d.data.name}`;
     // })
     .text(function (d: any) {
-      return d.data.name;
+      return d.data.name + "↗";
     })
     .attr("font-size", "20px") // 18px だとlighthouseに怒られた
     .attr("fill", function (d: any) {
@@ -293,12 +299,15 @@ function drawChart(
     .attr("xlink:href", function (_) {
       return `/category`;
     }) // <-- reading the new "url" property
+    .attr("aria-label", function () {
+      return "カテゴリ一覧";
+    })
     .append("text")
     .style("cursor", "pointer")
     .attr("id", "category-text")
     .attr("x", "50%")
     .attr("y", 24) // +20 to adjust position (lower)
-    .text("カテゴリ一覧")
+    .text("カテゴリ一覧↗")
     .attr("text-anchor", "middle")
     .attr("font-family", "DotGothic 16")
     .attr("font-size", "22px")
