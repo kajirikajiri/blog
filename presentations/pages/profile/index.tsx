@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { TreemapData } from "@/types/treemapData";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+import { MyBreadcrumbs } from "../[slug]/MyBreadcrumbs";
 
 const width = 100;
 const pad = 4;
@@ -70,13 +71,15 @@ export const Profile = ({ treemapData }: Props) => {
   return (
     <>
       <Layout treemapData={treemapData} headerComponent={"h1"}>
+        <MyBreadcrumbs />
+        <Box height={20}></Box>
         <Box display="flex" width="100%" flexWrap="wrap" paddingX={0}>
           {cards.map((c, i) => {
             return (
               <>
                 <Box
                   className={classes.card}
-                  paddingBottom={3}
+                  marginBottom={3}
                   component={"a"}
                   {...{ href: c.href }}
                 >
