@@ -69,27 +69,24 @@ export const getStaticProps = async () => {
   const treemapData = getTreemapData(allPosts);
 
   type Slugs = string[];
+
+  // editor category
   const editorCategorySlugs: Slugs = [
     "obsidian-moc-usage-2021",
     "obsidian-usage-2021",
   ];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
-  // error handling // そのままreturnしようとするとよくわからないエラーが発生するため。
-  let error = editorCategoryPosts.some((p) => p === void 0);
-  if (error) {
-    throw Error(
-      "存在しないファイル名をeditorCategorySlugsに指定していませんか??"
-    );
-  }
-
+  // blog category
   const blogCategorySlugs: Slugs = ["jamstack-blog-2021"];
   const blogCategoryPosts = getOrderPosts(allPosts, blogCategorySlugs);
-  error = editorCategoryPosts.some((p) => p === void 0);
+
+  // error handling // そのままreturnすると分かりづらいエラーが発生するため
+  const error = [...editorCategoryPosts, ...blogCategoryPosts].some(
+    (p) => p === void 0
+  );
   if (error) {
-    throw Error(
-      "存在しないファイル名をeditorCategorySlugsに指定していませんか??"
-    );
+    throw Error("存在しないファイル名をCategorySlugsに指定していませんか??");
   }
 
   return {
