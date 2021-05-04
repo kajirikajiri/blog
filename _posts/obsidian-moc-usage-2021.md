@@ -1,7 +1,7 @@
 ---
 title: "Obsidian MOCの使い方"
 excerpt: "ObsidianのMOCの使い方は最初すごく悩みました。Obsidianはいろんな機能があり、便利そうなのは使ってみるとわかるのですが、どのように使っていけばいいのかわからなかったです。今回は自分のObsidian使い方です"
-coverImage: "/assets/blog/obsidian-operation-2021/cover.svg"
+coverImage: "/assets/blog/obsidian-moc-usage-2021/cover.svg"
 date: "2021-05-04 14:58:55"
 author:
   name: かじり
@@ -30,7 +30,7 @@ Obsidianは多機能でちょっと使ってみると便利そうって感じる
 
 ### lyt-kitのMOCの使い方
 
-![lyt-kitのMOC](/assets/blog/obsidian-operation-2021/homemoc.png)
+![lyt-kitのMOC](/assets/blog/obsidian-moc-usage-2021/homemoc.png)
 
 上から見ていきます(🐑は使ってるやつ) [^4]
 
@@ -71,7 +71,7 @@ Obsidianは多機能でちょっと使ってみると便利そうって感じる
 ### 自分のMOCの使い方
 次は自分のHOME MOCです。
 上から(🐑は使ってるやつ)
-![自分のMOC](/assets/blog/obsidian-operation-2021/my-home-moc.png)
+![自分のMOC](/assets/blog/obsidian-moc-usage-2021/my-home-moc.png)
 tagの使い方がいまいち思いつかず、MOCを大量に作ってみたらこうなりましたね。
 上で紹介したのは省きます。
 
@@ -146,7 +146,9 @@ MOCは "Relational Positioning "を推奨しています。空間的な関係性
 
 ## 参考
 
-[Obsidian MOCの使い方](/obsidian-operation-2021)
+こちらの記事も参考になるかも知れません
+
+[２年使ってわかったObsidianの使い方](/obsidian-usage-2021)
 
 ## あとがき
 
