@@ -8,6 +8,7 @@ import { Left1Right3Layout } from "./index/Left1Right3Layout";
 type Props = {
   treemapData: TreemapData;
   editorCategoryPosts: PostType[];
+  blogCategoryPosts: PostType[];
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -26,7 +27,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const Index = ({ editorCategoryPosts, treemapData }: Props) => {
+export const Index = ({
+  editorCategoryPosts,
+  treemapData,
+  blogCategoryPosts,
+}: Props) => {
   const classes = useStyles();
   return (
     <>
@@ -37,6 +42,11 @@ export const Index = ({ editorCategoryPosts, treemapData }: Props) => {
           orderPosts={editorCategoryPosts}
         />
         <Box width="100%" className={classes.pad}></Box>
+        <Left1Right3Layout
+          categoryLink={"/category/blog"}
+          category={"ブログ"}
+          orderPosts={blogCategoryPosts}
+        />
       </Layout>
     </>
   );
@@ -59,21 +69,27 @@ export const getStaticProps = async () => {
   const treemapData = getTreemapData(allPosts);
 
   type Slugs = string[];
+
+  // editor category
   const editorCategorySlugs: Slugs = [
     "obsidian-moc-usage-2021",
     "obsidian-usage-2021",
   ];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
-  // error handling // そのままreturnしようとするとよくわからないエラーが発生するため。
-  const error = editorCategoryPosts.some((p) => p === void 0);
+  // blog category
+  const blogCategorySlugs: Slugs = ["jamstack-blog-2021"];
+  const blogCategoryPosts = getOrderPosts(allPosts, blogCategorySlugs);
+
+  // error handling // そのままreturnすると分かりづらいエラーが発生するため
+  const error = [...editorCategoryPosts, ...blogCategoryPosts].some(
+    (p) => p === void 0
+  );
   if (error) {
-    throw Error(
-      "存在しないファイル名をeditorCategorySlugsに指定していませんか??"
-    );
+    throw Error("存在しないファイル名をCategorySlugsに指定していませんか??");
   }
 
   return {
-    props: { editorCategoryPosts, treemapData },
+    props: { editorCategoryPosts, blogCategoryPosts, treemapData },
   };
 };
