@@ -1,6 +1,6 @@
 ---
-title: "Obsidian MOCの運用方法"
-excerpt: "Obsidianの運用方法は最初すごく悩みました。Obsidianはいろんな機能があり、便利そうなのは使ってみるとわかるのですが、どのように運用していけばいいのかわからなかったです。今回は自分のObsidian運用方法を公開します。"
+title: "Obsidian MOCの使い方"
+excerpt: "ObsidianのMOCの使い方は最初すごく悩みました。Obsidianはいろんな機能があり、便利そうなのは使ってみるとわかるのですが、どのように使っていけばいいのかわからなかったです。今回は自分のObsidian使い方です"
 coverImage: "/assets/blog/obsidian-operation-2021/cover.svg"
 date: "2021-05-03 18:45:30"
 author:
@@ -14,13 +14,13 @@ category:
 tags: [obsidian]
 ---
 
-Obsidianは多機能でちょっと使ってみると便利そうって感じるんです。ただ、どうやって運用していけばいいねん!ってなります（なりますよね？）。なので２年位使ってみたObsidianのMOC運用方法をまとめました。
+Obsidianは多機能でちょっと使ってみると便利そうって感じるんです。ただ、どうやって使っていけばいいねん!ってなります（なりますよね？）。なので２年位使ってみたObsidianのMOCの使い方をまとめました。
 
 あ、いろんなObsidianのまとめサイト見て感じるんですが、古くなってしまってる記事が多いです。Obsidianが活発に開発されてて、記事がすぐ古くなるからだと思ってます。てことでこの記事もたぶんすぐにボロくなるんで、記事の公開日とバージョン見て判断してください。自分の今のバージョンは、設定のAboutから見れますが、 v0.11.13って書いてますね。Aboutの中に自動更新もあるんでONにするといいかもですね。
 
-## 参考にしている運用方法
+## 参考にしている使い方
 
-[Obsidian](https://obsidian.md/)の[公式フォーラム](https://forum.obsidian.md/t/lyt-kit-now-downloadable/390)から引用します。この記事の中で[Obsidian](https://obsidian.md/)をpublishして、運用方法を[公開しているサイト(lyt-kit)](https://publish.obsidian.md/lyt-kit/)があります。このサイトを最初に参考にしたのが去年くらいだったと思います。ここで紹介されているのが、[LYT(Linking Your Thinking)](https://publish.obsidian.md/lyt-kit/LYT+System)や[MOC(Maps of Contents)](https://publish.obsidian.md/lyt-kit/MOCs+Overview)です。[MOC](https://publish.obsidian.md/lyt-kit/MOCs+Overview)は[HOME MOC](https://publish.obsidian.md/lyt-kit/%2BHome)を基点に他のノートを辿れるようにしようぜって感じです。[LYT](https://publish.obsidian.md/lyt-kit/LYT+System)は[MOC](https://publish.obsidian.md/lyt-kit/MOCs+Overview)とか[HOME MOC](https://publish.obsidian.md/lyt-kit/%2BHome)を使って情報を構造化しようぜって感じです。
+[Obsidian](https://obsidian.md/)の[公式フォーラム](https://forum.obsidian.md/t/lyt-kit-now-downloadable/390)から引用します。この記事の中で[Obsidian](https://obsidian.md/)をpublishして、使い方を[公開しているサイト(lyt-kit)](https://publish.obsidian.md/lyt-kit/)があります。このサイトを最初に参考にしたのが去年くらいだったと思います。ここで紹介されているのが、[LYT(Linking Your Thinking)](https://publish.obsidian.md/lyt-kit/LYT+System)や[MOC(Maps of Contents)](https://publish.obsidian.md/lyt-kit/MOCs+Overview)です。[MOC](https://publish.obsidian.md/lyt-kit/MOCs+Overview)は[HOME MOC](https://publish.obsidian.md/lyt-kit/%2BHome)を基点に他のノートを辿れるようにしようぜって感じです。[LYT](https://publish.obsidian.md/lyt-kit/LYT+System)は[MOC](https://publish.obsidian.md/lyt-kit/MOCs+Overview)とか[HOME MOC](https://publish.obsidian.md/lyt-kit/%2BHome)を使って情報を構造化しようぜって感じです。
 
 ## MOCの設定
 
@@ -72,7 +72,7 @@ Obsidianは多機能でちょっと使ってみると便利そうって感じる
 
 ![自分のMOC](/assets/blog/obsidian-operation-2021/my-home-moc.png)
 
-tagの運用がいまいち思いつかず、MOCを大量に作ってみたらこうなりましたね。
+tagの使い方がいまいち思いつかず、MOCを大量に作ってみたらこうなりましたね。
 
 上で紹介したのは省きます。
 
