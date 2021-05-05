@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import Head from "next/head";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { MyBreadcrumbs } from "@/presentations/pages/[slug]/MyBreadcrumbs";
 import { PostType } from "@/types/post";
@@ -18,12 +19,14 @@ type Props = {
   categorizedPosts: PostType[];
   treemapData: TreemapData;
   firstCategory: string;
+  secondCategory: string;
 };
 
 export const SecondCategory = ({
   treemapData,
   categorizedPosts,
   firstCategory,
+  secondCategory,
 }: Props) => {
   const classes = useStyles();
   return (
@@ -32,6 +35,13 @@ export const SecondCategory = ({
       headerComponent={"h1"}
       treemapData={treemapData}
     >
+      <Head>
+        <title>
+          カテゴリ一覧 {">"} {firstCategory} {">"} {secondCategory} |
+          かじりブログ
+        </title>
+        <meta property="og:image" content="/ogp/1200x630.png" />
+      </Head>
       <Posts
         posts={categorizedPosts}
         Breadcrumbs={
@@ -75,6 +85,7 @@ export const getStaticProps = async ({ params }: Params) => {
       categorizedPosts,
       treemapData,
       firstCategory: params.firstCategory,
+      secondCategory: params.secondCategory,
     },
   };
 };
