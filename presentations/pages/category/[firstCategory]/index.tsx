@@ -1,4 +1,5 @@
 import { Category } from "@/components/Category";
+import Head from "next/head";
 import { H2Header } from "@/components/h2Header";
 import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
@@ -13,16 +14,24 @@ type Props = {
   categorizedPosts: PostType[];
   categorizedTreemapData: TreemapData;
   treemapData: TreemapData;
+  firstCategory: string;
 };
 
 export const FirstCategory = ({
   categorizedTreemapData,
   treemapData,
   categorizedPosts,
+  firstCategory,
 }: Props) => {
   const classes = useCategoryOuterStyles();
   return (
     <Layout headerComponent={"h1"} treemapData={treemapData}>
+      <Head>
+        <title>
+          カテゴリ一覧 {">"} {firstCategory} | かじりブログ
+        </title>
+        <meta property="og:image" content="/ogp/1200x630.png" />
+      </Head>
       <MyBreadcrumbs showCategory />
       <Box height={10}></Box>
       <H2Header word="カテゴリ" />
@@ -61,7 +70,12 @@ export const getStaticProps = async ({ params }: Params) => {
   });
 
   return {
-    props: { categorizedPosts, categorizedTreemapData, treemapData },
+    props: {
+      categorizedPosts,
+      categorizedTreemapData,
+      treemapData,
+      firstCategory: params.firstCategory,
+    },
   };
 };
 
