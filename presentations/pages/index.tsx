@@ -9,6 +9,7 @@ type Props = {
   treemapData: TreemapData;
   editorCategoryPosts: PostType[];
   blogCategoryPosts: PostType[];
+  healthCategoryPosts: PostType[];
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Index = ({
   editorCategoryPosts,
   treemapData,
+  healthCategoryPosts,
   blogCategoryPosts,
 }: Props) => {
   const classes = useStyles();
@@ -46,6 +48,12 @@ export const Index = ({
           categoryLink={"/category/blog"}
           category={"ブログ"}
           orderPosts={blogCategoryPosts}
+        />
+        <Box width="100%" className={classes.pad}></Box>
+        <Left1Right3Layout
+          categoryLink={"/category/health"}
+          category={"健康"}
+          orderPosts={healthCategoryPosts}
         />
       </Layout>
     </>
@@ -81,15 +89,26 @@ export const getStaticProps = async () => {
   const blogCategorySlugs: Slugs = ["jamstack-blog-2021"];
   const blogCategoryPosts = getOrderPosts(allPosts, blogCategorySlugs);
 
+  // health category
+  const healthCategorySlugs: Slugs = ["stretch-before-going-to-bed"];
+  const healthCategoryPosts = getOrderPosts(allPosts, healthCategorySlugs);
+
   // error handling // そのままreturnすると分かりづらいエラーが発生するため
-  const error = [...editorCategoryPosts, ...blogCategoryPosts].some(
-    (p) => p === void 0
-  );
+  const error = [
+    ...editorCategoryPosts,
+    ...blogCategoryPosts,
+    ...healthCategoryPosts,
+  ].some((p) => p === void 0);
   if (error) {
     throw Error("存在しないファイル名をCategorySlugsに指定していませんか??");
   }
 
   return {
-    props: { editorCategoryPosts, blogCategoryPosts, treemapData },
+    props: {
+      editorCategoryPosts,
+      blogCategoryPosts,
+      treemapData,
+      healthCategoryPosts,
+    },
   };
 };
