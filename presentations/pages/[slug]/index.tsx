@@ -46,6 +46,7 @@ export const Slug = ({ post, preview, treemapData }: Props) => {
       containerClassName={classes.container}
       preview={preview}
       treemapData={treemapData}
+      title={`${post.title} | かじりブログ`}
     >
       <MyBreadcrumbs
         firstCategory={post.category.first}
@@ -57,7 +58,6 @@ export const Slug = ({ post, preview, treemapData }: Props) => {
         <>
           <article>
             <Head>
-              <title>{post.title} | かじりブログ</title>
               <meta property="og:image" content={post.ogImage.url} />
             </Head>
             <PostHeader

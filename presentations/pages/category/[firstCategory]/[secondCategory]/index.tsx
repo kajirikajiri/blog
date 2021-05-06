@@ -34,12 +34,9 @@ export const SecondCategory = ({
       containerClassName={classes.container}
       headerComponent={"h1"}
       treemapData={treemapData}
+      title={`カテゴリ一覧 > ${firstCategory} > ${secondCategory} | かじりブログ`}
     >
       <Head>
-        <title>
-          カテゴリ一覧 {">"} {firstCategory} {">"} {secondCategory} |
-          かじりブログ
-        </title>
         <meta property="og:image" content="/ogp/1200x630.png" />
       </Head>
       <Posts
