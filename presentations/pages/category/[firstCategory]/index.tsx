@@ -25,11 +25,12 @@ export const FirstCategory = ({
 }: Props) => {
   const classes = useCategoryOuterStyles();
   return (
-    <Layout headerComponent={"h1"} treemapData={treemapData}>
+    <Layout
+      title={`カテゴリ一覧 > ${firstCategory} | かじりブログ`}
+      headerComponent={"h1"}
+      treemapData={treemapData}
+    >
       <Head>
-        <title>
-          カテゴリ一覧 {">"} {firstCategory} | かじりブログ
-        </title>
         <meta property="og:image" content="/ogp/1200x630.png" />
       </Head>
       <MyBreadcrumbs showCategory />

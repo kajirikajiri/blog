@@ -1,10 +1,14 @@
 import Head from "next/head";
 import { HOME_OG_IMAGE_URL } from "@/lib/constants";
 
-export const Meta = () => {
+type Props = {
+  title?: string;
+};
+
+export const Meta = ({ title }: Props) => {
   return (
     <Head>
-      <title>かじりブログ</title>
+      <title>{title ?? "かじりブログ"}</title>
       <link
         rel="apple-touch-icon"
         sizes="180x180"
