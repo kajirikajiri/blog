@@ -3,9 +3,10 @@ import { HOME_OG_IMAGE_URL } from "@/lib/constants";
 
 type Props = {
   title?: string;
+  description?: string;
 };
 
-export const Meta = ({ title }: Props) => {
+export const Meta = ({ title, description }: Props) => {
   return (
     <Head>
       <title>{title ?? "かじりブログ"}</title>
@@ -39,7 +40,9 @@ export const Meta = ({ title }: Props) => {
       {/* <link rel="alternate" type="application/rss+xml" href="/feed.xml" /> */}
       <meta
         name="description"
-        content={`A statically generated blog using Next.js by かじり.`}
+        content={
+          description ?? `A statically generated blog using Next.js by かじり.`
+        }
       />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
       <link
