@@ -63,15 +63,20 @@ export const HeroPost = ({
             />
             <DateFormatter dateString={date} />
           </Box>
-          <Box>
-            by{" "}
-            <span
-              itemType="https://schema.org/Person"
-              itemProp="author"
-              itemScope
-            >
-              {author.name}
-            </span>
+          <Box display="flex" height="100%" alignItems="center">
+            <Box display="flex" alignItems="center">
+              by{" "}
+              <Box height="18.4px" width="18.4px" marginX={1}>
+                <CoverImage src={author.picture} title={author.name} />
+              </Box>
+              <span
+                itemType="https://schema.org/Person"
+                itemProp="author"
+                itemScope
+              >
+                {author.name}
+              </span>
+            </Box>
           </Box>
         </Box>
       </Box>

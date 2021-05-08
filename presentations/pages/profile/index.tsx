@@ -74,6 +74,7 @@ export const Profile = ({ treemapData }: Props) => {
         treemapData={treemapData}
         headerComponent={"h1"}
         title="プロフィール | かじりブログ"
+        description={`かじりのプロフィールページです。A statically generated blog using Next.js by かじり.`}
       >
         <MyBreadcrumbs />
         <Box height={20}></Box>

@@ -178,16 +178,26 @@ export const PostPreview = ({
             {(() => {
               if (typeof author?.name === "string") {
                 return (
-                  <>
-                    by{" "}
-                    <span
-                      itemType="https://schema.org/Person"
-                      itemProp="author"
-                      itemScope
-                    >
-                      {author.name}
-                    </span>
-                  </>
+                  <Box
+                    display="flex"
+                    height="100%"
+                    alignItems="center"
+                    justifyContent="flex-end"
+                  >
+                    <Box display="flex" alignItems="center">
+                      by{" "}
+                      <Box height="18.4px" width="18.4px" marginX={1}>
+                        <CoverImage src={author.picture} title={author.name} />
+                      </Box>
+                      <span
+                        itemType="https://schema.org/Person"
+                        itemProp="author"
+                        itemScope
+                      >
+                        {author.name}
+                      </span>
+                    </Box>
+                  </Box>
                 );
               } else {
                 return <Skeleton animation={false} width="100%" />;
