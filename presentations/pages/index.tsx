@@ -37,7 +37,11 @@ export const Index = ({
   const classes = useStyles();
   return (
     <>
-      <Layout treemapData={treemapData} headerComponent={"h1"}>
+      <Layout
+        treemapData={treemapData}
+        headerComponent={"h1"}
+        description={`どうもかじりです🐔🥦エンジニアの'かじり'がObsidianやJamstack、健康についての記事を書いてます。A statically generated blog using Next.js by かじり.`}
+      >
         <Left1Right3Layout
           categoryLink={"/category/editor"}
           category={"エディタ"}
@@ -80,6 +84,7 @@ export const getStaticProps = async () => {
 
   // editor category
   const editorCategorySlugs: Slugs = [
+    "obsidian-moc-usage-part-2-2021",
     "obsidian-moc-usage-2021",
     "obsidian-usage-2021",
   ];
