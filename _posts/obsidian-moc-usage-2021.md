@@ -1,5 +1,5 @@
 ---
-title: "Obsidian MOCの使い方"
+title: "Obsidian MOCの使い方 第１話"
 excerpt: "ObsidianのMOCの使い方は最初すごく悩みました。Obsidianはいろんな機能があり、便利そうなのは使ってみるとわかるのですが、どのように使っていけばいいのかわからなかったです。今回は自分のObsidian使い方です"
 coverImage: "/assets/blog/obsidian-moc-usage-2021/cover.svg"
 date: "2021-05-04 16:54:08"
