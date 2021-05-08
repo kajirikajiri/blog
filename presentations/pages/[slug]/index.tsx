@@ -46,7 +46,6 @@ export const Slug = ({ post, preview, treemapData }: Props) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-  console.log(post);
   return (
     <Layout
       containerClassName={classes.container}
