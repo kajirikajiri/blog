@@ -70,7 +70,11 @@ export const Profile = ({ treemapData }: Props) => {
   const classes = useStyles();
   return (
     <>
-      <Layout treemapData={treemapData} headerComponent={"h1"}>
+      <Layout
+        treemapData={treemapData}
+        headerComponent={"h1"}
+        title="プロフィール | かじりブログ"
+      >
         <MyBreadcrumbs />
         <Box height={20}></Box>
         <Box display="flex" width="100%" flexWrap="wrap" paddingX={0}>

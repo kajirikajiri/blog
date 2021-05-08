@@ -11,6 +11,8 @@ import { PostType } from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import { MyBreadcrumbs } from "./MyBreadcrumbs";
+import mediumZoom from "medium-zoom";
+import { useEffect } from "react";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,6 +38,9 @@ type Props = {
 };
 
 export const Slug = ({ post, preview, treemapData }: Props) => {
+  useEffect(() => {
+    mediumZoom("article img");
+  }, []);
   const classes = useStyles();
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {

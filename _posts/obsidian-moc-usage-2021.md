@@ -1,5 +1,5 @@
 ---
-title: "Obsidian MOCの使い方"
+title: "Obsidian MOCの使い方 第１話"
 excerpt: "ObsidianのMOCの使い方は最初すごく悩みました。Obsidianはいろんな機能があり、便利そうなのは使ってみるとわかるのですが、どのように使っていけばいいのかわからなかったです。今回は自分のObsidian使い方です"
 coverImage: "/assets/blog/obsidian-moc-usage-2021/cover.svg"
 date: "2021-05-04 16:54:08"
@@ -17,6 +17,8 @@ tags: [obsidian]
 Obsidianは多機能でちょっと使ってみると便利そうって感じるんです。ただ、どうやって使っていけばいいねん!ってなります（なりますよね？）。なので２年位使ってみたObsidianのMOCの使い方をまとめました。
 
 あ、いろんなObsidianのまとめサイト見て感じるんですが、古くなってしまってる記事が多いです。Obsidianが活発に開発されてて、記事がすぐ古くなるからだと思ってます。てことでこの記事もたぶんすぐにボロくなるんで、記事の公開日とバージョン見て判断してください。自分の今のバージョンは、設定のAboutから見れますが、 v0.11.13って書いてますね。Aboutの中に自動更新もあるんでONにするといいかもですね。
+
+[Obsidian MOCの使い方 第２話](/obsidian-moc-usage-part-2-2021) ←　つづきです
 
 ## Table of Contents
 
@@ -149,6 +151,7 @@ MOCは "Relational Positioning "を推奨しています。空間的な関係性
 こちらの記事も参考になるかも知れません
 
 [２年使ってわかったObsidianの使い方](/obsidian-usage-2021)
+[Obsidian MOCの使い方 第２話](/obsidian-moc-usage-part-2-2021)
 
 ## あとがき
 
