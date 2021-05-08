@@ -85,6 +85,7 @@ type Props = {
   containerClassName?: string;
   headerComponent?: ElementType;
   title?: string;
+  description?: string;
 };
 
 const Layout = ({
@@ -93,6 +94,7 @@ const Layout = ({
   containerClassName,
   headerComponent,
   title,
+  description,
 }: Props) => {
   const classes = useStyles();
   return (
@@ -104,7 +106,7 @@ const Layout = ({
       minHeight="100vh"
       className={classes.outer}
     >
-      <Meta title={title} />
+      <Meta title={title} description={description} />
       <Header headerComponent={headerComponent} />
       <Box
         flex={1}

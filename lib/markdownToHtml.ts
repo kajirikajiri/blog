@@ -6,10 +6,12 @@ import footnotes from "remark-footnotes";
 import breaks from "remark-breaks";
 import remarkSlug from "remark-slug";
 import remarkAutolinkHeadings from "remark-autolink-headings";
+import remarkGfm from "remark-gfm";
 
 export default async function markdownToHtml(markdown: string) {
   const result = await unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkSlug)
     .use(remarkAutolinkHeadings, {
       behavior: "append",
