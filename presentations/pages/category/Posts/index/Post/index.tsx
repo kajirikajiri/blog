@@ -63,8 +63,11 @@ export const Post = ({
               />
               <DateFormatter dateString={date} />
             </Box>
-            <Box>
+            <Box display="flex">
               by{" "}
+              <Box height="18.4px" width="18.4px" marginX={1}>
+                <CoverImage src={author?.picture} title={author?.name} />
+              </Box>
               <span
                 itemType="https://schema.org/Person"
                 itemProp="author"

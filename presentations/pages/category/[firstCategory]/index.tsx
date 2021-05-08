@@ -29,6 +29,7 @@ export const FirstCategory = ({
       title={`カテゴリ一覧 > ${firstCategory} | かじりブログ`}
       headerComponent={"h1"}
       treemapData={treemapData}
+      description={`${firstCategory}カテゴリに投稿された記事の一覧です。A statically generated blog using Next.js by かじり.`}
     >
       <Head>
         <meta property="og:image" content="/ogp/1200x630.png" />

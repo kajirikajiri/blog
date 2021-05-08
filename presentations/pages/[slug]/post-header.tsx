@@ -18,9 +18,12 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
     <>
       <PostTitle>{title}</PostTitle>
       <Box display="flex">
-        <Box>
+        <Box display="flex">
           <Box color={grey[400]} component={"span"}>
             by{" "}
+          </Box>
+          <Box height="18.4px" width="18.4px" marginX={1}>
+            <CoverImage src={author?.picture} title={author?.name} />
           </Box>
           <span
             itemType="https://schema.org/Person"

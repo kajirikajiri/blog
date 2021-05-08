@@ -46,12 +46,14 @@ export const Slug = ({ post, preview, treemapData }: Props) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+  console.log(post);
   return (
     <Layout
       containerClassName={classes.container}
       preview={preview}
       treemapData={treemapData}
       title={`${post.title} | かじりブログ`}
+      description={post.excerpt}
     >
       <MyBreadcrumbs
         firstCategory={post.category.first}
@@ -93,6 +95,7 @@ export async function getStaticProps({ params }: Params) {
     "author",
     "content",
     "ogImage",
+    "excerpt",
     "coverImage",
     "category",
   ]);

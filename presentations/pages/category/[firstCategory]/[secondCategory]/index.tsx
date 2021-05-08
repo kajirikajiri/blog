@@ -35,6 +35,7 @@ export const SecondCategory = ({
       headerComponent={"h1"}
       treemapData={treemapData}
       title={`カテゴリ一覧 > ${firstCategory} > ${secondCategory} | かじりブログ`}
+      description={`${firstCategory}カテゴリ > ${secondCategory}カテゴリに投稿された記事の一覧です。A statically generated blog using Next.js by かじり.`}
     >
       <Head>
         <meta property="og:image" content="/ogp/1200x630.png" />
