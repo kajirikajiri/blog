@@ -148,4 +148,6 @@ Sliding Panes の[github](https://github.com/deathau/sliding-panes-obsidian)は�
 
 こちらの記事も参考になるかも知れません
 
-[Obsidian MOCの使い方](/obsidian-moc-usage-2021)
+[Obsidian MOCの使い方 第１話](/obsidian-moc-usage-2021)
+[Obsidian MOCの使い方 第２話](/obsidian-moc-usage-part-2-2021)
+

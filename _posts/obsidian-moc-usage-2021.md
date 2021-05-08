@@ -18,6 +18,8 @@ Obsidianは多機能でちょっと使ってみると便利そうって感じる
 
 あ、いろんなObsidianのまとめサイト見て感じるんですが、古くなってしまってる記事が多いです。Obsidianが活発に開発されてて、記事がすぐ古くなるからだと思ってます。てことでこの記事もたぶんすぐにボロくなるんで、記事の公開日とバージョン見て判断してください。自分の今のバージョンは、設定のAboutから見れますが、 v0.11.13って書いてますね。Aboutの中に自動更新もあるんでONにするといいかもですね。
 
+[Obsidian MOCの使い方 第２話](/obsidian-moc-usage-part-2-2021) ←　つづきです
+
 ## Table of Contents
 
 ## 参考にしている使い方
@@ -149,6 +151,7 @@ MOCは "Relational Positioning "を推奨しています。空間的な関係性
 こちらの記事も参考になるかも知れません
 
 [２年使ってわかったObsidianの使い方](/obsidian-usage-2021)
+[Obsidian MOCの使い方 第２話](/obsidian-moc-usage-part-2-2021)
 
 ## あとがき
 
