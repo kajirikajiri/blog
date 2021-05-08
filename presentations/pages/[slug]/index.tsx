@@ -13,6 +13,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import { MyBreadcrumbs } from "./MyBreadcrumbs";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
+import genReadingTime from "reading-time";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,9 +36,15 @@ type Props = {
   morePosts: PostType[];
   preview?: boolean;
   treemapData: TreemapData;
+  readingTimeText: string;
 };
 
-export const Slug = ({ post, preview, treemapData }: Props) => {
+export const Slug = ({
+  post,
+  preview,
+  treemapData,
+  readingTimeText,
+}: Props) => {
   useEffect(() => {
     mediumZoom("article img");
   }, []);
@@ -71,6 +78,7 @@ export const Slug = ({ post, preview, treemapData }: Props) => {
               coverImage={post.coverImage}
               date={post.date}
               author={post.author}
+              readingTimeText={readingTimeText}
             />
             <PostBody content={post.content} />
           </article>
@@ -112,9 +120,12 @@ export async function getStaticProps({ params }: Params) {
 
   const content = await markdownToHtml((post.content as string) || "");
 
+  const readingTime = genReadingTime(content);
+
   return {
     props: {
       treemapData,
+      readingTimeText: readingTime.text,
       post: {
         ...post,
         content,
