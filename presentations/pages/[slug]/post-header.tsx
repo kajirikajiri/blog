@@ -2,7 +2,7 @@ import { DateFormatter } from "@/components/DateFormatter";
 import { CoverImage } from "@/components/CoverImage";
 import { PostTitle } from "@/components/PostTitle";
 import Author from "@/types/author";
-import { AccessTime } from "@material-ui/icons";
+import { AccessTime, BookOutlined } from "@material-ui/icons";
 import { Box } from "@material-ui/core";
 import { grey } from "@material-ui/core/colors";
 
@@ -11,15 +11,22 @@ type Props = {
   coverImage: string;
   date: string;
   author: Author;
+  readingTimeText: string;
 };
 
-const PostHeader = ({ title, coverImage, date, author }: Props) => {
+const PostHeader = ({
+  title,
+  coverImage,
+  date,
+  author,
+  readingTimeText,
+}: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
       <Box display="flex">
         <Box display="flex">
-          <Box color={grey[400]} component={"span"}>
+          <Box color={grey[600]} component={"span"}>
             by{" "}
           </Box>
           <Box height="18.4px" width="18.4px" marginX={1}>
@@ -40,6 +47,14 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
             color="inherit"
           />
           <DateFormatter dateString={date} />
+        </Box>
+        <Box marginLeft={2} display="flex" alignItems="center">
+          <BookOutlined
+            fontSize="inherit"
+            style={{ marginBottom: 1, marginRight: 2 }}
+            color="inherit"
+          />
+          {readingTimeText}
         </Box>
       </Box>
       <Box
