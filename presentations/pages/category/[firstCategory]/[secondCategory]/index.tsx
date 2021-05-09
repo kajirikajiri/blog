@@ -66,7 +66,7 @@ export const getStaticProps = async ({ params }: Params) => {
     "coverImage",
     "excerpt",
     "category",
-    "tag",
+    "tags",
   ]);
   const treemapData = getTreemapData(allPosts);
 
