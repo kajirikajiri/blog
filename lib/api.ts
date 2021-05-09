@@ -64,6 +64,7 @@ export function getAllPostsForAlgolia() {
         firstCategory: s.category.first,
         secondCategory: s.category.second,
         tags: s.tags,
+        slug: s.slug,
       };
     });
   return posts;
