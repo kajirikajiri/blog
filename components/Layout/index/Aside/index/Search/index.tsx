@@ -83,7 +83,15 @@ export const Search = () => {
               marginY={2}
               paddingLeft={1}
               borderLeft="1px solid black"
+              position="relative"
             >
+              <Box
+                component="a"
+                {...{ href: `/${hit.slug}` }}
+                position="absolute"
+                width="100%"
+                height="100%"
+              ></Box>
               <Box fontSize={18} marginBottom={1}>
                 <CustomHighlight hit={hit} attribute="title" />
               </Box>
