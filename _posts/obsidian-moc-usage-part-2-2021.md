@@ -56,16 +56,16 @@ Commentary on an A-Z list of MOCs | Home MOC
 
 テキストや画像で分かりづらい場合は実際に[lyt-kit](https://publish.obsidian.md/lyt-kit/)を開いてみて、[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)や[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)を触ってみるとイメージがつかめると思います
 
-### MOCの上段にリンク[^2]を設置する
+### MOCの上段にリンク[^1]を設置する
 
-[^2]: [リンクの設置方法はこちら](/obsidian-usage-2021#%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%86)
+[^1]: [リンクの設置方法はこちら](/obsidian-usage-2021#%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%86)
 
 **リンクの設置は最初はわかりづらいと思うので[こちら](/obsidian-usage-2021#%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%86)を参照してください。**
 
-ここがポイントですが、[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)の一番上の行に[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)へのリンク[^1]があります
+ここがポイントですが、[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)の一番上の行に[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)へのリンク[^2]があります
 他にも、[Language MOC](https://publish.obsidian.md/lyt-kit/Umami/Language+MOC)の上には[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)へのリンクがあります。
 
-[^1]: +Homeってやつです
+[^2]: +Homeってやつです
 
 Interests MOC | Language MOC
 ---- | ---- 
@@ -171,7 +171,10 @@ Workが会社名やプロジェクト名ごとにディレクトリわけされ�
 
 もじにまとめると意味不明になるんで実際に[lyt-kit](https://publish.obsidian.md/lyt-kit)や画像を参照してみてください
 
-以上です。[不滅のあなたへ](https://anime-fumetsunoanatae.com/)、[ひげひろ](http://higehiro-anime.com/)いいよ
+以上です。[不滅のあなたへ](https://anime-fumetsunoanatae.com/)(公式)[^3]、[ひげひろ](http://higehiro-anime.com/)(公式)[^4]いいよ
+
+[^3]: [不滅のあなたへ](https://amzn.to/3xQMXGe) ← プライムビデオ見てる人
+[^4]: [ひげひろ](https://amzn.to/2SxkZ21) ← プライムビデオ見てる人
 
 ### 番外編 タグの一括置換
 
