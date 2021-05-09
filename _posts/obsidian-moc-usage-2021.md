@@ -156,4 +156,4 @@ MOCは "Relational Positioning "を推奨しています。空間的な関係性
 ## あとがき
 
 obsidian使い始めたら[[入力しよう。便利だよ。[[# [[^ とかいいよ。
-[ぐだふわエブリデー](https://www.google.com/search?q=%E3%81%90%E3%81%A0%E3%81%B5%E3%82%8F%E3%82%A8%E3%83%96%E3%83%AA%E3%83%87%E3%83%BC&rlz=1C1QABZ_jaJP893JP893&oq=%E3%81%90%E3%81%A0%E3%83%95%E3%83%AF&aqs=chrome.1.69i57j0i4i131i433j0i4l4j0i4i10j0i4l3.2582j0j4&sourceid=chrome&ie=UTF-8)いいよ。
+[ぐだふわエブリデー](https://www.youtube.com/watch?v=Cgs9QfbGxPQ)(youtube)いいよ。
