@@ -6,7 +6,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "dev": "next dev",
+    "dev": "cross-env DISABLED_ALGOLIA=true next dev",
     "build": "next build && next export && yarn postbuild",
     "start": "next start",
     "postbuild": "next-sitemap"
