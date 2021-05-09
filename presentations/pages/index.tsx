@@ -10,6 +10,7 @@ type Props = {
   editorCategoryPosts: PostType[];
   blogCategoryPosts: PostType[];
   healthCategoryPosts: PostType[];
+  sideworkCategoryPosts: PostType[];
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -33,6 +34,7 @@ export const Index = ({
   treemapData,
   healthCategoryPosts,
   blogCategoryPosts,
+  sideworkCategoryPosts,
 }: Props) => {
   const classes = useStyles();
   return (
@@ -58,6 +60,12 @@ export const Index = ({
           categoryLink={"/category/health"}
           category={"健康"}
           orderPosts={healthCategoryPosts}
+        />
+        <Box width="100%" className={classes.pad}></Box>
+        <Left1Right3Layout
+          categoryLink={"/category/health"}
+          category={"副業"}
+          orderPosts={sideworkCategoryPosts}
         />
       </Layout>
     </>
@@ -98,11 +106,16 @@ export const getStaticProps = async () => {
   const healthCategorySlugs: Slugs = ["stretch-before-going-to-bed"];
   const healthCategoryPosts = getOrderPosts(allPosts, healthCategorySlugs);
 
+  // sidework category
+  const sideworkCategorySlugs: Slugs = ["engineer-side-job-once-a-week"];
+  const sideworkCategoryPosts = getOrderPosts(allPosts, sideworkCategorySlugs);
+
   // error handling // そのままreturnすると分かりづらいエラーが発生するため
   const error = [
     ...editorCategoryPosts,
     ...blogCategoryPosts,
     ...healthCategoryPosts,
+    ...sideworkCategoryPosts,
   ].some((p) => p === void 0);
   if (error) {
     throw Error("存在しないファイル名をCategorySlugsに指定していませんか??");
@@ -114,6 +127,7 @@ export const getStaticProps = async () => {
       blogCategoryPosts,
       treemapData,
       healthCategoryPosts,
+      sideworkCategoryPosts,
     },
   };
 };

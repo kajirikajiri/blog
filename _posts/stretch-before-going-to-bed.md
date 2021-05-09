@@ -77,4 +77,7 @@ width="100%"height="100%"style="left:0;top:0;position:absolute;" frameborder="0"
 
 spotifyの広告のゆりやんが高音質でうけましたｗ
 
-[長瀞さん](https://www.nagatorosan.jp/)と[EASY LOVE](https://www.youtube.com/watch?v=J51CxEEYq50)いいよ。[ドラゴン家](https://doraie.com/)、[ロールプレイング](https://www.youtube.com/watch?v=iZHOLVmUMCU)もいいよ
+[長瀞さん](https://www.nagatorosan.jp/)(公式)[^1]と[EASY LOVE](https://www.youtube.com/watch?v=J51CxEEYq50)(youtube)いいよ。[ドラゴン家](https://doraie.com/)(公式)[^2]と[ロールプレイング](https://www.youtube.com/watch?v=iZHOLVmUMCU)(youtube)もいいよ
+
+[^1]: [長瀞さん](https://amzn.to/2SDHnHe) ←プライムビデオ見てる人
+[^2]: [ドラゴン家](https://amzn.to/2StI2e8) ←プライムビデオ見てる人
