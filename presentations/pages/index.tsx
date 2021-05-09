@@ -1,9 +1,15 @@
 import Layout from "@/components/Layout";
-import { getAllPosts, getOrderPosts, getTreemapData } from "@/lib/api";
+import {
+  getAllPosts,
+  getAllPostsForAlgolia,
+  getOrderPosts,
+  getTreemapData,
+} from "@/lib/api";
 import { PostType } from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { Left1Right3Layout } from "./index/Left1Right3Layout";
+import algoliasearch from "algoliasearch";
 
 type Props = {
   treemapData: TreemapData;
@@ -75,6 +81,33 @@ export const Index = ({
 // ビルド時に実行される
 // https://qiita.com/matamatanot/items/1735984f40540b8bdf91
 export const getStaticProps = async () => {
+  const apiKey = process.env.NEXT_PUBLIC_ALGOLIA_API_KEY;
+  const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
+  const disabledAlgoliad = process.env.DISABLED_ALGOLIA;
+  // localでなにか変更するたびに実行されて面倒だったのでpackage.jsonから環境変数いれてlocalなら無効にしてる
+  if (
+    typeof appId === "string" &&
+    typeof apiKey === "string" &&
+    !(disabledAlgoliad === "true")
+  ) {
+    const client = algoliasearch(appId, apiKey);
+    const allPostsForAlgolia = getAllPostsForAlgolia();
+    client
+      .initIndex("kajiri.dev")
+      .clearObjects()
+      .then(() => {
+        client
+          .initIndex("kajiri.dev")
+          .saveObjects(allPostsForAlgolia)
+          .then(({ objectIDs }) => {
+            console.log(objectIDs);
+          })
+          .catch((reason) => {
+            console.log(reason);
+          });
+      });
+  }
+
   const allPosts = getAllPosts([
     "title",
     "date",
@@ -83,7 +116,7 @@ export const getStaticProps = async () => {
     "coverImage",
     "excerpt",
     "category",
-    "tag",
+    "tags",
   ]);
 
   const treemapData = getTreemapData(allPosts);
