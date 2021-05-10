@@ -150,7 +150,7 @@ MOCは "Relational Positioning "を推奨しています。空間的な関係性
 
 こちらの記事も参考になるかも知れません
 
-[２年使ってわかったObsidianの使い方](/obsidian-usage-2021)
+[１年使ってわかったObsidianの使い方](/obsidian-usage-2021)
 [Obsidian MOCの使い方 第２話](/obsidian-moc-usage-part-2-2021)
 
 ## あとがき
