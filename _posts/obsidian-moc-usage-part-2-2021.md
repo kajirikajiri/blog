@@ -164,7 +164,7 @@ Workが会社名やプロジェクト名ごとにディレクトリわけされ�
 
 こちらの記事も参考になるかも知れません
 
-[２年使ってわかったObsidianの使い方](/obsidian-usage-2021)
+[１年使ってわかったObsidianの使い方](/obsidian-usage-2021)
 [Obsidian MOCの使い方 第１話](/obsidian-moc-usage-2021)
 
 ## あとがき
