@@ -1,3 +1,4 @@
+import { CoverImage } from "@/components/CoverImage";
 import {
   InputAdornment,
   TextField,
@@ -18,20 +19,26 @@ import {
 export const Search = () => {
   const CustomSearchBox = connectSearchBox(({ currentRefinement, refine }) => {
     return (
-      <TextField
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchOutlined color="disabled" />
-            </InputAdornment>
-          ),
-        }}
-        placeholder="Powered by Algolia"
-        variant="outlined"
-        value={currentRefinement}
-        onChange={(e) => refine(e.currentTarget.value)}
-        style={{ width: "100%" }}
-      />
+      <Box>
+        <TextField
+          autoFocus
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchOutlined color="disabled" />
+              </InputAdornment>
+            ),
+          }}
+          placeholder="Powered by Algolia"
+          variant="outlined"
+          value={currentRefinement}
+          onChange={(e) => refine(e.currentTarget.value)}
+          style={{ width: "100%" }}
+        />
+        <Box display="flex" width="100%" justifyContent="flex-end" padding={1}>
+          <img src="/algolia.svg" />
+        </Box>
+      </Box>
     );
   });
   const CustomHighlight = connectHighlight(({ hit, highlight, attribute }) => {
@@ -68,21 +75,26 @@ export const Search = () => {
   const useStyle = makeStyles({
     root: {
       overflowY: "scroll",
-      maxHeight: "60vh",
+      width: "100%",
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      // maxHeight: "60vh",
     },
   });
   const CustomHits = connectHits(({ hits }) => {
     const classes = useStyle();
+    console.log(hits);
     return (
       <>
         <List className={classes.root}>
           {hits.map((hit) => (
             <Box
+              width="100%"
               key={hit.objectID}
               marginX={1}
               marginY={2}
               paddingLeft={1}
-              borderLeft="1px solid black"
               position="relative"
             >
               <Box
@@ -92,7 +104,10 @@ export const Search = () => {
                 width="100%"
                 height="100%"
               ></Box>
-              <Box fontSize={18} marginBottom={1}>
+              <Box width="100%" height="300px">
+                <CoverImage src={hit.coverImage} title={hit.slug} />
+              </Box>
+              <Box color="#000000" fontSize={18} marginBottom={1}>
                 <CustomHighlight hit={hit} attribute="title" />
               </Box>
               <Box color="#0000008A" marginBottom={0.3}>
@@ -103,6 +118,7 @@ export const Search = () => {
                 justifyContent="space-between"
                 flexWrap="wrap"
                 fontSize={13}
+                color="#000000"
               >
                 <Box>
                   <CustomHighlight hit={hit} attribute="date" />
@@ -116,9 +132,6 @@ export const Search = () => {
             </Box>
           ))}
         </List>
-        <Box display="flex" width="100%" justifyContent="flex-end" padding={1}>
-          <img src="/algolia.svg" />
-        </Box>
       </>
     );
   });
@@ -129,8 +142,15 @@ export const Search = () => {
 
   return (
     <InstantSearch indexName="kajiri.dev" searchClient={searchClient}>
-      <CustomSearchBox />
-      <CustomHits />
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        height="100%"
+      >
+        <CustomHits />
+        <CustomSearchBox />
+      </Box>
     </InstantSearch>
   );
 };
