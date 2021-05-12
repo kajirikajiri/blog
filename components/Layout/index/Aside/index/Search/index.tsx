@@ -21,7 +21,6 @@ export const Search = () => {
     return (
       <Box>
         <TextField
-          autoFocus
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -92,9 +91,8 @@ export const Search = () => {
             <Box
               width="100%"
               key={hit.objectID}
-              marginX={1}
-              marginY={2}
-              paddingLeft={1}
+              paddingBottom={6}
+              marginTop={8}
               position="relative"
             >
               <Box
@@ -104,7 +102,7 @@ export const Search = () => {
                 width="100%"
                 height="100%"
               ></Box>
-              <Box width="100%" height="300px">
+              <Box width="100%" height="180px" paddingBottom={2}>
                 <CoverImage src={hit.coverImage} title={hit.slug} />
               </Box>
               <Box color="#000000" fontSize={18} marginBottom={1}>
