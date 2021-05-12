@@ -63,6 +63,7 @@ export function getAllPostsForAlgolia() {
         excerpt: s.excerpt,
         firstCategory: s.category.first,
         secondCategory: s.category.second,
+        coverImage: s.coverImage,
         tags: s.tags,
         slug: s.slug,
       };
