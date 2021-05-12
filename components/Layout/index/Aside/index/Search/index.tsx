@@ -21,7 +21,6 @@ export const Search = () => {
     return (
       <Box>
         <TextField
-          autoFocus
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
