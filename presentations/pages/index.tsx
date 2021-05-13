@@ -51,25 +51,25 @@ export const Index = ({
         description={`どうもかじりです🐔🥦エンジニアの'かじり'がObsidianやJamstack、健康についての記事を書いてます。A statically generated blog using Next.js by かじり.`}
       >
         <Left1Right3Layout
-          categoryLink={"/category/editor"}
+          categoryLink={"/category/editor/"}
           category={"エディタ"}
           orderPosts={editorCategoryPosts}
         />
         <Box width="100%" className={classes.pad}></Box>
         <Left1Right3Layout
-          categoryLink={"/category/blog"}
+          categoryLink={"/category/blog/"}
           category={"ブログ"}
           orderPosts={blogCategoryPosts}
         />
         <Box width="100%" className={classes.pad}></Box>
         <Left1Right3Layout
-          categoryLink={"/category/health"}
+          categoryLink={"/category/health/"}
           category={"健康"}
           orderPosts={healthCategoryPosts}
         />
         <Box width="100%" className={classes.pad}></Box>
         <Left1Right3Layout
-          categoryLink={"/category/health"}
+          categoryLink={"/category/health/"}
           category={"副業"}
           orderPosts={sideworkCategoryPosts}
         />
