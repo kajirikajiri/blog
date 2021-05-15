@@ -118,7 +118,7 @@ export const Slug = ({
                       },
                     },
                   ],
-                  toc,
+                  [toc, { tight: true, maxDepth: 2 }],
                   footnotes,
                   breaks,
                 ]}
