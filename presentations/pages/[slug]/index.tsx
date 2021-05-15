@@ -1,19 +1,18 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import PostBody from "@/presentations/pages/[slug]/post-body";
 import PostHeader from "@/presentations/pages/[slug]/post-header";
 import Layout from "@/components/Layout";
 import { getPostBySlug, getAllPosts, getTreemapData } from "@/lib/api";
 import { PostTitle } from "@/components/PostTitle";
 import Head from "next/head";
-import markdownToHtml from "@/lib/markdownToHtml";
 import { PostType } from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
-import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { MyBreadcrumbs } from "./MyBreadcrumbs";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
 import genReadingTime from "reading-time";
+import MDX from "@mdx-js/runtime";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -45,6 +44,9 @@ export const Slug = ({
   treemapData,
   readingTimeText,
 }: Props) => {
+  const components = {
+    Box: (props: any) => <Box {...props} />,
+  };
   useEffect(() => {
     mediumZoom("article img");
   }, []);
@@ -80,7 +82,7 @@ export const Slug = ({
               author={post.author}
               readingTimeText={readingTimeText}
             />
-            <PostBody content={post.content} />
+            <MDX components={components}>{post.content}</MDX>
           </article>
         </>
       )}
@@ -118,18 +120,13 @@ export async function getStaticProps({ params }: Params) {
   ]);
   const treemapData = getTreemapData(allPosts);
 
-  const content = await markdownToHtml((post.content as string) || "");
-
-  const readingTime = genReadingTime(content);
+  const readingTime = genReadingTime(post.content as string);
 
   return {
     props: {
       treemapData,
+      post,
       readingTimeText: readingTime.text,
-      post: {
-        ...post,
-        content,
-      },
     },
   };
 }
