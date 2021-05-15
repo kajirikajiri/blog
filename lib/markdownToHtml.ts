@@ -30,7 +30,7 @@ export default async function markdownToHtml(markdown: string) {
         ],
       },
     })
-    .use(toc, { tight: true })
+    .use(toc, { tight: true, maxDepth: 2 })
     .use(footnotes)
     .use(breaks)
     .use(html)
