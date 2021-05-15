@@ -13,6 +13,14 @@ import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
 import genReadingTime from "reading-time";
 import MDX from "@mdx-js/runtime";
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkSlug from "remark-slug";
+import remarkAutolinkHeadings from "remark-autolink-headings";
+import toc from "remark-toc";
+import footnotes from "remark-footnotes";
+import breaks from "remark-breaks";
+import styles from "./githubMarkdown.module.css";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -82,7 +90,43 @@ export const Slug = ({
               author={post.author}
               readingTimeText={readingTimeText}
             />
-            <MDX components={components}>{post.content}</MDX>
+            <Box className={[styles["markdown-body"]].join(" ")}>
+              <MDX
+                remarkPlugins={[
+                  remarkParse,
+                  remarkGfm,
+                  remarkSlug,
+                  [
+                    remarkAutolinkHeadings,
+                    {
+                      behavior: "append",
+                      content: {
+                        type: "element",
+                        tagName: "span",
+                        properties: {
+                          className: ["icon", "icon-link"],
+                          style: [
+                            `;font-size:13px;padding-left:5px;padding-right:5px;`,
+                          ],
+                        },
+                        children: [
+                          {
+                            type: "text",
+                            value: "🔗",
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                  toc,
+                  footnotes,
+                  breaks,
+                ]}
+                components={components}
+              >
+                {post.content}
+              </MDX>
+            </Box>
           </article>
         </>
       )}
