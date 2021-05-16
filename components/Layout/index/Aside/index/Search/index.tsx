@@ -83,7 +83,6 @@ export const Search = () => {
   });
   const CustomHits = connectHits(({ hits }) => {
     const classes = useStyle();
-    console.log(hits);
     return (
       <>
         <List className={classes.root}>
