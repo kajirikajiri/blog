@@ -13,14 +13,11 @@ import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
 import genReadingTime from "reading-time";
 import MDX from "@mdx-js/runtime";
-import remarkParse from "remark-parse";
-import remarkGfm from "remark-gfm";
-import remarkSlug from "remark-slug";
-import remarkAutolinkHeadings from "remark-autolink-headings";
-import toc from "remark-toc";
-import footnotes from "remark-footnotes";
-import breaks from "remark-breaks";
 import styles from "./githubMarkdown.module.css";
+import { Toc } from "./markdownComponents/Toc";
+import { NotebookList } from "./markdownComponents/NotebookList";
+import { MyLink } from "./markdownComponents/MyLink";
+import { Youtube } from "./markdownComponents/Youtube";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -54,6 +51,10 @@ export const Slug = ({
 }: Props) => {
   const components = {
     Box: (props: any) => <Box {...props} />,
+    NotebookList: (props: any) => <NotebookList {...props} />,
+    Toc: (props: any) => <Toc {...props} />,
+    MyLink: (props: any) => <MyLink {...props} />,
+    Youtube: (props: any) => <Youtube {...props} />,
   };
   useEffect(() => {
     mediumZoom("article img");
@@ -91,41 +92,7 @@ export const Slug = ({
               readingTimeText={readingTimeText}
             />
             <Box className={[styles["markdown-body"]].join(" ")}>
-              <MDX
-                remarkPlugins={[
-                  remarkParse,
-                  remarkGfm,
-                  remarkSlug,
-                  [
-                    remarkAutolinkHeadings,
-                    {
-                      behavior: "append",
-                      content: {
-                        type: "element",
-                        tagName: "span",
-                        properties: {
-                          className: ["icon", "icon-link"],
-                          style: [
-                            `;font-size:13px;padding-left:5px;padding-right:5px;`,
-                          ],
-                        },
-                        children: [
-                          {
-                            type: "text",
-                            value: "🔗",
-                          },
-                        ],
-                      },
-                    },
-                  ],
-                  [toc, { tight: true, maxDepth: 2 }],
-                  footnotes,
-                  breaks,
-                ]}
-                components={components}
-              >
-                {post.content}
-              </MDX>
+              <MDX components={components}>{post.content}</MDX>
             </Box>
           </article>
         </>

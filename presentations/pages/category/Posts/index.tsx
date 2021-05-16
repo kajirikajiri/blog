@@ -47,7 +47,7 @@ type Props = {
 export const Posts = ({ posts, Breadcrumbs }: Props) => {
   const classes = { ...useStyles(), ...useCategoryOuterStyles() };
   return (
-    <Box bgcolor="#eaedf2">
+    <Box>
       {Breadcrumbs && <Box marginBottom={2}>{Breadcrumbs}</Box>}
       <H2Header word={"カテゴリ記事一覧"} />
       <Box width="100%">
