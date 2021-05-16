@@ -17,6 +17,7 @@ import styles from "./githubMarkdown.module.css";
 import { Toc } from "./markdownComponents/Toc";
 import { NotebookList } from "./markdownComponents/NotebookList";
 import { MyLink } from "./markdownComponents/MyLink";
+import { Youtube } from "./markdownComponents/Youtube";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -53,6 +54,7 @@ export const Slug = ({
     NotebookList: (props: any) => <NotebookList {...props} />,
     Toc: (props: any) => <Toc {...props} />,
     MyLink: (props: any) => <MyLink {...props} />,
+    Youtube: (props: any) => <Youtube {...props} />,
   };
   useEffect(() => {
     mediumZoom("article img");
