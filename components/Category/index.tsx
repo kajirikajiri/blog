@@ -1,14 +1,6 @@
 // https://www.d3-graph-gallery.com/graph/treemap_basic.html
 
 import { TreemapData } from "@/types/treemapData";
-import {
-  blue,
-  green,
-  indigo,
-  pink,
-  purple,
-  red,
-} from "@material-ui/core/colors";
 import * as d3 from "d3";
 import React from "react";
 
@@ -154,16 +146,16 @@ function drawChart(
   // .padding(20)
 
   // prepare a color scale
-  const color: any = d3
-    .scaleOrdinal()
-    .range([
-      blue[600],
-      purple[600],
-      green[600],
-      indigo[600],
-      pink[600],
-      red[600],
-    ]);
+  // const color: any = d3
+  //   .scaleOrdinal()
+  //   .range([
+  //     blue[600],
+  //     purple[600],
+  //     green[600],
+  //     indigo[600],
+  //     pink[600],
+  //     red[600],
+  //   ]);
 
   // And a opacity scale
   const opacity: any = d3.scaleLinear().domain([10, 30]).range([0.5, 1]);
@@ -195,8 +187,8 @@ function drawChart(
     })
     .style("cursor", "pointer")
     .style("stroke", "black")
-    .style("fill", function (d: any) {
-      return color(d.parent.data.name);
+    .style("fill", function () {
+      return "#fff";
     })
     .style("opacity", function (d: any) {
       return opacity(d.data.value);
@@ -225,7 +217,7 @@ function drawChart(
       return d.data.name + "↗";
     })
     .attr("font-size", "14px")
-    .attr("fill", "white")
+    .attr("fill", "#000")
     .on("click", function (_, d: any) {
       location.href = `/category/${d.parent.data.name}/${d.data.name}`;
     }); // e.parent.dataに親要素の名前入ってる
@@ -248,7 +240,7 @@ function drawChart(
       return d.data.value;
     })
     .attr("font-size", "11px")
-    .attr("fill", "white")
+    .attr("fill", "#000")
     .on("click", function (_, d: any) {
       location.href = `/category/${d.parent.data.name}/${d.data.name}`;
     }); // e.parent.dataに親要素の名前入ってる
@@ -286,8 +278,8 @@ function drawChart(
       return d.data.name + "↗";
     })
     .attr("font-size", "20px") // 18px だとlighthouseに怒られた
-    .attr("fill", function (d: any) {
-      return color(d.data.name);
+    .attr("fill", function () {
+      return "#000";
     });
   // .on("click", function (_, d) {
   //   location.href = `/category/${d.data.name}`;
@@ -311,7 +303,7 @@ function drawChart(
     .attr("text-anchor", "middle")
     .attr("font-family", "DotGothic 16")
     .attr("font-size", "22px")
-    .attr("fill", "grey");
+    .attr("fill", "#000");
   // .on("click", function (_) {
   //   location.href = `/category`;
   // }); // e.parent.dataに親要素の名前入ってる

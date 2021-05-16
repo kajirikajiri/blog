@@ -3,7 +3,6 @@ import { HeroPost } from "./index/HeroPost";
 import { Box, createStyles, Link, makeStyles, Theme } from "@material-ui/core";
 import { ChevronRight } from "@material-ui/icons";
 import { PostType } from "@/types/post";
-import { blue } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -65,16 +64,15 @@ export const Left1Right3Layout = ({
         display="flex"
         alignItems="center"
         justifyContent="space-between"
+        bgcolor="#000"
+        color="#fff"
+        marginBottom={1}
       >
-        <Box
-          borderLeft={`thick solid ${blue[600]}`}
-          paddingLeft={1}
-          component="h2"
-        >
+        <Box paddingLeft={1} component="h2" fontWeight="normal">
           {category}
         </Box>
-        <Box display="flex" alignItems="center" fontSize="13px">
-          <Link color="inherit" href={categoryLink}>
+        <Box display="flex" alignItems="center" marginTop={1} fontSize="13px">
+          <Link href={categoryLink} color="inherit">
             {category}の記事一覧
           </Link>
           <ChevronRight fontSize="small" />

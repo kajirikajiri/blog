@@ -70,7 +70,7 @@ export const Aside = ({ treemapData }: Props) => {
         広告
       </Box> */}
       <Profile />
-      <Box height={40}> </Box>
+      <Box height={80}> </Box>
       <Button variant="outlined" fullWidth onClick={handleClick}>
         <ZoomInOutlined color="disabled" />
         <Box style={{ textTransform: "none" }} color={grey[600]}>
@@ -89,7 +89,7 @@ export const Aside = ({ treemapData }: Props) => {
           <Search />
         </Box>
       </Backdrop>
-      <Box height={40}> </Box>
+      <Box height={80}> </Box>
       <Box width="100%" height="600px">
         <Category treemapData={treemapData} />
       </Box>

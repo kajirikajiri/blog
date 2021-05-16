@@ -1,6 +1,6 @@
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Link from "@material-ui/core/Link";
-import { ChevronRight, Home } from "@material-ui/icons";
+import { ChevronRight, HomeOutlined } from "@material-ui/icons";
 import { Box } from "@material-ui/core";
 
 type Props = {
@@ -18,7 +18,7 @@ export const MyBreadcrumbs = ({
     <Box display="flex" alignItems="center">
       <Breadcrumbs separator={<ChevronRight color="disabled" />}>
         <Link color="inherit" href={`/`} style={{ display: "flex" }}>
-          <Home />
+          <HomeOutlined />
         </Link>
         {showCategory && (
           <Link color="inherit" href={`/category`}>
