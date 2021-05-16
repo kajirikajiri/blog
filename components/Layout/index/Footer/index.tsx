@@ -1,6 +1,6 @@
 import { Box } from "@material-ui/core";
 import { grey } from "@material-ui/core/colors";
-import { Home } from "@material-ui/icons";
+import { HomeOutlined } from "@material-ui/icons";
 
 export const Footer = () => {
   return (
@@ -30,7 +30,7 @@ export const Footer = () => {
             {...{ href: "/" }}
             aria-label="home"
           ></Box>
-          <Home />
+          <HomeOutlined />
         </Box>
         <Box color={grey[800]}>©{new Date().getFullYear()} kajiri.dev</Box>
       </Box>

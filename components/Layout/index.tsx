@@ -10,10 +10,10 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     outer: {
       [theme.breakpoints.up("ss")]: {
-        padding: "30px 15px",
+        padding: "0px 15px 30px 15px",
       },
       [theme.breakpoints.up("t")]: {
-        padding: "30px 25px",
+        padding: "0px 25px 30px 25px",
       },
     },
     container: {
@@ -98,43 +98,45 @@ const Layout = ({
 }: Props) => {
   const classes = useStyles();
   return (
-    <Box
-      bgcolor="#EAEDF2"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      minHeight="100vh"
-      className={classes.outer}
-    >
-      <Meta title={title} description={description} />
-      <Header headerComponent={headerComponent} />
+    <>
       <Box
-        flex={1}
-        className={classes.parent}
+        bgcolor="#fff"
         display="flex"
-        justifyContent="center"
-        maxWidth="1180px"
-        width="100%"
+        flexDirection="column"
+        alignItems="center"
+        minHeight="100vh"
+        className={classes.outer}
       >
+        <Header headerComponent={headerComponent} />
+        <Meta title={title} description={description} />
         <Box
-          className={classes.childLeft}
+          flex={1}
+          className={classes.parent}
           display="flex"
-          flexDirection="column"
+          justifyContent="center"
+          maxWidth="1180px"
+          width="100%"
         >
           <Box
-            component="main"
-            className={containerClassName ?? classes.container}
+            className={classes.childLeft}
+            display="flex"
+            flexDirection="column"
           >
-            {children}
+            <Box
+              component="main"
+              className={containerClassName ?? classes.container}
+            >
+              {children}
+            </Box>
+          </Box>
+          <Box className={classes.childRight}>
+            <Box className={classes.asidePad}></Box>
+            {treemapData && <Aside treemapData={treemapData} />}
           </Box>
         </Box>
-        <Box className={classes.childRight}>
-          <Box className={classes.asidePad}></Box>
-          {treemapData && <Aside treemapData={treemapData} />}
-        </Box>
+        <Footer />
       </Box>
-      <Footer />
-    </Box>
+    </>
   );
 };
 
