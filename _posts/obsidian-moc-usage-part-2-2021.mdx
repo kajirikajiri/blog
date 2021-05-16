@@ -18,13 +18,13 @@ tags: [obsidian]
 
 あ、書いてて思ったんですが、テキストや画像で分かりづらい場合は実際に[lyt-kit](https://publish.obsidian.md/lyt-kit/)を開いてみて、[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)や[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)を触ってみるとイメージがつかめると思います
 
-## Table of Contents
+<Toc />
 
 ## 全体の超端折った概要
 
-- MOCとMOCをlinkでつなぎます
-- MOCの中でタグを使い、MOCの中で分類します
-- 自分の場合こんな感じです。 Home MOC > Interests MOC > Programming MOC > YYYYMMDDHHmmss-JavaScript-debug(タグとして、 #programming/JavaScript #debug #console)
+<NotebookList head="概要" items={['MOCとMOCをリンクでつなぎます', 'MOCの中でタグを使い、MOCの中で分類します', '自分の場合。 Home MOC > Interests MOC > Programming MOC']} />
+
+<MyLink link="/obsidian-usage-2021#__h2_10__" text="リンクの使い方はこちら"/>
 
 ## Interests MOCの使い方
 
@@ -32,7 +32,8 @@ tags: [obsidian]
 
 ![Interests MOC](/assets/blog/obsidian-moc-usage-part-2-2021/interests-moc.png)
 
-このようにパット見すごくごちゃごちゃしていて、あまり見たく無かったのですが(え)、[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)をちゃんと見てみると[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)みたいになってます。どこらへんが[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)みたいかというと、下の方に[Commentary on an A-Z list of MOCs](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC#Commentary+on+an+A-Z+list+of+MOCs)という行があるんですが、その下のあたりが[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)のようになっています。
+このようにパット見すごくごちゃごちゃしていて、あまり見たく無かったのですが(え)、[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)をちゃんと見てみると[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)みたいになってます。  
+どこらへんが[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)みたいかというと、[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)の下の方に[Commentary on an A-Z list of MOCs](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC#Commentary+on+an+A-Z+list+of+MOCs)という行があるんですが、その下のあたりが[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)のようになっています。
 
 Commentary on an A-Z list of MOCs | Home MOC
 ---- | ---- 
@@ -46,23 +47,24 @@ Commentary on an A-Z list of MOCs | Home MOC
 
 テキストや画像で分かりづらい場合は実際に[lyt-kit](https://publish.obsidian.md/lyt-kit/)を開いてみて、[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)や[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)を触ってみるとイメージがつかめると思います
 
+<NotebookList head="小まとめ" items={['Interests MOCはHome MOCをいくつかまとめたグループのようになっている']} />
+
 ## MOCの中でのMOCの使い方
 
-[上段で説明したように](/obsidian-moc-usage-part-2-2021#interests-moc%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9)[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)は[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)のグループのようになっています。
-
-[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome) > [Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC) > MOCのまとまり で階層になるイメージでつないでいきます。
+[上段で説明したように](/obsidian-moc-usage-part-2-2021#interests-moc%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9)[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)は[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)のグループのようになっています。  
+それをさらにつなげて、[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome) > [Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC) > MOCのまとまり で階層になるイメージでつないでいきます。
 
 **実際に[lyt-kit](https://publish.obsidian.md/lyt-kit)では[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome) > [Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC) > [Language MOC](https://publish.obsidian.md/lyt-kit/Umami/Language+MOC) > English Language MOC というように何層にもつながっています**
+
+<NotebookList head="小まとめ" items={['lyt-kitではMOCを何層にもつなげている']} />
 
 テキストや画像で分かりづらい場合は実際に[lyt-kit](https://publish.obsidian.md/lyt-kit/)を開いてみて、[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)や[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)を触ってみるとイメージがつかめると思います
 
 ### MOCの上段にリンク[^1]を設置する
 
-[^1]: [リンクの設置方法はこちら](/obsidian-usage-2021#%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%86)
+<MyLink link="/obsidian-usage-2021#__h2_10__" text="リンクの使い方はこちら"/>
 
-**リンクの設置は最初はわかりづらいと思うので[こちら](/obsidian-usage-2021#%E3%83%AA%E3%83%B3%E3%82%AF%E3%82%92%E4%BD%BF%E3%81%86)を参照してください。**
-
-ここがポイントですが、[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)の一番上の行に[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)へのリンク[^2]があります
+ここがポイントですが、[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)の一番上の行に[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)へのリンク[^2]があります。  
 他にも、[Language MOC](https://publish.obsidian.md/lyt-kit/Umami/Language+MOC)の上には[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)へのリンクがあります。
 
 [^2]: +Homeってやつです
@@ -75,37 +77,29 @@ Interests MOC | Language MOC
 
 ![toggle moc](/assets/blog/obsidian-moc-usage-part-2-2021/home-toggle-interests.png)
 
+<NotebookList head="小まとめ" items={['MOCの最初の行には親になるMOCのリンクを書く']} />
+
 テキストや画像で分かりづらい場合は実際に[lyt-kit](https://publish.obsidian.md/lyt-kit/)を開いてみて、[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)や[Interests MOC](https://publish.obsidian.md/lyt-kit/Umami/Interests+MOC)を触ってみるとイメージがつかめると思います
 
 ## MOCとタグを一緒に使う
 
-ここまでで、MOCのつなぎ方がわかっていればいいな
-ということで、つぎはタグを使います。
-
+ここまでで、MOCのつなぎ方がわかっていればいいな,,,ということで、つぎはタグを使います。  
 [lyt-kit](https://publish.obsidian.md/lyt-kit)では[Writings MOC](https://publish.obsidian.md/lyt-kit/Umami/Writings+MOC)がわかりやすいと思います。
 
 ![writings moc](/assets/blog/obsidian-moc-usage-part-2-2021/writings-moc.png)
 
 ### タグを/で区切る
 
-タグが`/`で区切られています。このようにして、分類していきます。
-これObsidianの仕様だと思いますが、ObsidianのTag検索で例えばmoneyタグが存在するノートを探そうとして、`tag:#mone`と検索しても出てきません。`tag:#money`と入力した時に、moneyタグのノートが見つかります。ただ、`tag:#money`を入力した場合、moneyタグとmoney/accountタグのように、`/`で区切ったものも見つかります。まとめると
+上記のように[lyt-kit](https://publish.obsidian.md/lyt-kit)を見ると、タグが`/`で区切られています。  
+こうするといいことがあって、`tag:#money`で検索すると、`#money/`につながるものがすべて見つかります。
 
-🔍 `tag:#moneyで検索`
-💡️ みつかる
-- `#money`
-- `#money/account`
-- `#money/investment`
-- `#money/virtualCurrency`
-- `#money/virtualCurrency/bitcoin`
-✖ みつからない
-- `#mone`
+<NotebookList head="tag:#moneyで検索してみつかる" items={['#money', '#money/account', '#money/virtualCurrency', '#money/virtualCurrency/bitcoin']} />
 
-このようになっていて、`/`で区切ったものは見つかるようです。
+しかし、`tag:#mone`と検索しても`#money`はみつかりません。
 
-たぶんこの仕様はどこかに書いてあるんだと思いますが見つけれていません。
+<NotebookList head="みつからない" items={['#mone']} />
 
-ですが、上記のようになっているので`/`でタグを区切るというのはいい作戦です。
+`/`でタグを区切るというのはいい作戦です。  
 入力補完で見つける事ができますし、検索でもmoneyからmoney/accountが見つけられるので便利です。
 
 ## 実際にどういうMOCの使い方になるの？
@@ -119,30 +113,24 @@ lyt-kit | 自分
 ディレクトリはこのようになっています。
 また、[lyt-kit](https://publish.obsidian.md/lyt-kit)は実際に触ってみるとわかりやすいです。
 
-lyt-kitは
-Sourcesに画像や音声、資料をまとめています
-Timestampsはタイムスタンプ付きのファイル
-Umamiはいろんな味が合わさった旨味。。いろんな情報が混ざった場所みたいな感じらしいです。
-+Homeが[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)ですね
+lyt-kitはSourcesに画像や音声、資料をまとめています。  
+Timestampsはタイムスタンプ付きのファイル。  
+Umamiはいろんな味が合わさった旨味。。いろんな情報が混ざった場所みたいな感じらしいです。  
++Homeが[Home MOC](https://publish.obsidian.md/lyt-kit/%2BHome)ですね  
 
-自分のは
-Brainがlyt-kitのUmami(Umamiって言いたいことはわかるけどなんか違うねんっておもた)
-Templatesがpluginのためのtemplateファイル
+自分のはBrainがlyt-kitのUmamiです。(Umamiって言いたいことはわかるけど、なんか違うねんっておもたのでBrainにしました)  
+TemplatesがObsidianのpluginのためのtemplateファイルが入っています。  
 Workが会社名やプロジェクト名ごとにディレクトリわけされています。
 
 ### 自分のいつもの使い方
 
-1. Daily notes(ObsidianのCore plugins)のショートカットキー起動でファイル名にTimestampがついたファイルが生成されます。(ディレクトリは Brain > Timestamps > DailyNotes　にファイルが作成されます。)
-2. YYYYMMDDHHmmssが最初から入力されてるんで、後ろにjavascript-debugとかにゅうりょくして、YYYYMMDDHHmmss-javascript-debugとか作ります。
-3. ファイル入力状態になったら、一番上にMOCへのリンクを入力します(今回はProgrammingです)
-4. 一番下にはタグを書きます。(programming/javascript, debugのタグを追加します)
-5. 後は真ん中に console.log('kajiri')とか書いておきます。
+<NotebookList head="使い方" items={['Daily notes(ObsidianのCore plugins)のショートカットキー起動でファイル名にTimestampがついたファイルが生成されます。(ディレクトリは Brain > Timestamps > DailyNotes　にファイルが作成されます。)', 'YYYYMMDDHHmmssが最初から入力されてるんで、後ろにjavascript-debugを入力してファイル名を確定します。', 'ファイルの入力状態になったら、一番上にMOCへのリンクを入力します(今回はProgrammingです)', '一番下にはタグを書きます。(programming/javascript, debugのタグを追加します)', "後は真ん中にconsole.log('kajiri')とか書いておきます。"]} type="number" />
 
-以上でこんな感じになります
+以上でこうなります
 
 ![example input](/assets/blog/obsidian-moc-usage-part-2-2021/example-input.png)
 
-あとは、Programming MOCって何あったっけって思ったらProgramming MOCをクリックします
+他には、Programming MOCは、他に何があったっけ?思ったらProgramming MOCをクリックします
 
 ![programming moc](/assets/blog/obsidian-moc-usage-part-2-2021/programming-moc.png)
 
@@ -164,8 +152,8 @@ Workが会社名やプロジェクト名ごとにディレクトリわけされ�
 
 こちらの記事も参考になるかも知れません
 
-[１年使ってわかったObsidianの使い方](/obsidian-usage-2021)
-[Obsidian MOCの使い方 第１話](/obsidian-moc-usage-2021)
+<MyLink link="/obsidian-usage-2021" text="１年使ってわかったObsidianの使い方"/>
+<MyLink link="/obsidian-moc-usage-2021" text="Obsidian MOCの使い方 第１話"/>
 
 ## あとがき
 

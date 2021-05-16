@@ -135,8 +135,8 @@
 }
 
 .markdown-body a {
-  color: #0366d6;
-  text-decoration: none;
+  color: #000;
+  /* text-decoration: none; */
 }
 
 .markdown-body a:hover {
@@ -145,7 +145,7 @@
 
 .markdown-body strong {
   font-weight: 600;
-  background-image: -webkit-linear-gradient(top ,transparent 90%,#f39898 50%);
+  background-image: -webkit-linear-gradient(top ,transparent 60%,#00000040);
 }
 
 .markdown-body hr {
@@ -983,4 +983,15 @@
 .markdown-body .task-list-item input {
   margin: 0 .2em .25em -1.6em;
   vertical-align: middle;
+}
+
+.markdown-body h2 {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5em;
+}
+
+.markdown-body h3 {
+  border-left: #000 4px groove;
+  padding: 0.3em 0.5em;
 }
