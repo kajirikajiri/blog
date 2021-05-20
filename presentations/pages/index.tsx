@@ -132,6 +132,7 @@ export const getStaticProps = async () => {
     "obsidian-moc-usage-part-2-2021",
     "obsidian-moc-usage-2021",
     "obsidian-usage-2021",
+    "vscode-plugins-2021",
   ];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
