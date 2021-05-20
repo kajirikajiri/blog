@@ -96,15 +96,19 @@ export const getStaticProps = async () => {
       .initIndex("kajiri.dev")
       .clearObjects()
       .then(() => {
+        console.log("success 1");
         client
           .initIndex("kajiri.dev")
           .saveObjects(allPostsForAlgolia)
           .then(({ objectIDs }) => {
-            console.log(objectIDs);
+            console.log("success 2", objectIDs);
           })
           .catch((reason) => {
-            console.log(reason);
+            console.log("error 2", reason);
           });
+      })
+      .catch((reason) => {
+        console.log("error 1", reason);
       });
   }
 
@@ -128,6 +132,7 @@ export const getStaticProps = async () => {
     "obsidian-moc-usage-part-2-2021",
     "obsidian-moc-usage-2021",
     "obsidian-usage-2021",
+    "vscode-plugins-2021",
   ];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
