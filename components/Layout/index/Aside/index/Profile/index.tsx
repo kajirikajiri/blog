@@ -32,14 +32,12 @@ export const Profile = () => {
         marginTop={1}
       >
         <Box fontSize={20} paddingBottom={1}>
-          中村一貴/
           <span itemType="https://schema.org/Person" itemProp="name" itemScope>
             かじり
           </span>
+          /中村一貴
         </Box>
-        <Box>JavaScriptが得意です。</Box>
-        <Box>e2eもやります。</Box>
-        <Box>ひげはSnap Cameraによるものです。</Box>
+        <Box>チャレンジしていこう！</Box>
       </Box>
     </>
   );
