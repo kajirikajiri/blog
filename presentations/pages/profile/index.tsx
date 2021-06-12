@@ -2,72 +2,14 @@ import { CoverImage } from "@/components/CoverImage";
 import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { TreemapData } from "@/types/treemapData";
-import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { MyBreadcrumbs } from "../[slug]/MyBreadcrumbs";
-
-const width = 100;
-const pad = 4;
-const card = (width - pad) / 2;
 
 type Props = {
   treemapData: TreemapData;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    card: {
-      [theme.breakpoints.up("ss")]: {
-        paddingLeft: 0,
-        paddingRight: 0,
-        width: "100%",
-      },
-      [theme.breakpoints.up("s")]: {
-        paddingLeft: 0,
-        paddingRight: 0,
-        width: "100%",
-      },
-      [theme.breakpoints.up("t")]: {
-        width: `${card}%`,
-      },
-    },
-    pad: {
-      [theme.breakpoints.up("ss")]: {
-        width: "0%",
-      },
-      [theme.breakpoints.up("s")]: {
-        width: "0%",
-      },
-      [theme.breakpoints.up("t")]: {
-        width: `${pad}%`,
-      },
-    },
-  })
-);
-
 export const Profile = ({ treemapData }: Props) => {
-  const cards = [
-    {
-      src: "/logos/github.png",
-      title: "github",
-      href: "https://github.com/kajirikajiri",
-    },
-    {
-      src: "/logos/codesandbox.svg",
-      title: "codesandbox",
-      href: "https://codesandbox.io/u/kajirikajiri",
-    },
-    {
-      src: "/logos/qiita.png",
-      title: "qiita",
-      href: "https://qiita.com/kajirikajiri",
-    },
-    {
-      src: "/logos/twitter.svg",
-      title: "twitter",
-      href: "https://twitter.com/kajirikajiri",
-    },
-  ];
-  const classes = useStyles();
   return (
     <>
       <Layout
@@ -78,34 +20,62 @@ export const Profile = ({ treemapData }: Props) => {
       >
         <MyBreadcrumbs />
         <Box height={20}></Box>
-        <Box display="flex" width="100%" flexWrap="wrap" paddingX={0}>
-          {cards.map((c, i) => {
-            return (
-              <>
-                <Box
-                  className={classes.card}
-                  marginBottom={3}
-                  component={"a"}
-                  {...{ href: c.href }}
-                >
-                  <Box
-                    width="100%"
-                    height="300px"
-                    bgcolor="#fff"
-                    boxShadow={3}
-                    padding={2}
-                    borderRadius={10}
-                    component="h2"
-                    margin={0}
-                  >
-                    <CoverImage src={c.src} title={c.title} />
-                  </Box>
-                </Box>
-                {i % 2 === 0 && <Box className={classes.pad}></Box>}
-              </>
-            );
-          })}
+        <p>とつぜんですがここで２枚の画像をごらんください</p>
+        <Box height={"70vh"}></Box>
+        <Box display="flex">
+          <Box>
+            あふたー
+            <CoverImage
+              src={"/assets/profile/new_kajiri.png"}
+              title={"new_kajiri"}
+            />
+          </Box>
+          <Box>
+            びふぉー
+            <CoverImage
+              src={"/assets/profile/old_kajiri.png"}
+              title={"old_kajiri"}
+            />
+          </Box>
         </Box>
+        <Box component="p" style={{ fontWeight: "bold" }}>
+          これが都会の力です。。。
+        </Box>
+        <Box height={"30vh"}></Box>
+        <p>冗談はさておき。</p>
+        <p>みなさんこんにちは、かじりです。</p>
+        <p>
+          岩手にいたころは最寄りのコンビニが5km先にありました。東京はいいですね、５分ですよ。
+        </p>
+        <p>
+          まぁ、amazon大好きなんで、どこにいようがあまり生活は変わらないわけです。
+        </p>
+        <p>
+          amazonではアンクルウェイト買ってダイエットしてました。脚につけるおもりですね。はずしたらめちゃくちゃジャンプできるとか、ダッシュが早くなるみたいなことは一切ありませんでした。ダボダボなズボン買って移動のとき、会社に行く時常に装着してました。さすがに会社につけていくのはチャレンジングだったなとおもってます
+        </p>
+        <p>
+          チャレンジすることが好きで体をでかくしたい！
+          と思って、半年で78kgくらいから103kgくらいまで増量して体を壊しました。
+          <a href="/stretch-before-going-to-bed">こちら</a>
+          の記事にもすこし書いてます。学びとしては極端にやりすぎるのはよくないってことです。限界はあります！
+        </p>
+        <p>
+          副業にもチャレンジしました、あるときはコーディングテストでおちたりしたわけですが、gitのコミットをきれいに書く必要性を学べたり、普段と異なる環境ってのは刺激があってたのしいですね！
+          エンジニアの方は副業チャレンジしてもいいかもです。
+          <a href="/engineer-side-job-once-a-week">こっち</a>
+          でちらっと副業の探し方をかきました。アフィとかじゃなく、自分でエージェントを４社くらい使ったときの学びをまとめてます。よかったらどうぞ！
+        </p>
+        <p>
+          あと本が好きです！技術書やエンジニアの生き方みたいな本を読んでます。最近はマーケティングを勉強したくて本をかいました。いろいろ売りたいなと思って。というのも、開発は自分でできるようになったのですが、売り方がわかりません。amazonのアフィリエイトを３回くらい挑戦して３ヶ月の間に一度も購入されないから審査毎回落ちてます。chromeブラウザやvscodeで拡張機能を作成してみたのですがトータルダウンロードが20くらいです。本格的に売ろうと思ったわけではないですが、作っただけだと売れないわけです。最近読んだマーケ本はツイッターノミクスです。ウッフィー大事(信用みたいなもの)。弊社CEOにおすすめのマーケ本聴いて、「ジョブ理論」や「USJを劇的に変えた、たった１つの考え方」、自分で調べて「ハイパワー・マーケティング」を読みました。今はpholip
+          kotlerの「Marketing
+          Management」を読んでます。何となくわかってきたのでこのプロフィールページを書いてるわけです。このページ、最初は自分が登録してるgithubやcodesandboxのリンクを載せてるだけでしたが、よく見られるページなのでもう少し力を入れようと思ったわけです。
+        </p>
+        <p>
+          次にやりたいこととして、世間の流れ的にノーコードでサンプル作成が流行ってきてるのを感じているので手を出しておこうと思ってます。あくまでサンプル作成くらいのものしか今は作れないだろうと勝手に思ってますが、そのうち見た目の部分は大部分がノーコード、部分的にコーディングになりそうだなとは思ってます。それでいくとデータベースの定義とかは会社ごとに違ってノーコード無理そうだなって思ってるのでそっちにシフトするのもありかな、思ってます。
+        </p>
+        <p>
+          これからもチャレンジングに生きていきます！チャレンジしないのがリスク！
+        </p>
       </Layout>
     </>
   );
