@@ -60,7 +60,7 @@ export const CategoryPage = ({ treemapData, allPosts }: Props) => {
       <Box>
         <MyBreadcrumbs />
         <Box height={10}></Box>
-        <H2Header word="カテゴリ" />
+        <H2Header word="カテゴリ" h2Style={{ marginBottom: 0 }} />
         <Box className={classes.categoryOuter}>
           <Category treemapData={treemapData} />
         </Box>
