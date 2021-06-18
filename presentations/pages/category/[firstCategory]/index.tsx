@@ -33,9 +33,12 @@ export const FirstCategory = ({
       </Head>
       <MyBreadcrumbs showCategory />
       <Box height={10}></Box>
-      <H2Header word="カテゴリ" />
+      <H2Header word="カテゴリ" h2Style={{ marginBottom: 0 }} />
       <Box height={300} className={classes.categoryOuter}>
-        <Category treemapData={categorizedTreemapData} />
+        <Category
+          showFirstCategory={false}
+          treemapData={categorizedTreemapData}
+        />
       </Box>
       <Box height={40}></Box>
       <Posts posts={categorizedPosts} />
