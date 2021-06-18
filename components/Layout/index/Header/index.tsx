@@ -1,11 +1,13 @@
 import { Box } from "@material-ui/core";
 import { ElementType } from "react";
+import { useRouter } from "next/router";
 
 type Props = {
   headerComponent?: ElementType;
 };
 
 export const Header = ({ headerComponent }: Props) => {
+  const router = useRouter();
   return (
     <header
       style={{
@@ -15,11 +17,13 @@ export const Header = ({ headerComponent }: Props) => {
         marginBottom: 10,
       }}
     >
-      <a
-        style={{ position: "absolute", height: "100%", width: "100%" }}
-        href="/"
-        aria-label="home"
-      ></a>
+      {router.pathname !== "/" && (
+        <a
+          style={{ position: "absolute", height: "100%", width: "100%" }}
+          href="/"
+          aria-label="home"
+        ></a>
+      )}
       <Box
         fontFamily="DotGothic16"
         width="100%"
