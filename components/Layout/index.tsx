@@ -1,4 +1,3 @@
-import { TreemapData } from "@/types/treemapData";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { ElementType } from "react";
 import { Aside } from "./index/Aside";
@@ -79,7 +78,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type Props = {
-  treemapData?: TreemapData;
   preview?: boolean;
   children: React.ReactNode;
   containerClassName?: string;
@@ -90,7 +88,6 @@ type Props = {
 
 const Layout = ({
   children,
-  treemapData,
   containerClassName,
   headerComponent,
   title,
@@ -131,7 +128,7 @@ const Layout = ({
           </Box>
           <Box className={classes.childRight}>
             <Box className={classes.asidePad}></Box>
-            {treemapData && <Aside treemapData={treemapData} />}
+            <Aside />
           </Box>
         </Box>
         <Footer />

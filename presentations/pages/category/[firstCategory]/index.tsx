@@ -13,13 +13,11 @@ import { useCategoryOuterStyles } from "../useCategoryOuterStyles";
 type Props = {
   categorizedPosts: PostType[];
   categorizedTreemapData: TreemapData;
-  treemapData: TreemapData;
   firstCategory: string;
 };
 
 export const FirstCategory = ({
   categorizedTreemapData,
-  treemapData,
   categorizedPosts,
   firstCategory,
 }: Props) => {
@@ -28,7 +26,6 @@ export const FirstCategory = ({
     <Layout
       title={`カテゴリ一覧 > ${firstCategory} | かじりブログ`}
       headerComponent={"h1"}
-      treemapData={treemapData}
       description={`${firstCategory}カテゴリに投稿された記事の一覧です。A statically generated blog using Next.js by かじり.`}
     >
       <Head>
