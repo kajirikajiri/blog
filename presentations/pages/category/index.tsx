@@ -53,14 +53,14 @@ type Props = {
 export const CategoryPage = ({ treemapData, allPosts }: Props) => {
   const classes = { ...useStyles(), ...useCategoryOuterStyles() };
   return (
-    <Layout treemapData={treemapData} title={`カテゴリ一覧 | かじりブログ`}>
+    <Layout title={`カテゴリ一覧 | かじりブログ`}>
       <Head>
         <meta property="og:image" content="/ogp/1200x630.png" />
       </Head>
       <Box>
         <MyBreadcrumbs />
         <Box height={10}></Box>
-        <H2Header word="カテゴリ" />
+        <H2Header word="カテゴリ" h2Style={{ marginBottom: 0 }} />
         <Box className={classes.categoryOuter}>
           <Category treemapData={treemapData} />
         </Box>
