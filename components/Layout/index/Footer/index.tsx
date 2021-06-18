@@ -19,8 +19,10 @@ import {
   MusicNote,
 } from "@material-ui/icons";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export const Footer = () => {
+  const router = useRouter();
   const useStyles = makeStyles(() =>
     createStyles({
       animatedItem: {
@@ -157,14 +159,16 @@ export const Footer = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Box
-            width="100%"
-            height="100%"
-            position="absolute"
-            component="a"
-            {...{ href: "/" }}
-            aria-label="home"
-          ></Box>
+          {router.pathname !== "/" && (
+            <Box
+              width="100%"
+              height="100%"
+              position="absolute"
+              component="a"
+              {...{ href: "/" }}
+              aria-label="home"
+            ></Box>
+          )}
           <HomeOutlined />
         </Box>
         <Box color={grey[800]}>©{new Date().getFullYear()} kajiri.dev</Box>

@@ -6,13 +6,11 @@ import {
   getTreemapData,
 } from "@/lib/api";
 import { PostType } from "@/types/post";
-import { TreemapData } from "@/types/treemapData";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { Left1Right3Layout } from "./index/Left1Right3Layout";
 import algoliasearch from "algoliasearch";
 
 type Props = {
-  treemapData: TreemapData;
   editorCategoryPosts: PostType[];
   blogCategoryPosts: PostType[];
   healthCategoryPosts: PostType[];
@@ -37,7 +35,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Index = ({
   editorCategoryPosts,
-  treemapData,
   healthCategoryPosts,
   blogCategoryPosts,
   sideworkCategoryPosts,
@@ -46,7 +43,6 @@ export const Index = ({
   return (
     <>
       <Layout
-        treemapData={treemapData}
         headerComponent={"h1"}
         description={`どうもかじりです🐔🥦エンジニアの'かじり'がObsidianやJamstack、健康についての記事を書いてます。A statically generated blog using Next.js by かじり.`}
       >

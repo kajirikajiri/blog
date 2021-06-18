@@ -6,7 +6,6 @@ import { getPostBySlug, getAllPosts, getTreemapData } from "@/lib/api";
 import { PostTitle } from "@/components/PostTitle";
 import Head from "next/head";
 import { PostType } from "@/types/post";
-import { TreemapData } from "@/types/treemapData";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
 import { MyBreadcrumbs } from "./MyBreadcrumbs";
 import mediumZoom from "medium-zoom";
@@ -39,16 +38,10 @@ type Props = {
   post: PostType;
   morePosts: PostType[];
   preview?: boolean;
-  treemapData: TreemapData;
   readingTimeText: string;
 };
 
-export const Slug = ({
-  post,
-  preview,
-  treemapData,
-  readingTimeText,
-}: Props) => {
+export const Slug = ({ post, preview, readingTimeText }: Props) => {
   const components = {
     Box: (props: any) => <Box {...props} />,
     NotebookList: (props: any) => <NotebookList {...props} />,
@@ -68,7 +61,6 @@ export const Slug = ({
     <Layout
       containerClassName={classes.container}
       preview={preview}
-      treemapData={treemapData}
       title={`${post.title} | かじりブログ`}
       description={post.excerpt}
     >

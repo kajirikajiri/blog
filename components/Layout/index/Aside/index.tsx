@@ -1,23 +1,45 @@
-import { TreemapData } from "@/types/treemapData";
-import { Box } from "@material-ui/core";
-import { Category } from "../../../Category";
 import { Profile } from "./index/Profile";
+import { Box } from "@material-ui/core";
+import { ChevronRight } from "@material-ui/icons";
+import { useRouter } from "next/router";
 
-type Props = {
-  treemapData: TreemapData;
-};
+export const Aside = () => {
+  const router = useRouter();
 
-export const Aside = ({ treemapData }: Props) => {
+  // what filter
+  // if '/category/foo'.split('/')
+  // splitted ['', 'category', 'foo']
+  // filtered ['category', 'foo']
+  const pathNames = router.pathname.split("/").filter((str) => str !== "");
+
   return (
     <aside>
       {/* <Box height={300} bgcolor="pink" marginBottom={"42px"}>
         広告
       </Box> */}
-      <Profile />
+      {pathNames[0] !== "profile" && <Profile />}
       <Box height={80}> </Box>
-      <Box width="100%" height="600px">
-        <Category treemapData={treemapData} />
-      </Box>
+      {pathNames[0] !== "category" && (
+        <Box
+          width="100%"
+          borderColor="#000"
+          border="1px solid"
+          color="#000"
+          height={40}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          position="relative"
+        >
+          <a
+            href={"/category"}
+            color="inherit"
+            style={{ position: "absolute", width: "100%", height: "100%" }}
+          ></a>
+          カテゴリ一覧
+          <ChevronRight fontSize="small" />
+        </Box>
+      )}
       {/* <Box height={10} bgcolor="pink" marginBottom={"45px"}>
         TOC
       </Box> */}

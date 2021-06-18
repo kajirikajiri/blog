@@ -3,7 +3,6 @@ import Head from "next/head";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { MyBreadcrumbs } from "@/presentations/pages/[slug]/MyBreadcrumbs";
 import { PostType } from "@/types/post";
-import { TreemapData } from "@/types/treemapData";
 import { createStyles, makeStyles } from "@material-ui/core";
 import { Posts } from "../../Posts";
 
@@ -17,13 +16,11 @@ const useStyles = makeStyles(() =>
 
 type Props = {
   categorizedPosts: PostType[];
-  treemapData: TreemapData;
   firstCategory: string;
   secondCategory: string;
 };
 
 export const SecondCategory = ({
-  treemapData,
   categorizedPosts,
   firstCategory,
   secondCategory,
@@ -33,7 +30,6 @@ export const SecondCategory = ({
     <Layout
       containerClassName={classes.container}
       headerComponent={"h1"}
-      treemapData={treemapData}
       title={`カテゴリ一覧 > ${firstCategory} > ${secondCategory} | かじりブログ`}
       description={`${firstCategory}カテゴリ > ${secondCategory}カテゴリに投稿された記事の一覧です。A statically generated blog using Next.js by かじり.`}
     >
