@@ -1,19 +1,13 @@
 import { CoverImage } from "@/components/CoverImage";
 import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
-import { TreemapData } from "@/types/treemapData";
 import { Box } from "@material-ui/core";
 import { MyBreadcrumbs } from "../[slug]/MyBreadcrumbs";
 
-type Props = {
-  treemapData: TreemapData;
-};
-
-export const Profile = ({ treemapData }: Props) => {
+export const Profile = () => {
   return (
     <>
       <Layout
-        treemapData={treemapData}
         headerComponent={"h1"}
         title="プロフィール | かじりブログ"
         description={`かじりのプロフィールページです。A statically generated blog using Next.js by かじり.`}
