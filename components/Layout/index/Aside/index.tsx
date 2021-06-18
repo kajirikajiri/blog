@@ -1,5 +1,5 @@
 import { Profile } from "./index/Profile";
-import { Box, Link } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { ChevronRight } from "@material-ui/icons";
 import { useRouter } from "next/router";
 
@@ -17,21 +17,26 @@ export const Aside = () => {
       {/* <Box height={300} bgcolor="pink" marginBottom={"42px"}>
         広告
       </Box> */}
-      <Profile />
+      {pathNames[0] !== "profile" && <Profile />}
       <Box height={80}> </Box>
       {pathNames[0] !== "category" && (
         <Box
           width="100%"
-          bgcolor="#000"
-          color="#fff"
+          borderColor="#000"
+          border="1px solid"
+          color="#000"
           height={40}
           display="flex"
           justifyContent="center"
           alignItems="center"
+          position="relative"
         >
-          <Link href={"/category"} color="inherit">
-            カテゴリ一覧
-          </Link>
+          <a
+            href={"/category"}
+            color="inherit"
+            style={{ position: "absolute", width: "100%", height: "100%" }}
+          ></a>
+          カテゴリ一覧
           <ChevronRight fontSize="small" />
         </Box>
       )}
