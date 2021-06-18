@@ -286,24 +286,6 @@ function drawChart(
   // }); // e.parent.dataに親要素の名前入ってる
 
   // Add title for the 3 groups
-  svg
-    .append("a")
-    .attr("xlink:href", function (_) {
-      return `/category`;
-    }) // <-- reading the new "url" property
-    .attr("aria-label", function () {
-      return "カテゴリ一覧";
-    })
-    .append("text")
-    .style("cursor", "pointer")
-    .attr("id", "category-text")
-    .attr("x", "50%")
-    .attr("y", 24) // +20 to adjust position (lower)
-    .text("カテゴリ一覧↗")
-    .attr("text-anchor", "middle")
-    .attr("font-family", "DotGothic 16")
-    .attr("font-size", "22px")
-    .attr("fill", "#000");
   // .on("click", function (_) {
   //   location.href = `/category`;
   // }); // e.parent.dataに親要素の名前入ってる

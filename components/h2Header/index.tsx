@@ -1,10 +1,12 @@
 import { Box } from "@material-ui/core";
+import { CSSProperties } from "react";
 
 type Props = {
   word: string;
+  h2Style?: CSSProperties;
 };
 
-export const H2Header = ({ word }: Props) => {
+export const H2Header = ({ word, h2Style }: Props) => {
   return (
     <Box width="100%">
       <Box
@@ -15,7 +17,7 @@ export const H2Header = ({ word }: Props) => {
         alignItems="center"
         paddingLeft={2}
         color="#fff"
-        style={{ marginBlockStart: 0 }}
+        style={{ marginBlockStart: 0, ...h2Style }}
       >
         {word}
       </Box>
