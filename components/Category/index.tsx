@@ -6,7 +6,8 @@ import React from "react";
 
 function drawChart(
   svgRef: React.RefObject<SVGSVGElement>,
-  treemapData: TreemapData
+  treemapData: TreemapData,
+  showFirstCategory: boolean
 ) {
   // const data=treemapData
   const data = treemapData as any;
@@ -177,13 +178,13 @@ function drawChart(
       return d.x0;
     })
     .attr("y", function (d: any) {
-      return d.y0;
+      return d.y0 - 30;
     })
     .attr("width", function (d: any) {
       return d.x1 - d.x0;
     })
     .attr("height", function (d: any) {
-      return d.y1 - d.y0;
+      return d.y1 - d.y0 + 10;
     })
     .style("cursor", "pointer")
     .style("stroke", "black")
@@ -211,7 +212,7 @@ function drawChart(
       return d.x0 + 5;
     }) // +10 to adjust position (more right)
     .attr("y", function (d: any) {
-      return d.y0 + 20;
+      return d.y0 - 13;
     }) // +20 to adjust position (lower)
     .text(function (d: any) {
       return d.data.name + "↗";
@@ -234,7 +235,7 @@ function drawChart(
       return d.x0 + 5;
     }) // +10 to adjust position (more right)
     .attr("y", function (d: any) {
-      return d.y0 + 35;
+      return d.y0;
     }) // +20 to adjust position (lower)
     .text(function (d: any) {
       return d.data.value;
@@ -248,39 +249,41 @@ function drawChart(
   // clickでページ移動。hrefと一緒の場所
 
   // Add title for the 3 groups
-  svg
-    .selectAll("titles")
-    .data(
-      root.descendants().filter(function (d: any) {
-        return d.depth == 1;
+  showFirstCategory &&
+    svg
+      .selectAll("titles")
+      .data(
+        root.descendants().filter(function (d: any) {
+          return d.depth == 1;
+        })
+      )
+      .enter()
+      .append("a")
+      .attr("xlink:href", function (d: any) {
+        return `/category/${d.data.name}`;
+      }) // <-- reading the new "url" property
+      .attr("aria-label", function (d: any) {
+        return d.data.name;
       })
-    )
-    .enter()
-    .append("a")
-    .attr("xlink:href", function (d: any) {
-      return `/category/${d.data.name}`;
-    }) // <-- reading the new "url" property
-    .attr("aria-label", function (d: any) {
-      return d.data.name;
-    })
-    .append("text")
-    .style("cursor", "pointer")
-    .attr("x", function (d: any) {
-      return d.x0;
-    })
-    .attr("y", function (d: any) {
-      return d.y0 + 25;
-    })
-    // .attr("xlink:href", function (d: any) {
-    //   return `/category/${d.data.name}`;
-    // })
-    .text(function (d: any) {
-      return d.data.name + "↗";
-    })
-    .attr("font-size", "20px") // 18px だとlighthouseに怒られた
-    .attr("fill", function () {
-      return "#000";
-    });
+      .append("text")
+      .style("cursor", "pointer")
+      .attr("x", function (d: any) {
+        return d.x0;
+      })
+      .attr("y", function (d: any) {
+        return d.y0;
+      })
+      // .attr("xlink:href", function (d: any) {
+      //   return `/category/${d.data.name}`;
+      // })
+      .text(function (d: any) {
+        return d.data.name + "↗";
+      })
+      .attr("font-size", "14px") // 18px だとlighthouseに怒られた
+      .attr("font-weight", "bold") // 18px だとlighthouseに怒られた
+      .attr("fill", function () {
+        return "#000";
+      });
   // .on("click", function (_, d) {
   //   location.href = `/category/${d.data.name}`;
   // }); // e.parent.dataに親要素の名前入ってる
@@ -401,13 +404,14 @@ function drawChart(
 
 type Props = {
   treemapData: TreemapData;
+  showFirstCategory?: boolean;
 };
 
-export const Category = ({ treemapData }: Props) => {
+export const Category = ({ treemapData, showFirstCategory = true }: Props) => {
   const svg = React.useRef<SVGSVGElement>(null);
 
   React.useEffect(() => {
-    drawChart(svg, treemapData);
+    drawChart(svg, treemapData, showFirstCategory);
   }, [svg]);
 
   return <svg width="100%" height="100%" ref={svg} />;
