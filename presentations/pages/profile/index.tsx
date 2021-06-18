@@ -1,7 +1,7 @@
 import { CoverImage } from "@/components/CoverImage";
 import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
-import { Box } from "@material-ui/core";
+import { Box, Link } from "@material-ui/core";
 import { MyBreadcrumbs } from "../[slug]/MyBreadcrumbs";
 
 export const Profile = () => {
@@ -50,13 +50,17 @@ export const Profile = () => {
         <p>
           チャレンジすることが好きで体をでかくしたい！
           と思って、半年で78kgくらいから103kgくらいまで増量して体を壊しました。
-          <a href="/stretch-before-going-to-bed">こちら</a>
+          <Link color="inherit" href="/stretch-before-going-to-bed">
+            こちら
+          </Link>
           の記事にもすこし書いてます。学びとしては極端にやりすぎるのはよくないってことです。限界はあります！
         </p>
         <p>
           副業にもチャレンジしました、あるときはコーディングテストでおちたりしたわけですが、gitのコミットをきれいに書く必要性を学べたり、普段と異なる環境ってのは刺激があってたのしいですね！
           エンジニアの方は副業チャレンジしてもいいかもです。
-          <a href="/engineer-side-job-once-a-week">こっち</a>
+          <Link color="inherit" href="/engineer-side-job-once-a-week">
+            こっち
+          </Link>
           でちらっと副業の探し方をかきました。アフィとかじゃなく、自分でエージェントを４社くらい使ったときの学びをまとめてます。よかったらどうぞ！
         </p>
         <p>
