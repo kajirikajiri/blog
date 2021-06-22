@@ -1,0 +1,179 @@
+---
+title: "プログラミングがわからないとき"
+excerpt: "みなさんこんにちは、かじりです。今回はわからない時にどうするかです。自分は工場勤務からプログラマに転職したので、同じようなところで詰まっている人がいるのではないか？と思ってこの記事を書いてみました。あの時こうしていればよかったな、と言うような自分の反省とかも含まれています。参考になればいいな"
+coverImage: "/assets/blog/when-you-dont-know-how-to-program/cover.png"
+date: "2021-06-22 23:56:24"
+author:
+  name: かじり
+  picture: "/me.png"
+ogImage:
+  url: "/ogp/1200x630.png"
+category:
+  first: programming
+  second: howto
+tags: [programming, howto, beginner]
+---
+
+みなさんこんにちは、かじりです。今回はプログラミングでわからない時の対処法です。読者としては転職しようとした初心者プログラマを想定しています。自分は工場勤務から転職してエンジニアになったので、最初の頃はほんとにわかりませんでした。そう言う時の対処法を書きたいと思います。いろんなわからないがあると思うので全パターンは書けないと思います。このパターンどうすればいいんだ？？って時は[自分のtwitter](https://twitter.com/kajirikajiri)で聞いてもらえればお答えできるかもしれません。
+
+<Toc />
+
+## とりあえずログを出す
+なんの言語でもまず、ログを出力しましょう
+
+JavaScriptなら「console.log()」、laravelなら「echo」とか「var_dump」とか。
+
+ログをみないで想像してる場所は想像です。自分は今でも、想像していた結果とログが違うことが毎日、何回もあります。とにかくログに出しましょう。
+
+## 配列とかオブジェクトとか関数とかメソッドとかClassとかthisとかinstanceとかcallbackとかpromiseが難しい
+最初のうちは意味がわからなかった言葉を並べました。こういうものは動かしましょう。自分はこんな感じでやってました。  
+
+https://github.com/kajirikajiri/callback-promise-async  
+https://github.com/kajirikajiri/test-promise  
+https://github.com/kajirikajiri/write-javascript-function  
+https://github.com/kajirikajiri/JavaScript-Callback  
+
+環境作るのが面倒であれば Play Ground でやりましょう。
+
+「自分の使ってる言語 playground」 でググれば出てくるはずです。
+
+golang playground, ruby playground, javascript playground, typescript plyaground, laravel playground みたいな感じです。
+
+で、とにかく思いつく限りいろんなパターンを実行します。
+
+もしJavaScriptで配列とか連想配列、オブジェクトがわからない時はこんな感じです。
+
+```javascript
+// 配列
+const a = [1, 2, 3];
+
+console.log(a[0]);
+console.log(a[1]);
+
+// 連想配列
+const b = [[0, 1], 2]
+
+console.log(b[0][0]);
+console.log(b[1]);
+
+// オブジェクト
+const c = {a: 1, b: 2, '2': 3}
+console.log(c['a'], c['b'], c.a, c.b, c['2'])
+```
+
+laravel
+
+```php
+$a = array('a' => 1, 2, 1 => 3);
+
+echo $a['a'];
+echo $a[1];
+```
+
+async, awaitの理解だけだと限界を感じてPromiseを勉強した時のコードが以下です。githubは[こちら](https://github.com/kajirikajiri/callback-promise-async/blob/master/promise.ts)
+
+```javascript
+import { rejects } from 'assert'
+import {promisify} from 'util'
+
+const promise1 = (b:boolean) =>{
+  return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      if (b) {
+        resolve('ok')
+      } else {
+        reject('ng')
+      }
+    }, 2000)
+  })
+}
+
+// https://ja.javascript.info/promise-chaining#ref-220
+// thenハンドラは通常、返り値を直ちに次のハンドラにわたします
+// しかし、promiseを受け取った場合にはpromiseの処理を待ちます
+
+promise1(true).then(out => {
+  console.log(out)
+  console.log('then')
+  // プロミスを返しているわけではないので次の処理に飛ぶ
+  setTimeout(()=>{
+    // 四秒後にconsoleが表示される
+    console.log(2)
+  }, 4000)
+}).catch(err => {
+  // rejectされないのでcatchに入らない
+  console.log(err)
+}).then(()=> {
+  // プロミスなので２秒後に結果が返る
+  return promise1(false)
+}).then(ou=>{
+  // rejectされるのでthenに入らない
+  console.log(ou)
+}).catch(err=> {
+  // rejectされたのでコンソール
+  console.log(err)
+})
+```
+
+こんな感じで「何がわからないかわかっていれば」とにかく動かして納得できるまでやってみましょう。  
+途中で詰まったら、とりあえずネットから動くものをコピペしてきてそれを元に色々動かしましょう。これできっと大丈夫!
+
+## いろんな書き方がよくわからない
+
+例えばこれ初めてみた時は意味がわかりませんでした。この点々なに？って言う。
+
+```javascript
+...[]
+```
+
+こう言う時は色々な言葉でググってみましょう。
+
+- javascript dot dot dot
+- javascript てんてんてん
+
+こんな感じです。これでスプレッド構文とか出てくると思うので、今度は「スプレッド構文 使い方」とかでググりましょう。
+
+ただ、これでも出てこないことがあります。その時はスタイルガイドを参照してみましょう。
+
+golang style guide, ruby style guide, javascript style guide, typescript plyaground, laravel style guide みたいな感じです。
+
+JavaScriptだとこんなのがありました。  
+https://github.com/airbnb/javascript
+
+laravelだとこんなのが  
+https://github.com/spatie/guidelines.spatie.be/blob/master/content/code-style/laravel-php.md
+
+style guideは、こんな時どう書けばいいのか？を表してくれています。なので、レアなケースも色々書いてあり、大体の構文は記載されてあるはずです。そのページを全文検索しましょう。chromeなら「command + f」 または 「ctrl + f」ですね。これで検索して見つからない構文は、まぁないはずです。
+
+## わからないものがわからない
+始めたばかりだとよくあります。自分も最初の頃はよく粘ってました。１週間〜長くて１ヶ月くらいは一つの問題で悩んで結局「わかんないな」ってなって諦めたりもしました。この前Twitterで１週間くらい詰まっている方がいたのでちょっとみてきたのですが、最初のうちは難しいだろうなっていう問題でした[^1]。方法は色々あります。
+
+1. 諦める
+1. 頼る
+1. 粘る
+
+こんな感じだと思います。とりあえず諦めるには２種類あります。
+
+1. 完全に諦める
+1. この手法は諦めて別の選択肢を探る
+
+の２種類です。まずは別の手法を探してみましょう。しかし、最初のうちはこれが難しいです。自分の場合ですが、１つのサイトを参考にずっと悩んでいました。これはやめましょう。多分サイトの内容が古くなっているか、書いた人の記載漏れだと思って別のものを探しましょう。ググっているなら1番目の結果だけでなく、２番目３番目、５番目くらいまでみてみましょう。  
+これでダメな時はググり方が悪い可能性もあります。検索する言葉を変えましょう。日本語使ったり英語使ったり、検索ワードの順番を変えたり、検索する期間を変更したり、double quoteで完全一致検索しましょう。大体は見つかります。  
+
+google 検索は[こちらのhubspot](https://blog.hubspot.jp/update-how-to-search-in-google-x-advanced-google-search-tips-0-0)の記事が参考になりそうです
+
+あと最初の頃は見逃していたのですが、Googleで検索した結果に出てくるStackOverflowの検索結果は、一つの下に５個くらい類似の記事が紐づいています。これらは割と正解なので、開いてみましょう。  
+
+英語わかんないってなったら[DeepL](https://www.deepl.com/translator)を使いましょう。
+
+完全に諦めるについてですが、業務じゃなければとりあえずありです。業務だと、これが必要なんだ！っていう場合があり、そう言う場合は逃げられません、そこでググり力というか検索力が上がります。業務じゃなければ、まあいつかその問題にぶつかるので、その時にがんばりましょう！今はできるだけやったんだと思いましょう。　　
+
+頼るですが、「[MENTA](https://menta.work/)」とか色々あると思うので使ってみましょう。知っている人なら本当に一瞬で解決してくれると思います。自分は心理的ハードルが高かったのと存在をあまり知らなかったので使いませんでしたがお勧めします。ある程度プログラマ経験があるひとならその言語を知らなくても、話してるうちに解決してくれると思います。書いてて思いましたが、自分も新しいものを学ぶときは頼った方が早いかなって思えてきました。心理的ハードルが高い方は自分に[twitterでDM](https://twitter.com/kajirikajiri)いただいてもokです。質問して貰えば私の経験値にもなるんでむしろお願いします。
+
+粘るですが、上記で書いたように業務だと逃げられない可能性が高いです。そう言う状況だと思って粘ってみるのもありです。ただ、自分がやったような１つの問題に１ヶ月とかかけるのは間違ってると思うので、どこかで諦めるのがいいと思います。
+
+[^1]: Mysqlの接続先を指定する箇所を修正すれば良いという問題でした。サーバーサイド・バックエンドあたりの知識が必要な問題だったので、「問題箇所と問題内容の特定」・「対処法」がわからなければいけないです。laravelを使用したシステムでしたが、railsとかnodeとかでサーバーサイドを一度経験済みでないと難しいだろうなと思いました。gcpとかheroku、awsで無料でサーバーを起動して、フロントをローカルホストから接続。成功したらフロントもデプロイして接続（ここでcorsとかでつまるはず）してみて、成功したら消してを繰り返せばそのうち覚えられます。自分はそうやりました。が、自分はフロント側をメインでやっていたので辛かったです。特にfirewallに苦しめられました。
+
+## 最後に
+
+最初は本当に辛いと思います。そのうち、調べればなんとかなるようになってきます。そうなれば本当になんでもできるようになって楽しいです！その助けになればいいなぁ  
