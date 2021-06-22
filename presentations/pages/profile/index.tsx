@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { Box, Link } from "@material-ui/core";
 import { MyBreadcrumbs } from "../[slug]/MyBreadcrumbs";
+import { StarOutline } from "@material-ui/icons";
 
 export const Profile = () => {
   return (
@@ -52,6 +53,7 @@ export const Profile = () => {
           と思って、半年で78kgくらいから103kgくらいまで増量して体を壊しました。
           <Link color="inherit" href="/stretch-before-going-to-bed">
             こちら
+            <StarOutline fontSize="small" />
           </Link>
           の記事にもすこし書いてます。学びとしては極端にやりすぎるのはよくないってことです。限界はあります！
         </p>
@@ -60,6 +62,7 @@ export const Profile = () => {
           エンジニアの方は副業チャレンジしてもいいかもです。
           <Link color="inherit" href="/engineer-side-job-once-a-week">
             こっち
+            <StarOutline fontSize="small" />
           </Link>
           でちらっと副業の探し方をかきました。アフィとかじゃなく、自分でエージェントを４社くらい使ったときの学びをまとめてます。よかったらどうぞ！
         </p>
@@ -70,6 +73,14 @@ export const Profile = () => {
         </p>
         <p>
           次にやりたいこととして、世間の流れ的にノーコードでサンプル作成が流行ってきてるのを感じているので手を出しておこうと思ってます。あくまでサンプル作成くらいのものしか今は作れないだろうと勝手に思ってますが、そのうち見た目の部分は大部分がノーコード、部分的にコーディングになりそうだなとは思ってます。それでいくとデータベースの定義とかは会社ごとに違ってノーコード無理そうだなって思ってるのでそっちにシフトするのもありかな、思ってます。
+        </p>
+        <p>
+          もともと工場勤務から転職してプログラマになったので、その時にわかってたらよかったなって言うことをまとめて記事を書いたので
+          <Link color="inherit" href="/when-you-dont-know-how-to-program">
+            そちら
+            <StarOutline fontSize="small" />
+          </Link>
+          も見ていただけると嬉しいです！
         </p>
         <p>
           これからもチャレンジングに生きていきます！チャレンジしないのがリスク！
