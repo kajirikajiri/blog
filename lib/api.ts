@@ -38,39 +38,6 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   return items;
 }
 
-export function getAllPostsForAlgolia() {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) =>
-      getPostBySlug(slug, [
-        "title",
-        "date",
-        "slug",
-        "author",
-        "content",
-        "coverImage",
-        "excerpt",
-        "category",
-        "tags",
-      ])
-    )
-    .map((s: any) => {
-      return {
-        title: s.title,
-        date: s.date,
-        objectID: s.slug,
-        content: s.content,
-        excerpt: s.excerpt,
-        firstCategory: s.category.first,
-        secondCategory: s.category.second,
-        coverImage: s.coverImage,
-        tags: s.tags,
-        slug: s.slug,
-      };
-    });
-  return posts;
-}
-
 export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs();
   const posts = slugs
