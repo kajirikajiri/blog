@@ -6,8 +6,7 @@ import { Left1Right3Layout } from "./index/Left1Right3Layout";
 
 type Props = {
   editorCategoryPosts: PostType[];
-  healthCategoryPosts: PostType[];
-  sideworkCategoryPosts: PostType[];
+  programmingCategoryPosts: PostType[];
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -28,8 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Index = ({
   editorCategoryPosts,
-  healthCategoryPosts,
-  sideworkCategoryPosts,
+  programmingCategoryPosts,
 }: Props) => {
   const classes = useStyles();
   return (
@@ -45,15 +43,9 @@ export const Index = ({
         />
         <Box width="100%" className={classes.pad}></Box>
         <Left1Right3Layout
-          categoryLink={"/category/health/"}
-          category={"健康"}
-          orderPosts={healthCategoryPosts}
-        />
-        <Box width="100%" className={classes.pad}></Box>
-        <Left1Right3Layout
-          categoryLink={"/category/health/"}
-          category={"副業"}
-          orderPosts={sideworkCategoryPosts}
+          categoryLink={"/category/programming/"}
+          category={"プログラミング"}
+          orderPosts={programmingCategoryPosts}
         />
       </Layout>
     </>
@@ -85,20 +77,17 @@ export const getStaticProps = async () => {
   ];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
-  // health category
-  const healthCategorySlugs: Slugs = ["stretch-before-going-to-bed"];
-  const healthCategoryPosts = getOrderPosts(allPosts, healthCategorySlugs);
-
-  // sidework category
-  const sideworkCategorySlugs: Slugs = ["engineer-side-job-once-a-week"];
-  const sideworkCategoryPosts = getOrderPosts(allPosts, sideworkCategorySlugs);
+  // programming category
+  const programmingCategorySlugs: Slugs = ["when-you-dont-know-how-to-program"];
+  const programmingCategoryPosts = getOrderPosts(
+    allPosts,
+    programmingCategorySlugs
+  );
 
   // error handling // そのままreturnすると分かりづらいエラーが発生するため
-  const error = [
-    ...editorCategoryPosts,
-    ...healthCategoryPosts,
-    ...sideworkCategoryPosts,
-  ].some((p) => p === void 0);
+  const error = [...editorCategoryPosts, ...programmingCategoryPosts].some(
+    (p) => p === void 0
+  );
   if (error) {
     throw Error("存在しないファイル名をCategorySlugsに指定していませんか??");
   }
@@ -106,8 +95,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       editorCategoryPosts,
-      healthCategoryPosts,
-      sideworkCategoryPosts,
+      programmingCategoryPosts,
     },
   };
 };
