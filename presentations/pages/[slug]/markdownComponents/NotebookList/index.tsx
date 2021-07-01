@@ -57,6 +57,7 @@ export const NotebookList = ({ head, items, type = "ul" }: Props) => {
           {items.map((item, i) => {
             return (
               <Box
+                key={i}
                 component={"li"}
                 className={type === "ul" ? classes.li : classes.ol}
                 style={
