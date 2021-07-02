@@ -78,7 +78,10 @@ export const getStaticProps = async () => {
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
   // programming category
-  const programmingCategorySlugs: Slugs = ["when-you-dont-know-how-to-program"];
+  const programmingCategorySlugs: Slugs = [
+    "when-you-dont-know-how-to-program",
+    "googling-for-programming",
+  ];
   const programmingCategoryPosts = getOrderPosts(
     allPosts,
     programmingCategorySlugs
