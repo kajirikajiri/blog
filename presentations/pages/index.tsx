@@ -7,6 +7,7 @@ import { Left1Right3Layout } from "./index/Left1Right3Layout";
 type Props = {
   editorCategoryPosts: PostType[];
   programmingCategoryPosts: PostType[];
+  javascriptCategoryPosts: PostType[];
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Index = ({
   editorCategoryPosts,
   programmingCategoryPosts,
+  javascriptCategoryPosts,
 }: Props) => {
   const classes = useStyles();
   return (
@@ -46,6 +48,12 @@ export const Index = ({
           categoryLink={"/category/programming/"}
           category={"プログラミング"}
           orderPosts={programmingCategoryPosts}
+        />
+        <Box width="100%" className={classes.pad}></Box>
+        <Left1Right3Layout
+          categoryLink={"/category/javascript/"}
+          category={"JavaScript"}
+          orderPosts={javascriptCategoryPosts}
         />
       </Layout>
     </>
@@ -87,10 +95,22 @@ export const getStaticProps = async () => {
     programmingCategorySlugs
   );
 
-  // error handling // そのままreturnすると分かりづらいエラーが発生するため
-  const error = [...editorCategoryPosts, ...programmingCategoryPosts].some(
-    (p) => p === void 0
+  // programming category
+  const javascriptCategorySlugs: Slugs = [
+    "javascript-function",
+    "thinking-about-programmatically-input-data-using-e2e-as-a-reference",
+  ];
+  const javascriptCategoryPosts = getOrderPosts(
+    allPosts,
+    javascriptCategorySlugs
   );
+
+  // error handling // そのままreturnすると分かりづらいエラーが発生するため
+  const error = [
+    ...editorCategoryPosts,
+    ...programmingCategoryPosts,
+    ...javascriptCategoryPosts,
+  ].some((p) => p === void 0);
   if (error) {
     throw Error("存在しないファイル名をCategorySlugsに指定していませんか??");
   }
@@ -99,6 +119,7 @@ export const getStaticProps = async () => {
     props: {
       editorCategoryPosts,
       programmingCategoryPosts,
+      javascriptCategoryPosts,
     },
   };
 };
