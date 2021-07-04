@@ -75,6 +75,12 @@ export const Slug = ({ post, preview, readingTimeText }: Props) => {
           <article>
             <Head>
               <meta property="og:image" content={post.ogImage.url} />
+              <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/atom-one-dark.min.css"
+              />
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js" />
+              <script>hljs.initHighlightingOnLoad();</script>
             </Head>
             <PostHeader
               title={post.title}
