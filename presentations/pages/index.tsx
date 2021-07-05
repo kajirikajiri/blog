@@ -46,7 +46,7 @@ export const Index = ({
         <Box width="100%" className={classes.pad}></Box>
         <Left1Right3Layout
           categoryLink={"/category/programming/"}
-          category={"プログラミング"}
+          category={"Programming"}
           orderPosts={programmingCategoryPosts}
         />
         <Box width="100%" className={classes.pad}></Box>
@@ -97,6 +97,7 @@ export const getStaticProps = async () => {
 
   // programming category
   const javascriptCategorySlugs: Slugs = [
+    "javascript-promise",
     "javascript-function",
     "thinking-about-programmatically-input-data-using-e2e-as-a-reference",
   ];
