@@ -85,6 +85,10 @@ export const Profile = () => {
         <p>
           これからもチャレンジングに生きていきます！チャレンジしないのがリスク！
         </p>
+        <Link color="inherit" href="/mindmap">
+          テスト中のmindmapページ
+          <StarOutline fontSize="small" />
+        </Link>
       </Layout>
     </>
   );
