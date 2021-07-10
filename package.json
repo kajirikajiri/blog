@@ -29,8 +29,11 @@
     "date-fns": "^2.21.1",
     "github-markdown-css": "^4.0.0",
     "gray-matter": "^4.0.3",
+    "js-base64": "^3.6.1",
+    "jsmind": "^0.4.6",
     "medium-zoom": "^1.0.6",
     "next": "10.2.0",
+    "node-fetch": "^2.6.1",
     "parallax-js": "^3.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -46,11 +49,14 @@
     "remark-slug": "^6.0.0",
     "remark-toc": "^7.2.0",
     "styled-components": "^5.2.3",
-    "unified": "^9.2.1"
+    "unified": "^9.2.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/node-fetch": "^2.5.11",
     "@types/react": "^17.0.4",
     "@types/styled-components": "^5.1.9",
+    "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0",
