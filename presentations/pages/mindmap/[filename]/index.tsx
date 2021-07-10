@@ -71,7 +71,7 @@ type Params = {
 
 export const getStaticProps = async ({ params }: Params) => {
   const response = await fetch(
-    `https://api.github.com/repos/kajirikajiri/mindmap/contents/${params.filename}`,
+    `https://api.github.com/repos/kajirikajiri/mindmap/contents/${params.filename}.km`,
     {
       headers: {
         accept: "application/vnd.github.v3+json",
@@ -108,7 +108,7 @@ export async function getStaticPaths() {
     paths: files.map((f: any) => {
       return {
         params: {
-          filename: f.name,
+          filename: f.name.slice(0, -3),
         },
       };
     }),

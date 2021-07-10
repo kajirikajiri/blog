@@ -1,5 +1,4 @@
 import fetch from "node-fetch";
-import { useEffect } from "react";
 import { Box } from "@material-ui/core";
 import Link from "next/link";
 
@@ -8,9 +7,6 @@ type Props = {
 };
 
 export const Mindmap = ({ filenames }: Props) => {
-  useEffect(() => {
-    console.log(filenames);
-  }, []);
   return (
     <Box display="flex" flexDirection="column">
       <meta name="robots" content="noindex" />
@@ -35,7 +31,7 @@ export const getStaticProps = async () => {
     }
   );
   const files = await response.json();
-  const filenames = files.map((f: any) => f.name);
+  const filenames = files.map((f: any) => f.name.slice(0, -3));
   return {
     props: { filenames },
   };
