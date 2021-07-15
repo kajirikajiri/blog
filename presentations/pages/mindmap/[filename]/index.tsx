@@ -1,6 +1,8 @@
 import { Base64 } from "js-base64";
 import fetch from "node-fetch";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Button } from "@material-ui/core";
 import JsMind from "jsmind";
 import { v4 as uuidv4 } from "uuid";
 
@@ -22,6 +24,7 @@ export const Filename = ({ mindmap }: Props) => {
       });
     }
   };
+  const [maxWidth, setMaxWidth] = useState<"none" | "400px">("400px");
   useEffect(() => {
     if (!mindmap) {
       undefined;
@@ -42,6 +45,9 @@ export const Filename = ({ mindmap }: Props) => {
         container: "jsmind_container",
         editable: false,
         theme: "white",
+        layout: {
+          vspace: 50,
+        },
       });
       const mind = {
         meta: {
@@ -53,11 +59,37 @@ export const Filename = ({ mindmap }: Props) => {
         data: result,
       };
       jsmind.show(mind);
+      document.querySelectorAll("jmnode").forEach((e: any) => {
+        e.addEventListener("click", () => {
+          e.style.maxWidth === "none"
+            ? (e.style.maxWidth = "400px")
+            : (e.style.maxWidth = "none");
+        });
+      });
     }
   }, []);
   return (
     <>
       <meta name="robots" content="noindex" />
+      <Link href="/mindmap">mindmap一覧へ戻る</Link>
+      <br></br>
+      <br></br>
+      <Button
+        variant="outlined"
+        onClick={() => {
+          document.querySelectorAll("jmnode").forEach((e: any) => {
+            if (maxWidth === "none") {
+              setMaxWidth("400px");
+              e.style.maxWidth = "400px";
+            } else {
+              setMaxWidth("none");
+              e.style.maxWidth = "none";
+            }
+          });
+        }}
+      >
+        おりたたみ
+      </Button>
       <div id="jsmind_container" />
     </>
   );
