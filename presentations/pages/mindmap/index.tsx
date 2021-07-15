@@ -10,6 +10,7 @@ export const Mindmap = ({ filenames }: Props) => {
   return (
     <Box display="flex" flexDirection="column">
       <meta name="robots" content="noindex" />
+      <Link href="/">ホームへ</Link>
       このページはテスト中です
       {filenames.map((n) => (
         <Box border="1px black solid" margin={1}>
