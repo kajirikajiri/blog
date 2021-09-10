@@ -17,6 +17,7 @@ import { Toc } from "./markdownComponents/Toc";
 import { NotebookList } from "./markdownComponents/NotebookList";
 import { MyLink } from "./markdownComponents/MyLink";
 import { Youtube } from "./markdownComponents/Youtube";
+import { Hint } from "./markdownComponents/Hint";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -48,6 +49,7 @@ export const Slug = ({ post, preview, readingTimeText }: Props) => {
     Toc: (props: any) => <Toc {...props} />,
     MyLink: (props: any) => <MyLink {...props} />,
     Youtube: (props: any) => <Youtube {...props} />,
+    Hint: (props: any) => <Hint {...props} />,
   };
   useEffect(() => {
     mediumZoom("article img");
