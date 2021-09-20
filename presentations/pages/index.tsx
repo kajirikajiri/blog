@@ -6,7 +6,7 @@ import { Left1Right3Layout } from "./index/Left1Right3Layout";
 
 type Props = {
   editorCategoryPosts: PostType[];
-  programmingCategoryPosts: PostType[];
+  sideworkCategoryPosts: PostType[];
   javascriptCategoryPosts: PostType[];
 };
 
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Index = ({
   editorCategoryPosts,
-  programmingCategoryPosts,
+  sideworkCategoryPosts,
   javascriptCategoryPosts,
 }: Props) => {
   const classes = useStyles();
@@ -39,15 +39,15 @@ export const Index = ({
         description={`みなさんこんにちは、かじりです。工場勤務からエンジニアになった'かじり'がObsidianやプログラミングの難しかったこと、健康についての記事を書いてます。A statically generated blog using Next.js by かじり.`}
       >
         <Left1Right3Layout
-          categoryLink={"/category/editor/"}
-          category={"エディタ"}
-          orderPosts={editorCategoryPosts}
+          categoryLink={"/category/sidework/"}
+          category={"副業"}
+          orderPosts={sideworkCategoryPosts}
         />
         <Box width="100%" className={classes.pad}></Box>
         <Left1Right3Layout
-          categoryLink={"/category/programming/"}
-          category={"Programming"}
-          orderPosts={programmingCategoryPosts}
+          categoryLink={"/category/editor/"}
+          category={"エディタ"}
+          orderPosts={editorCategoryPosts}
         />
         <Box width="100%" className={classes.pad}></Box>
         <Left1Right3Layout
@@ -85,17 +85,15 @@ export const getStaticProps = async () => {
   ];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
-  // programming category
-  const programmingCategorySlugs: Slugs = [
-    "when-you-dont-know-how-to-program",
-    "googling-for-programming",
+  // sidework category
+  const sideworkCategorySlugs: Slugs = [
+    "ive-been-doing-menta-for-almost-3-months-now",
+    "engineer-side-job-menta",
+    "engineer-side-job-once-a-week",
   ];
-  const programmingCategoryPosts = getOrderPosts(
-    allPosts,
-    programmingCategorySlugs
-  );
+  const sideworkCategoryPosts = getOrderPosts(allPosts, sideworkCategorySlugs);
 
-  // programming category
+  // javascript category
   const javascriptCategorySlugs: Slugs = [
     "javascript-promise",
     "javascript-function",
@@ -109,7 +107,7 @@ export const getStaticProps = async () => {
   // error handling // そのままreturnすると分かりづらいエラーが発生するため
   const error = [
     ...editorCategoryPosts,
-    ...programmingCategoryPosts,
+    ...sideworkCategoryPosts,
     ...javascriptCategoryPosts,
   ].some((p) => p === void 0);
   if (error) {
@@ -119,7 +117,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       editorCategoryPosts,
-      programmingCategoryPosts,
+      sideworkCategoryPosts,
       javascriptCategoryPosts,
     },
   };

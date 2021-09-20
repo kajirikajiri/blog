@@ -38,7 +38,6 @@ export const Profile = () => {
           /中村一貴
         </Box>
         <Box>チャレンジしていこう！</Box>
-        <Box>ヒゲは画像加工です（嘘）</Box>
       </Box>
     </>
   );
