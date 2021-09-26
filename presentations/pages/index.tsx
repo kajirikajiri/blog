@@ -45,15 +45,15 @@ export const Index = ({
         />
         <Box width="100%" className={classes.pad}></Box>
         <Left1Right3Layout
-          categoryLink={"/category/editor/"}
-          category={"エディタ"}
-          orderPosts={editorCategoryPosts}
-        />
-        <Box width="100%" className={classes.pad}></Box>
-        <Left1Right3Layout
           categoryLink={"/category/javascript/"}
           category={"JavaScript"}
           orderPosts={javascriptCategoryPosts}
+        />
+        <Box width="100%" className={classes.pad}></Box>
+        <Left1Right3Layout
+          categoryLink={"/category/editor/"}
+          category={"エディタ"}
+          orderPosts={editorCategoryPosts}
         />
       </Layout>
     </>
@@ -95,9 +95,10 @@ export const getStaticProps = async () => {
 
   // javascript category
   const javascriptCategorySlugs: Slugs = [
+    "using-ffmpeg-wasm-with-nextjs",
+    "thinking-about-programmatically-input-data-using-e2e-as-a-reference",
     "javascript-promise",
     "javascript-function",
-    "thinking-about-programmatically-input-data-using-e2e-as-a-reference",
   ];
   const javascriptCategoryPosts = getOrderPosts(
     allPosts,
