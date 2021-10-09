@@ -6,7 +6,13 @@ import { getPostBySlug, getAllPosts, getTreemapData } from "@/lib/api";
 import { PostTitle } from "@/components/PostTitle";
 import Head from "next/head";
 import { PostType } from "@/types/post";
-import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  createStyles,
+  makeStyles,
+  Theme,
+} from "@material-ui/core";
 import { MyBreadcrumbs } from "./MyBreadcrumbs";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
@@ -56,6 +62,16 @@ export const Slug = ({ post, preview, readingTimeText }: Props) => {
   }, []);
   const classes = useStyles();
   const router = useRouter();
+  const handleClick = () => {
+    window
+      .open(
+        `https://docs.google.com/forms/d/e/1FAIpQLSd0jode9fRHYKmHXPLQv-NaV_nHqF80MIYsxhYoo-e_YsXMoQ/viewform?usp=pp_url&entry.104525378=${"こめんと"}&entry.65983432=${"なまえ"}&entry.1085010270=${
+          location.href
+        }`,
+        "_blank"
+      )
+      ?.focus();
+  };
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -97,6 +113,13 @@ export const Slug = ({ post, preview, readingTimeText }: Props) => {
           </article>
         </>
       )}
+      <Button
+        size="small"
+        style={{ padding: 0, fontSize: 10, minWidth: 0 }}
+        onClick={handleClick}
+      >
+        コメント
+      </Button>
     </Layout>
   );
 };

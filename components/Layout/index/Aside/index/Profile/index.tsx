@@ -19,7 +19,7 @@ export const Profile = () => {
             height="100%"
             style={{ objectFit: "contain" }}
             alt={`かじり`}
-            src="/me.png"
+            src="/me.jpg"
           />
         </Box>
       </Box>
