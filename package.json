@@ -33,7 +33,7 @@
     "js-base64": "^3.6.1",
     "jsmind": "^0.4.6",
     "medium-zoom": "^1.0.6",
-    "next": "11",
+    "next": "12",
     "next-remote-watch": "^1.0.0",
     "node-fetch": "^2.6.1",
     "parallax-js": "^3.1.0",
