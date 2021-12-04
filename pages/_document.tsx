@@ -1,10 +1,7 @@
-import Document, {
-  DocumentContext,
-  Html,
-  Head,
-  Main,
-  NextScript,
-} from "next/document";
+// v12.0.5 bug: https://github.com/vercel/next.js/issues/32110#issuecomment-985977369
+import Document from "next/dist/pages/_document";
+
+import { DocumentContext, Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet as StyledComponentSheets } from "styled-components";
 import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@material-ui/styles";
 
