@@ -25,6 +25,7 @@ export const Toc = () => {
           {tocObj.map((t, i) => {
             return (
               <Box
+                key={i}
                 paddingBottom={1}
                 display="flex"
                 position="relative"
