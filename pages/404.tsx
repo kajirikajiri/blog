@@ -1,10 +1,10 @@
-import { Box, Button } from "@material-ui/core";
+import { Box, Button } from "@mui/material";
 import Parallax from "parallax-js";
 import { useEffect, useState } from "react";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-import { SearchOutlined } from "@material-ui/icons";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
+import { SearchOutlined } from "@mui/icons-material";
 
 export default function Custom404() {
   useEffect(() => {
@@ -55,13 +55,13 @@ export default function Custom404() {
             }}
           >
             <FormControl variant="outlined">
-              <InputLabel>検索ワード</InputLabel>
+              <InputLabel id="label">検索ワード</InputLabel>
               <OutlinedInput
+                label="検索ワード"
                 autoFocus
                 type={"text"}
                 value={value}
                 onChange={handleChange}
-                labelWidth={70}
               />
             </FormControl>
           </form>

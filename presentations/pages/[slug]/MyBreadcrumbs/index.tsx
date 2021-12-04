@@ -1,7 +1,7 @@
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import Link from "@material-ui/core/Link";
-import { ChevronRight, HomeOutlined } from "@material-ui/icons";
-import { Box } from "@material-ui/core";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Link from "@mui/material/Link";
+import { ChevronRight, HomeOutlined } from "@mui/icons-material";
+import { Box } from "@mui/material";
 
 type Props = {
   firstCategory?: string;

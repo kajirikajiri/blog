@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { PostType } from "@/types/post";
 import { TreemapData } from "@/types/treemapData";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import { MyBreadcrumbs } from "../../[slug]/MyBreadcrumbs";
 import { Posts } from "../Posts";
 import { useCategoryOuterStyles } from "../useCategoryOuterStyles";

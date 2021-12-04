@@ -1,81 +1,80 @@
-import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+import { Box, Theme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { ElementType } from "react";
 import { Aside } from "./index/Aside";
 import { Footer } from "./index/Footer";
 import { Header } from "./index/Header";
 import { Meta } from "./index/Meta";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    outer: {
-      [theme.breakpoints.up("ss")]: {
-        padding: "0px 15px 30px 15px",
-      },
-      [theme.breakpoints.up("t")]: {
-        padding: "0px 25px 30px 25px",
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  outer: {
+    [theme.breakpoints.up("ss")]: {
+      padding: "0px 15px 30px 15px",
     },
-    container: {
-      [theme.breakpoints.up("ss")]: {
-        padding: "30px 15px",
-      },
-      [theme.breakpoints.up("t")]: {
-        padding: "30px 25px",
-      },
-      [theme.breakpoints.up("l")]: {
-        padding: "30px 40px",
-      },
+    [theme.breakpoints.up("t")]: {
+      padding: "0px 25px 30px 25px",
     },
-    parent: {
-      [theme.breakpoints.up("ss")]: {
-        flexDirection: "column",
-      },
-      [theme.breakpoints.up("s")]: {
-        flexDirection: "column",
-      },
-      [theme.breakpoints.up("t")]: {
-        flexDirection: "row",
-      },
+  },
+  container: {
+    [theme.breakpoints.up("ss")]: {
+      padding: "30px 15px",
     },
-    childLeft: {
-      [theme.breakpoints.up("ss")]: {
-        marginRight: 10,
-        width: "100%",
-      },
-      [theme.breakpoints.up("s")]: {
-        marginRight: 10,
-        width: "100%",
-      },
-      [theme.breakpoints.up("t")]: {
-        marginRight: 10,
-        width: "68%",
-      },
-      [theme.breakpoints.up("l")]: {
-        marginRight: 34,
-        width: "68%",
-      },
+    [theme.breakpoints.up("t")]: {
+      padding: "30px 25px",
     },
-    childRight: {
-      [theme.breakpoints.up("ss")]: {
-        width: "100%",
-      },
-      [theme.breakpoints.up("s")]: {
-        width: "100%",
-      },
-      [theme.breakpoints.up("t")]: {
-        width: "32%",
-      },
+    [theme.breakpoints.up("l")]: {
+      padding: "30px 40px",
     },
-    asidePad: {
-      [theme.breakpoints.up("ss")]: {
-        height: 20,
-      },
-      [theme.breakpoints.up("t")]: {
-        height: 0,
-      },
+  },
+  parent: {
+    [theme.breakpoints.up("ss")]: {
+      flexDirection: "column",
     },
-  })
-);
+    [theme.breakpoints.up("s")]: {
+      flexDirection: "column",
+    },
+    [theme.breakpoints.up("t")]: {
+      flexDirection: "row",
+    },
+  },
+  childLeft: {
+    [theme.breakpoints.up("ss")]: {
+      marginRight: 10,
+      width: "100%",
+    },
+    [theme.breakpoints.up("s")]: {
+      marginRight: 10,
+      width: "100%",
+    },
+    [theme.breakpoints.up("t")]: {
+      marginRight: 10,
+      width: "68%",
+    },
+    [theme.breakpoints.up("l")]: {
+      marginRight: 34,
+      width: "68%",
+    },
+  },
+  childRight: {
+    [theme.breakpoints.up("ss")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("s")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("t")]: {
+      width: "32%",
+    },
+  },
+  asidePad: {
+    [theme.breakpoints.up("ss")]: {
+      height: 20,
+    },
+    [theme.breakpoints.up("t")]: {
+      height: 0,
+    },
+  },
+}));
 
 type Props = {
   preview?: boolean;

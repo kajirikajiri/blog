@@ -1,5 +1,5 @@
-import { Box } from "@material-ui/core";
-import { EmojiObjectsOutlined } from "@material-ui/icons";
+import { Box } from "@mui/material";
+import { EmojiObjectsOutlined } from "@mui/icons-material";
 
 type Props = {
   text: string;

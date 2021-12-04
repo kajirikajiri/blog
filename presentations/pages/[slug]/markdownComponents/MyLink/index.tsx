@@ -1,5 +1,5 @@
-import { Box } from "@material-ui/core";
-import { Launch } from "@material-ui/icons";
+import { Box } from "@mui/material";
+import { Launch } from "@mui/icons-material";
 
 type Props = {
   text: string;

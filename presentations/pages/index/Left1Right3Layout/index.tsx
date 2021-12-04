@@ -1,47 +1,46 @@
 import { MoreStories } from "./index/MoreStories";
 import { HeroPost } from "./index/HeroPost";
-import { Box, createStyles, Link, makeStyles, Theme } from "@material-ui/core";
-import { ChevronRight } from "@material-ui/icons";
+import { Box, Link, Theme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { ChevronRight } from "@mui/icons-material";
 import { PostType } from "@/types/post";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    parent: {
-      [theme.breakpoints.up("ss")]: {
-        height: 560,
-        flexDirection: "column",
-      },
-      [theme.breakpoints.up("s")]: {
-        height: 310,
-        flexDirection: "row",
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  parent: {
+    [theme.breakpoints.up("ss")]: {
+      height: 560,
+      flexDirection: "column",
     },
-    childLeft: {
-      [theme.breakpoints.up("ss")]: {
-        height: "60%",
-        paddingBottom: 10,
-        paddingRight: 0,
-      },
-      [theme.breakpoints.up("s")]: {
-        height: "100%",
-        paddingBottom: 0,
-        paddingRight: 10,
-      },
+    [theme.breakpoints.up("s")]: {
+      height: 310,
+      flexDirection: "row",
     },
-    childRight: {
-      [theme.breakpoints.up("ss")]: {
-        height: "40%",
-        paddingBottom: 0,
-        paddingRight: 0,
-      },
-      [theme.breakpoints.up("s")]: {
-        height: "100%",
-        paddingBottom: 0,
-        paddingRight: 10,
-      },
+  },
+  childLeft: {
+    [theme.breakpoints.up("ss")]: {
+      height: "60%",
+      paddingBottom: 10,
+      paddingRight: 0,
     },
-  })
-);
+    [theme.breakpoints.up("s")]: {
+      height: "100%",
+      paddingBottom: 0,
+      paddingRight: 10,
+    },
+  },
+  childRight: {
+    [theme.breakpoints.up("ss")]: {
+      height: "40%",
+      paddingBottom: 0,
+      paddingRight: 0,
+    },
+    [theme.breakpoints.up("s")]: {
+      height: "100%",
+      paddingBottom: 0,
+      paddingRight: 10,
+    },
+  },
+}));
 
 type Props = {
   orderPosts: PostType[];

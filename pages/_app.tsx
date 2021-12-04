@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { AppProps } from "next/app";
 import { ThemeProvider as StyledComponentsThemeProvider } from "styled-components";
-import { ThemeProvider as MaterialUIThemeProvider } from "@material-ui/core/styles";
-import { StylesProvider } from "@material-ui/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider as MaterialUIThemeProvider } from "@mui/material/styles";
+import { StylesProvider } from "@mui/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/styles/theme";
 import "./jsmind.css";
 

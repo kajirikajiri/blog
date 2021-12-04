@@ -1,9 +1,9 @@
 import { DateFormatter } from "@/components/DateFormatter";
 import { CoverImage } from "@/components/CoverImage";
 import Author from "@/types/author";
-import { Box } from "@material-ui/core";
-import { AccessTime } from "@material-ui/icons";
-import { grey } from "@material-ui/core/colors";
+import { Box } from "@mui/material";
+import { AccessTime } from "@mui/icons-material";
+import { grey } from "@mui/material/colors";
 
 type Props = {
   title: string;

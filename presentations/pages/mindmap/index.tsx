@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import Link from "next/link";
 import { filteringMindMapContents } from "./const";
 

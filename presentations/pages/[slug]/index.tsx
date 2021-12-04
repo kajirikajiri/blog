@@ -6,13 +6,8 @@ import { getPostBySlug, getAllPosts, getTreemapData } from "@/lib/api";
 import { PostTitle } from "@/components/PostTitle";
 import Head from "next/head";
 import { PostType } from "@/types/post";
-import {
-  Box,
-  Button,
-  createStyles,
-  makeStyles,
-  Theme,
-} from "@material-ui/core";
+import { Box, Button, Theme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { MyBreadcrumbs } from "./MyBreadcrumbs";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
@@ -25,21 +20,19 @@ import { MyLink } from "./markdownComponents/MyLink";
 import { Youtube } from "./markdownComponents/Youtube";
 import { Hint } from "./markdownComponents/Hint";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      [theme.breakpoints.up("ss")]: {
-        padding: 15,
-      },
-      [theme.breakpoints.up("s")]: {
-        padding: 15,
-      },
-      [theme.breakpoints.up("t")]: {
-        padding: 45,
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  container: {
+    [theme.breakpoints.up("ss")]: {
+      padding: 15,
     },
-  })
-);
+    [theme.breakpoints.up("s")]: {
+      padding: 15,
+    },
+    [theme.breakpoints.up("t")]: {
+      padding: 45,
+    },
+  },
+}));
 
 type Props = {
   post: PostType;

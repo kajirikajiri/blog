@@ -1,9 +1,10 @@
 import { DateFormatter } from "@/components/DateFormatter";
 import { CoverImage } from "@/components/CoverImage";
-import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
-import { AccessTime } from "@material-ui/icons";
-import { grey } from "@material-ui/core/colors";
-import { Skeleton } from "@material-ui/lab";
+import { Box, Theme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { AccessTime } from "@mui/icons-material";
+import { grey } from "@mui/material/colors";
+import { Skeleton } from "@mui/lab";
 import Author from "@/types/author";
 
 type Props = {
@@ -14,56 +15,54 @@ type Props = {
   author?: Author;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    parent: {
-      [theme.breakpoints.up("ss")]: {
-        minWidth: "76vw",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        margin: "0 5px",
-      },
-      [theme.breakpoints.up("s")]: {
-        minWidth: "auto",
-        width: "100%",
-        height: "31.5%",
-        display: "flex",
-        flexDirection: "row",
-        margin: "0 5px",
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  parent: {
+    [theme.breakpoints.up("ss")]: {
+      minWidth: "76vw",
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+      margin: "0 5px",
     },
-    childLeft: {
-      [theme.breakpoints.up("ss")]: {
-        height: "60%",
-        width: "100%",
-      },
-      [theme.breakpoints.up("s")]: {
-        height: "100%",
-        width: "100%",
-        margin: "0",
-      },
+    [theme.breakpoints.up("s")]: {
+      minWidth: "auto",
+      width: "100%",
+      height: "31.5%",
+      display: "flex",
+      flexDirection: "row",
+      margin: "0 5px",
     },
-    childRight: {
-      [theme.breakpoints.up("ss")]: {
-        height: "40%",
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        paddingLeft: 0,
-      },
-      [theme.breakpoints.up("s")]: {
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        paddingLeft: 5,
-      },
+  },
+  childLeft: {
+    [theme.breakpoints.up("ss")]: {
+      height: "60%",
+      width: "100%",
     },
-  })
-);
+    [theme.breakpoints.up("s")]: {
+      height: "100%",
+      width: "100%",
+      margin: "0",
+    },
+  },
+  childRight: {
+    [theme.breakpoints.up("ss")]: {
+      height: "40%",
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+      paddingLeft: 0,
+    },
+    [theme.breakpoints.up("s")]: {
+      height: "100%",
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+      paddingLeft: 5,
+    },
+  },
+}));
 
 export const PostPreview = ({
   title,
@@ -105,7 +104,7 @@ export const PostPreview = ({
             return (
               <Skeleton
                 animation={false}
-                variant="rect"
+                variant="rectangular"
                 width="100%"
                 height="100%"
               />

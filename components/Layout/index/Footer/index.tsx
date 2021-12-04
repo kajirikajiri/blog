@@ -1,11 +1,7 @@
-import {
-  Box,
-  createStyles,
-  makeStyles,
-  SvgIconTypeMap,
-} from "@material-ui/core";
-import { grey } from "@material-ui/core/colors";
-import { OverridableComponent } from "@material-ui/core/OverridableComponent";
+import { Box, SvgIconTypeMap } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { grey } from "@mui/material/colors";
+import { OverridableComponent } from "@mui/material/OverridableComponent";
 import {
   AirportShuttle,
   Bathtub,
@@ -17,90 +13,88 @@ import {
   LocalGroceryStore,
   LocalShipping,
   MusicNote,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export const Footer = () => {
   const router = useRouter();
-  const useStyles = makeStyles(() =>
-    createStyles({
-      animatedItem: {
-        bottom: -5,
-        position: "absolute",
-        animation: `$run linear infinite`,
-        "-webkit-animation-duration": "20s",
+  const useStyles = makeStyles(() => ({
+    animatedItem: {
+      bottom: -5,
+      position: "absolute",
+      animation: `$run linear infinite`,
+      "-webkit-animation-duration": "20s",
+    },
+    "@keyframes run": {
+      "0%": {
+        left: -20,
       },
-      "@keyframes run": {
-        "0%": {
-          left: -20,
-        },
-        "8%": {
-          transform: "translateY(0px) rotate(0)",
-          left: "8%",
-        },
-        "9%": {
-          transform: "translateY(-3px) rotate(-8deg)",
-          left: "9%",
-        },
-        "10%": {
-          transform: "translateY(0px) rotate(0)",
-          left: "10%",
-        },
-        "12%": {
-          transform: "translateY(-3px) rotate(8deg)",
-          left: "12%",
-        },
-        "13%": {
-          transform: "translateY(0px) rotate(0)",
-          left: "13%",
-        },
-        "28%": {
-          transform: "translateY(0px) rotate(0)",
-          left: "28%",
-        },
-        "29%": {
-          transform: "translateY(-3px) rotate(-8deg)",
-          left: "29%",
-        },
-        "30%": {
-          transform: "translateY(0px) rotate(0)",
-          left: "30%",
-        },
-        "32%": {
-          transform: "translateY(-3px) rotate(8deg)",
-          left: "32%",
-        },
-        "33%": {
-          transform: "translateY(0px) rotate(0)",
-          left: "33%",
-        },
-        "68%": {
-          transform: "translateY(0px) rotate(0)",
-          left: "68%",
-        },
-        "69%": {
-          transform: "translateY(-3px) rotate(-8deg)",
-          left: "69%",
-        },
-        "70%": {
-          transform: "translateY(0px) rotate(0)",
-          left: "70%",
-        },
-        "72%": {
-          transform: "translateY(-3px) rotate(8deg)",
-          left: "72%",
-        },
-        "73%": {
-          transform: "translateY(0px) rotate(0)",
-          left: "73%",
-        },
-        "100%": {
-          left: "100%",
-        },
+      "8%": {
+        transform: "translateY(0px) rotate(0)",
+        left: "8%",
       },
-    })
-  );
+      "9%": {
+        transform: "translateY(-3px) rotate(-8deg)",
+        left: "9%",
+      },
+      "10%": {
+        transform: "translateY(0px) rotate(0)",
+        left: "10%",
+      },
+      "12%": {
+        transform: "translateY(-3px) rotate(8deg)",
+        left: "12%",
+      },
+      "13%": {
+        transform: "translateY(0px) rotate(0)",
+        left: "13%",
+      },
+      "28%": {
+        transform: "translateY(0px) rotate(0)",
+        left: "28%",
+      },
+      "29%": {
+        transform: "translateY(-3px) rotate(-8deg)",
+        left: "29%",
+      },
+      "30%": {
+        transform: "translateY(0px) rotate(0)",
+        left: "30%",
+      },
+      "32%": {
+        transform: "translateY(-3px) rotate(8deg)",
+        left: "32%",
+      },
+      "33%": {
+        transform: "translateY(0px) rotate(0)",
+        left: "33%",
+      },
+      "68%": {
+        transform: "translateY(0px) rotate(0)",
+        left: "68%",
+      },
+      "69%": {
+        transform: "translateY(-3px) rotate(-8deg)",
+        left: "69%",
+      },
+      "70%": {
+        transform: "translateY(0px) rotate(0)",
+        left: "70%",
+      },
+      "72%": {
+        transform: "translateY(-3px) rotate(8deg)",
+        left: "72%",
+      },
+      "73%": {
+        transform: "translateY(0px) rotate(0)",
+        left: "73%",
+      },
+      "100%": {
+        left: "100%",
+      },
+    },
+  }));
 
   const [Icon, setIcon] = useState<
     OverridableComponent<SvgIconTypeMap<{ className: string }, "svg">>
