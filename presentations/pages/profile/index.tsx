@@ -1,9 +1,9 @@
 import { CoverImage } from "@/components/CoverImage";
 import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
-import { Box, Link } from "@material-ui/core";
+import { Box, Link } from "@mui/material";
 import { MyBreadcrumbs } from "../[slug]/MyBreadcrumbs";
-import { StarOutline } from "@material-ui/icons";
+import { StarOutline } from "@mui/icons-material";
 
 export const Profile = () => {
   return (

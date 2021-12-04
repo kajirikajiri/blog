@@ -1,5 +1,6 @@
-import { Box, createStyles, makeStyles } from "@material-ui/core";
-import { FormatListBulleted, FormatListNumbered } from "@material-ui/icons";
+import { Box } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { FormatListBulleted, FormatListNumbered } from "@mui/icons-material";
 import React from "react";
 
 type Props = {
@@ -8,22 +9,20 @@ type Props = {
   type?: "ol" | "ul";
 };
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    li: {
-      listStylePosition: "inside",
-      textIndent: "10px",
-      height: "auto",
-      padding: "10px 10px 10px 0",
-    },
-    ol: {
-      listStylePosition: "inside",
-      textIndent: "10px",
-      height: "auto",
-      padding: "10px 10px 10px 0",
-    },
-  })
-);
+const useStyles = makeStyles(() => ({
+  li: {
+    listStylePosition: "inside",
+    textIndent: "10px",
+    height: "auto",
+    padding: "10px 10px 10px 0",
+  },
+  ol: {
+    listStylePosition: "inside",
+    textIndent: "10px",
+    height: "auto",
+    padding: "10px 10px 10px 0",
+  },
+}));
 
 export const NotebookList = ({ head, items, type = "ul" }: Props) => {
   const classes = useStyles();

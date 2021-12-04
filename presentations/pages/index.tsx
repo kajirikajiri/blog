@@ -1,7 +1,8 @@
 import Layout from "@/components/Layout";
 import { getAllPosts, getOrderPosts } from "@/lib/api";
 import { PostType } from "@/types/post";
-import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
+import { Box, Theme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { Left1Right3Layout } from "./index/Left1Right3Layout";
 
 type Props = {
@@ -10,21 +11,19 @@ type Props = {
   javascriptCategoryPosts: PostType[];
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    pad: {
-      [theme.breakpoints.up("ss")]: {
-        height: 30,
-      },
-      [theme.breakpoints.up("t")]: {
-        height: 40,
-      },
-      [theme.breakpoints.up("l")]: {
-        height: 50,
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  pad: {
+    [theme.breakpoints.up("ss")]: {
+      height: 30,
     },
-  })
-);
+    [theme.breakpoints.up("t")]: {
+      height: 40,
+    },
+    [theme.breakpoints.up("l")]: {
+      height: 50,
+    },
+  },
+}));
 
 export const Index = ({
   editorCategoryPosts,

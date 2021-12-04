@@ -13,13 +13,16 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
     "@lhci/cli": "0.7.x",
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.58",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@mdx-js/runtime": "^1.6.22",
+    "@mui/icons-material": "^5.2.0",
+    "@mui/lab": "^5.0.0-alpha.58",
+    "@mui/material": "^5.2.2",
+    "@mui/styles": "^5.2.2",
     "@next/bundle-analyzer": "^10.2.0",
     "@next/mdx": "^10.2.0",
     "@types/d3": "^6.3.0",
@@ -56,7 +59,7 @@
   },
   "devDependencies": {
     "@types/node-fetch": "^2.5.11",
-    "@types/react": "^17.0.4",
+    "@types/react": "^17.0.37",
     "@types/styled-components": "^5.1.9",
     "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",

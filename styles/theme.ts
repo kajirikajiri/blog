@@ -1,6 +1,6 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@mui/material/styles";
 
-declare module "@material-ui/core/styles/createBreakpoints" {
+declare module "@mui/material/styles" {
   // https://jobotaku.com/ ← break point参考にした
   // https://stackoverflow.com/a/62605570 ← 型定義参考にした
   interface BreakpointOverrides {
@@ -17,7 +17,7 @@ declare module "@material-ui/core/styles/createBreakpoints" {
   }
 }
 
-const theme = createMuiTheme({
+const theme = createTheme({
   breakpoints: {
     values: {
       ss: 0,

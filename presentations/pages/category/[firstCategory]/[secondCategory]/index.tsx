@@ -3,16 +3,14 @@ import Head from "next/head";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { MyBreadcrumbs } from "@/presentations/pages/[slug]/MyBreadcrumbs";
 import { PostType } from "@/types/post";
-import { createStyles, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@mui/styles";
 import { Posts } from "../../Posts";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    container: {
-      padding: 0,
-    },
-  })
-);
+const useStyles = makeStyles(() => ({
+  container: {
+    padding: 0,
+  },
+}));
 
 type Props = {
   categorizedPosts: PostType[];
