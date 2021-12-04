@@ -6,12 +6,14 @@ module.exports = withBundleAnalyzer({
   experimental: {
     optimizeFonts: true,
   },
-  // https://github.com/vercel/next.js/issues/7755#issuecomment-508633125
+  // https://zenn.dev/wattanx/scraps/da4690390d8e3d
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.node = {
-        fs: "empty",
-      };
+      config.resolve.fallback.fs = false;
+      config.resolve.fallback.child_process = false;
+      config.resolve.fallback.net = false;
+      config.resolve.fallback.dns = false;
+      config.resolve.fallback.tls = false;
     }
     return config;
   },

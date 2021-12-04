@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@material-ui/core";
 import JsMind from "jsmind";
 import { v4 as uuidv4 } from "uuid";
+import { filteringMindMapContents } from "../const";
 
 type Props = {
   mindmap: { root: { data: any; children: any } } | undefined;
@@ -137,7 +138,7 @@ export async function getStaticPaths() {
   const files = await response.json();
   return {
     fallback: false,
-    paths: files.map((f: any) => {
+    paths: files.filter(filteringMindMapContents).map((f: any) => {
       return {
         params: {
           filename: f.name.slice(0, -3),

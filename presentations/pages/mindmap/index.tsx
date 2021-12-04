@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 import { Box } from "@material-ui/core";
 import Link from "next/link";
+import { filteringMindMapContents } from "./const";
 
 type Props = {
   filenames: string[];
@@ -32,7 +33,9 @@ export const getStaticProps = async () => {
     }
   );
   const files = await response.json();
-  const filenames = files.map((f: any) => f.name.slice(0, -3));
+  const filenames = files
+    .filter(filteringMindMapContents)
+    .map((f: any) => f.name.slice(0, -3));
   return {
     props: { filenames },
   };
