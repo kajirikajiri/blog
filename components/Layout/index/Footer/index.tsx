@@ -2,18 +2,16 @@ import { Box, SvgIconTypeMap } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { grey } from "@mui/material/colors";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
-import {
-  AirportShuttle,
-  Bathtub,
-  ChildFriendly,
-  FreeBreakfast,
-  HomeOutlined,
-  Hotel,
-  HotTub,
-  LocalGroceryStore,
-  LocalShipping,
-  MusicNote,
-} from "@mui/icons-material";
+import AirportShuttle from "@mui/icons-material/AirportShuttle";
+import Bathtub from "@mui/icons-material/Bathtub";
+import ChildFriendly from "@mui/icons-material/ChildFriendly";
+import FreeBreakfast from "@mui/icons-material/FreeBreakfast";
+import HomeOutlined from "@mui/icons-material/HomeOutlined";
+import HotTub from "@mui/icons-material/HotTub";
+import Hotel from "@mui/icons-material/Hotel";
+import LocalGroceryStore from "@mui/icons-material/LocalGroceryStore";
+import LocalShipping from "@mui/icons-material/LocalShipping";
+import MusicNote from "@mui/icons-material/MusicNote";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
