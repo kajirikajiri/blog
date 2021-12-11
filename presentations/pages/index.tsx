@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { getAllPosts, getOrderPosts } from "@/lib/api";
 import { PostType } from "@/types/post";
 import { Box, Theme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import { Left1Right3Layout } from "./index/Left1Right3Layout";
 
 type Props = {

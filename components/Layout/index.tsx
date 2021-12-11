@@ -1,6 +1,6 @@
 import { Theme } from "@mui/material";
 import Box from "@mui/material/Box";
-import { makeStyles } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import { ElementType } from "react";
 import { Aside } from "./index/Aside";
 import { Footer } from "./index/Footer";

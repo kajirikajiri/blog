@@ -3,7 +3,7 @@ import Head from "next/head";
 import { getAllPosts, getTreemapData } from "@/lib/api";
 import { MyBreadcrumbs } from "@/presentations/pages/[slug]/MyBreadcrumbs";
 import { PostType } from "@/types/post";
-import { makeStyles } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import { Posts } from "../../Posts";
 
 const useStyles = makeStyles(() => ({

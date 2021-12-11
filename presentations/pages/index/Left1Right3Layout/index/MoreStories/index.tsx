@@ -1,6 +1,6 @@
 import { PostType } from "@/types/post";
 import { Box, Theme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import { PostPreview } from "./index/PostPreview";
 
 type Props = {

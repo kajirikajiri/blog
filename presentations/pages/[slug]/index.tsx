@@ -9,7 +9,7 @@ import { PostType } from "@/types/post";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Theme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import { MyBreadcrumbs } from "./MyBreadcrumbs";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";

@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { makeStyles } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import FormatListBulleted from "@mui/icons-material/FormatListBulleted";
 import FormatListNumbered from "@mui/icons-material/FormatListNumbered";
 import React from "react";
