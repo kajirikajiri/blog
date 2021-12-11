@@ -1,10 +1,11 @@
-import { Box, Button } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Parallax from "parallax-js";
 import { useEffect, useState } from "react";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
-import { SearchOutlined } from "@mui/icons-material";
+import SearchOutlined from "@mui/icons-material/SearchOutlined";
 
 export default function Custom404() {
   useEffect(() => {

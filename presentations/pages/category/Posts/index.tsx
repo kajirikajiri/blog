@@ -1,6 +1,6 @@
 import { PostType } from "@/types/post";
 import { Box, Theme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import { Post } from "./index/Post";
 import { useCategoryOuterStyles } from "../useCategoryOuterStyles";
 import { H2Header } from "../../../../components/h2Header";

@@ -2,8 +2,9 @@ import { DateFormatter } from "@/components/DateFormatter";
 import { CoverImage } from "@/components/CoverImage";
 import { PostTitle } from "@/components/PostTitle";
 import Author from "@/types/author";
-import { AccessTime, BookOutlined } from "@mui/icons-material";
-import { Box } from "@mui/material";
+import AccessTime from "@mui/icons-material/AccessTime";
+import BookOutlined from "@mui/icons-material/BookOutlined";
+import Box from "@mui/material/Box";
 import { grey } from "@mui/material/colors";
 
 type Props = {

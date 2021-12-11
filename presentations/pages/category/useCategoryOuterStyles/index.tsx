@@ -1,5 +1,5 @@
 import { Theme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
 
 export const useCategoryOuterStyles = makeStyles((theme: Theme) => ({
   categoryOuter: {

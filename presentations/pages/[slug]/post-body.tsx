@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import styles from "./githubMarkdown.module.css";
 
 type Props = {

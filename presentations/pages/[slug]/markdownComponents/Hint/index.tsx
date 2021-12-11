@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
-import { EmojiObjectsOutlined } from "@mui/icons-material";
+import Box from "@mui/material/Box";
+import EmojiObjectsOutlined from "@mui/icons-material/EmojiObjectsOutlined";
 
 type Props = {
   text: string;

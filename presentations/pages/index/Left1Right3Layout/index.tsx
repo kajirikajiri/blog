@@ -1,7 +1,7 @@
 import { MoreStories } from "./index/MoreStories";
 import { HeroPost } from "./index/HeroPost";
 import { Box, Link, Theme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import { ChevronRight } from "@mui/icons-material";
 import { PostType } from "@/types/post";
 
