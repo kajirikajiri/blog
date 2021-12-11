@@ -4,7 +4,7 @@ import { PostTitle } from "@/components/PostTitle";
 import Author from "@/types/author";
 import AccessTime from "@mui/icons-material/AccessTime";
 import BookOutlined from "@mui/icons-material/BookOutlined";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import { grey } from "@mui/material/colors";
 
 type Props = {

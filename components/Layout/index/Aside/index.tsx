@@ -1,5 +1,5 @@
 import { Profile } from "./index/Profile";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import { useRouter } from "next/router";
 

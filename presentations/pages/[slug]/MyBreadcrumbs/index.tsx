@@ -2,7 +2,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import HomeOutlined from "@mui/icons-material/HomeOutlined";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 
 type Props = {
   firstCategory?: string;

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import Launch from "@mui/icons-material/Launch";
 
 type Props = {

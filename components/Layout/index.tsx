@@ -1,4 +1,5 @@
-import { Box, Theme } from "@mui/material";
+import { Theme } from "@mui/material";
+import Box from "@mui/material/Box";
 import { makeStyles } from "@mui/styles";
 import { ElementType } from "react";
 import { Aside } from "./index/Aside";

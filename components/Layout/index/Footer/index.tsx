@@ -1,4 +1,5 @@
-import { Box, SvgIconTypeMap } from "@mui/material";
+import Box from "@mui/material/Box";
+import { SvgIconTypeMap } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { grey } from "@mui/material/colors";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
