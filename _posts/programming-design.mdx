@@ -18,6 +18,11 @@ tags: [programming, design, javascript, typescript]
 
 https://github.com/rmanguinho/clean-react
 https://github.com/rmanguinho/clean-ts-api
+Java言語で学ぶデザインパターン入門
+
+- デザインパターンを勉強すれば、実装速度が上がるのではないか？という期待を持って勉強しようとする。
+- ただ、その度に思うのは、何か実装して、その時に発生した課題を解決していけばデザインパターンはいらないのでは？という疑問
+- その時、その時にできるだけのことを。できるだけのことをやっていれば実装する力、programming designの力は向上していくと思う
 
 ## 原則
 ### Single Responsibility Principle (SRP)
@@ -34,13 +39,32 @@ https://github.com/rmanguinho/clean-ts-api
 
 ## デザインパターン
 ### Factory
+2022/01/22
+これReactのhooksにどうやって役立てるん？
+
 ### Adapter
+#### 2022/01/22
+##### https://refactoring.guru/design-patterns/adapter/typescript/example
+- 間に何かを噛ませる。
+- 利用 | adapter | 実態
+- 実態の変更をadapterに吸収させることによって、利用側の負担を減らす
+##### Java言語で学ぶデザインパターン入門
+- 実態をadapterから呼び出し利用するパターンがあり得ると思った
+
 ### Composite
 ### Decorator
 ### Dependency Injection
 ### Composition Root
 ### Builder
 ### Proxy
+### Iterator
+#### 2022/01/22
+##### Java言語で学ぶデザインパターン入門
+
+- ページネーションを実行するクラスを作成するときに使えそう。
+- next, previrousを管理
+- hasNextでnextページを持っているかを管理。falseならdisabled。
+- hasPrevirousでprevirousページを持っているかを管理。falseならdisabled。
 
 ## Methodologies and Designs
 ### TDD
