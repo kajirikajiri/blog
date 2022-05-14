@@ -15,7 +15,7 @@ export const Scrawl = (props: Props): JSX.Element => (
     {
       <div className="markdown-body">
         {props.scrawls.map((s) => (
-          <div style={{ margin: 16 }} key={s.id}>
+          <div style={{ margin: "200px 16px" }} key={s.id}>
             <h1>{s.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: s.body }} />
           </div>
