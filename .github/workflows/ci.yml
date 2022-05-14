@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 16.x
+      - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: 14.x
       - name: npm install, build
         run: |
           npm install
@@ -18,7 +18,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_GITHUB }}
       - name: run Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.9.x
+          npm install -g @lhci/cli@0.7.x
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
