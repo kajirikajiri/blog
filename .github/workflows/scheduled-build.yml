@@ -1,0 +1,20 @@
+# github schedule actions
+# https://gotohayato.com/content/514/
+# cloudflare deploy hook
+# https://www.serversus.work/topics/ms4jbzfl5bkn939crpb1/
+
+name: Scheduled build on Cloudflare
+
+on:
+  schedule:
+    # 毎日 22:00 (JST) に処理を実行する。
+    # UTC の 13:00 は JST だと 22:00 。
+    - cron: '0 13 * * *'
+
+jobs:
+  build-on-cloudflare:
+    name: build-on-cloudflare
+    runs-on: ubuntu-latest
+    steps:
+      - name: post webhook
+        run: curl --request POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL }}"
