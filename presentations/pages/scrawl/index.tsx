@@ -42,6 +42,7 @@ export const getStaticProps = async (): GetStaticPropsResult => ({
       id: s.id,
       title: s.title,
       body: marked(s.body, {
+        breaks: true,
         highlight: (c) => hljs.highlightAuto(c).value,
       }),
     })),
