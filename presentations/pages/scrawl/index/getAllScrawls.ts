@@ -76,17 +76,25 @@ export const getScrawlsAndCursor: GetScrawlsAndCursor = async (cursor) => {
   };
 };
 
-const getLastOneScrawl = async (): Res =>
-  (
-    await fetch(endpoint, {
-      ...commonFetchOptions,
-      body: JSON.stringify(lastOneScrawlQuery),
-    })
-  ).json();
+const getLastOneScrawl = async () =>
+  await fetch(endpoint, {
+    ...commonFetchOptions,
+    body: JSON.stringify(lastOneScrawlQuery),
+  });
 
 type GetLastScrawlCursor = () => Promise<string>;
-export const getLastScrawlCursor: GetLastScrawlCursor = async () =>
-  (await getLastOneScrawl()).data.repository.discussions.edges[0].cursor;
+export const getLastScrawlCursor: GetLastScrawlCursor = async () => {
+  const r = await getLastOneScrawl();
+  if (!r.ok) {
+    console.error("response.ok:", r.ok);
+    console.error("response.status:", r.status);
+    console.error("response.statusText:", r.statusText);
+    console.error("response.body:", r.body);
+    console.error("response.url:", r.url);
+    throw Error(r.statusText);
+  }
+  return (await r.json()).data.repository.discussions.edges[0].cursor;
+};
 
 type LoopCount = number;
 type Cursor = string;
