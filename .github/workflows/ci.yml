@@ -16,6 +16,7 @@ jobs:
           yarn run build
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_GITHUB }}
+          TOKEN_FOR_GITHUB_USED_BY_GITHUB_DISCUSSIONS: ${{ secrets.TOKEN_FOR_GITHUB_USED_BY_GITHUB_DISCUSSIONS }}
       - name: run Lighthouse CI
         run: |
           yarn global add @lhci/cli@0.7.x
