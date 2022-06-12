@@ -1,1 +1,2 @@
-Disallow: /mindmap/
+user-agent: *
+disallow: /mindmap/
