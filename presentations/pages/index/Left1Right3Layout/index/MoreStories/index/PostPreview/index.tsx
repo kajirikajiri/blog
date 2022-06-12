@@ -1,11 +1,11 @@
 import { DateFormatter } from "@/components/DateFormatter";
 import { CoverImage } from "@/components/CoverImage";
 import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
 import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import AccessTime from "@mui/icons-material/AccessTime";
 import { grey } from "@mui/material/colors";
-import { Skeleton } from "@mui/lab";
 import Author from "@/types/author";
 
 type Props = {
