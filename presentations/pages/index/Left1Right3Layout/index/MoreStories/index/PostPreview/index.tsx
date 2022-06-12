@@ -1,8 +1,9 @@
 import { DateFormatter } from "@/components/DateFormatter";
 import { CoverImage } from "@/components/CoverImage";
-import { Box, Theme } from "@mui/material";
+import Box from "@mui/material/Box";
+import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-import { AccessTime } from "@mui/icons-material";
+import AccessTime from "@mui/icons-material/AccessTime";
 import { grey } from "@mui/material/colors";
 import { Skeleton } from "@mui/lab";
 import Author from "@/types/author";

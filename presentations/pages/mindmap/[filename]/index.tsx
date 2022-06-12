@@ -2,7 +2,7 @@ import { Base64 } from "js-base64";
 import fetch from "node-fetch";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 import JsMind from "jsmind";
 import { v4 as uuidv4 } from "uuid";
 import { filteringMindMapContents } from "../const";

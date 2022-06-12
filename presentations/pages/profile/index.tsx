@@ -1,9 +1,10 @@
 import { CoverImage } from "@/components/CoverImage";
 import Layout from "@/components/Layout";
 import { getAllPosts, getTreemapData } from "@/lib/api";
-import { Box, Link } from "@mui/material";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 import { MyBreadcrumbs } from "../[slug]/MyBreadcrumbs";
-import { StarOutline } from "@mui/icons-material";
+import StarOutline from "@mui/icons-material/StarOutline";
 
 export const Profile = () => {
   return (

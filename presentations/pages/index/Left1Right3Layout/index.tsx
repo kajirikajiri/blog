@@ -1,8 +1,10 @@
 import { MoreStories } from "./index/MoreStories";
 import { HeroPost } from "./index/HeroPost";
-import { Box, Link, Theme } from "@mui/material";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import { Theme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-import { ChevronRight } from "@mui/icons-material";
+import ChevronRight from "@mui/icons-material/ChevronRight";
 import { PostType } from "@/types/post";
 
 const useStyles = makeStyles((theme: Theme) => ({
