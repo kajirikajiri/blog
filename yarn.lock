@@ -3910,10 +3910,10 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-plugin-mui-path-imports@^0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-mui-path-imports/-/eslint-plugin-mui-path-imports-0.0.0.tgz#9451e2af140358d2acd1616d45c392825c7166a0"
-  integrity sha512-/CrYiWiQoJPCeFC88t45hqtwpLTwOmPVzCUjLYO9QiCtKJhHq5BtnmIJ4O/Dq0jJ9PqVZwfeW0l5Zmur2NJAZw==
+eslint-plugin-mui-path-imports@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-mui-path-imports/-/eslint-plugin-mui-path-imports-0.0.2.tgz#00df2bfc01baa9504d24379706991a11a0c10147"
+  integrity sha512-2VJZTjyItj70Wk5/Nhihety9XAuKKoKCvXSMCcoMKaO8tPIS0DI/nb01LJ+ayND3fewb3mVx7QTc4QuUwvAwqQ==
   dependencies:
     requireindex "^1.2.0"
 
