@@ -40,7 +40,7 @@
     "jsmind": "^0.4.6",
     "marked": "^4.0.15",
     "medium-zoom": "^1.0.6",
-    "next": "12",
+    "next": "12.1.6",
     "next-remote-watch": "^1.0.0",
     "node-fetch": "^2.6.1",
     "parallax-js": "^3.1.0",
