@@ -36,6 +36,7 @@ export const Aside = () => {
               href={"/category"}
               color="inherit"
               style={{ position: "absolute", width: "100%", height: "100%" }}
+              title="カテゴリ一覧"
             ></a>
             カテゴリ一覧
             <ChevronRight fontSize="small" />
@@ -58,6 +59,7 @@ export const Aside = () => {
           href={"/scrawl"}
           color="inherit"
           style={{ position: "absolute", width: "100%", height: "100%" }}
+          title="はしりがき"
         ></a>
         はしりがき
         <ChevronRight fontSize="small" />
