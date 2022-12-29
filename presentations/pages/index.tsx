@@ -78,8 +78,8 @@ export const getStaticProps = async () => {
 
   // editor category
   const editorCategorySlugs: Slugs = [
-    "obsidian-ios-android-mobile-app",
     "obsidian-vscode-extension",
+    "obsidian-ios-android-mobile-app",
     "obsidian-moc-usage-2021",
     "obsidian-usage-2021",
   ];

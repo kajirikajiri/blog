@@ -2,7 +2,7 @@
 title: "Obsidian vscode拡張機能について公式サイトで調べた"
 excerpt: "みなさんこんにちは、かじりです。今回はvscodeで使えるobsidianの拡張機能がないか？検索してみました。そういうことで困っている人に届けばいいなぁ"
 coverImage: "/assets/blog/obsidian-vscode-extension/cover.svg"
-date: "2021-06-26 00:26:27"
+date: "2022-12-29 11:40:27"
 author:
   name: かじり
   picture: "/me.jpg"
@@ -20,7 +20,7 @@ tags: [editor, obsidian, extension]
 
 ## VSCodeの拡張機能ストアでObsidianを探す
 
-[VSCodeのMarketPlace](https://marketplace.visualstudio.com/search?term=obsidian&target=VSCode&category=All%20categories&sortBy=Relevance)でObsidianを検索してみましたが、カラーテーマが9個、BlockChainの拡張機能が1個見つかるのみでした。もう少しうまく検索できそうな気もしますが、自分は見つけることができませんでした。調べた時の画像が以下です。  
+[VSCodeのMarketPlace](https://marketplace.visualstudio.com/search?term=obsidian&target=VSCode&category=All%20categories&sortBy=Relevance)でObsidianを検索してみましたが、カラーテーマが15個、keybindが2個、BlockChainの拡張機能が1個、その他が1個見つかるのみでした。もう少しうまく検索できそうな気もしますが、自分は見つけることができませんでした。調べた時の画像が以下です。  
 
 ![search-obsidian-in-vscode-market-place](/assets/blog/obsidian-vscode-extension/vscode-market-place.png)
 
@@ -41,7 +41,7 @@ Obsidian公式サイトのフォーラムで「Obsidian as a VSCode extension(VS
 
 上記を抜粋すると、Obsidianの開発者の方がVSCodeの拡張機能としてのObsidianという記事でObsidianをVSCodeにすることは考えていないという発言をしています。また、githubのissueでは具体的に問題となる箇所があげられたようです。しかし、現在の範囲ではというような発言もあるので、もしかすれば可能性はあるかもしれません。
 
-## Obsidian公式サイトのフォーラムで見つけたVSCodeの拡張機能
+## Obsidian公式サイトのフォーラムで見つけたVSCodeの拡張機能(Memo)
 
 Obsidian公式サイトのフォーラムで「Obsidian as a VSCode extension(VSCode拡張としてのObsidian)」という記事で[Memo](https://marketplace.visualstudio.com/items?itemName=svsool.markdown-memo)というVSCode拡張機能が紹介されています。機能としては[[]]形式でのlinkに対応していて、ファイル名の変更でノート内のリンク名の変更にも対応、ファイル名にホバーでノートをpopup表示できるなど、Obsidianに近い使い方ができそうです！  
 また、上で紹介したgithubのissueが[Memo](https://marketplace.visualstudio.com/items?itemName=svsool.markdown-memo)の開発リポジトリのissueでした。  
@@ -53,6 +53,20 @@ Obsidian公式サイトのフォーラムで「Obsidian as a VSCode extension(VS
 どうやら、MemoはObsidianと[RoamResearch](https://roamresearch.com/)を参考に作られているようです  
 
 Obsidianを探しているときにRoamResearchも見つけたのですが、Obsidianが無料で使うことができたので、Obsidianを試してみたらいい感じで使えたのでそのままObsidianを使い続けています。
+
+## Obsidian公式サイトのフォーラムで見つけたVSCodeの拡張機能(Foam)
+
+こちらもObsidian公式サイトのフォーラムで見つけました。[Foam](https://foambubble.github.io/foam/)といいます。拡張機能は[こちら](https://marketplace.visualstudio.com/items?itemName=foam.foam-vscode)です。
+
+[Foamの公式サイト](https://foambubble.github.io/foam/)から引用します。
+>Foam is a personal knowledge management and sharing system inspired by Roam Research, built on Visual Studio Code and GitHub.
+>You can use Foam for organising your research, keeping re-discoverable notes, writing long-form content and, optionally, publishing it to the web.
+>Foam is free, open source, and extremely extensible to suit your personal workflow. You own the information you create with Foam, and you’re free to share it, and collaborate on it with anyone you want.
+>>Foam は、Roam Research にインスパイアされ、Visual Studio Code と GitHub 上に構築された、個人向けの知識管理・共有システムです。
+>>Foam は、研究の整理、再発見可能なメモの保存、長文コンテンツの作成、そしてオプションでウェブへの公開に使用できます。
+>>Foamは無料でオープンソースであり、個人のワークフローに合わせて非常に柔軟に拡張することができます。Foamで作成した情報はあなたのものであり、誰とでも自由に共有し、共同作業を行うことができます。
+
+FoamはVSCodeで無料で使うことができるようです。また、obsidianのようなグラフも表示されるようなのでいいかもしれません。
 
 ## 参照
 
@@ -66,13 +80,3 @@ Obsidianを探しているときにRoamResearchも見つけたのですが、Obs
 ## あとがき
 
 今回はVSCodeのObsidian拡張機能についてでした。ちょっと調べた感じ、[このgithubアカウント](https://github.com/ericaxu)の方が、Obsidianをメインで開発しているように見えるのですが、類似点として、[アカウントの画像](https://forum.obsidian.md/u/Silver/summary)が同じである、[Obsidian公式のTwitterのリンク](https://twitter.com/obsdmd)がgithubに貼り付けてある、[Obsidianのgithub](https://github.com/obsidianmd/obsidian-releases/graphs/contributors)を見るとコミット数が一番多いということしか見つけられず、確定ではないけど多分この人だろうなっていう感じでした。  
-どうやら、[Obsidianの公式サイト](https://obsidian.md/)を見るとAndroid StoreとApple StoreでAndroidのアプリとiPhone(ios)のアプリがPrivate Betaで公開されているようです。  
-公式サイトのリンクによると
->The mobile beta is currently only available to holders of the Catalyst license.
->>モバイルベータ版は、現在Catalystライセンスをお持ちの方のみご利用いただけます。
-
-とあるので、[Catalystライセンス](https://obsidian.md/pricing)を持っているとダウンロードできるようです。  
-
-みた感じ１回払いで$25でライセンスを取得できそうです。Obsidianのスマホ版アプリに興味のある方はよく検討して使ってみてもいいのではないでしょうか。
-
-
