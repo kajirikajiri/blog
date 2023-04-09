@@ -1,3 +1,4 @@
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import Author from "./author";
 
 export type PostType = {
@@ -16,4 +17,8 @@ export type PostType = {
     second: string;
   };
   tags: string[];
+  source: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, unknown>
+  >;
 };
