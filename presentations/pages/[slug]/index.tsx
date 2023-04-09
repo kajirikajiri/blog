@@ -14,13 +14,16 @@ import { MyBreadcrumbs } from "./MyBreadcrumbs";
 import mediumZoom from "medium-zoom";
 import { useEffect } from "react";
 import genReadingTime from "reading-time";
-import MDX from "@mdx-js/runtime";
 import styles from "./githubMarkdown.module.css";
 import { Toc } from "./markdownComponents/Toc";
 import { NotebookList } from "./markdownComponents/NotebookList";
 import { MyLink } from "./markdownComponents/MyLink";
 import { Youtube } from "./markdownComponents/Youtube";
 import { Hint } from "./markdownComponents/Hint";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import html from "remark-html";
+import remarkGfm from "remark-gfm";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -41,9 +44,13 @@ type Props = {
   morePosts: PostType[];
   preview?: boolean;
   readingTimeText: string;
+  source: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, unknown>
+  >;
 };
 
-export const Slug = ({ post, preview, readingTimeText }: Props) => {
+export const Slug = ({ post, preview, readingTimeText, source }: Props) => {
   const components = {
     Box: (props: any) => <Box {...props} />,
     NotebookList: (props: any) => <NotebookList {...props} />,
@@ -103,7 +110,7 @@ export const Slug = ({ post, preview, readingTimeText }: Props) => {
               readingTimeText={readingTimeText}
             />
             <Box className={[styles["markdown-body"]].join(" ")}>
-              <MDX components={components}>{post.content}</MDX>
+              <MDXRemote {...source} components={components} />
             </Box>
           </article>
         </>
@@ -155,6 +162,11 @@ export async function getStaticProps({ params }: Params) {
     props: {
       treemapData,
       post,
+      source: await serialize(post.content, {
+        mdxOptions: {
+          remarkPlugins: [remarkGfm, html],
+        },
+      }),
       readingTimeText: readingTime.text,
     },
   };
