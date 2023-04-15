@@ -8,7 +8,6 @@ import { Left1Right3Layout } from "./index/Left1Right3Layout";
 
 type Props = {
   editorCategoryPosts: PostType[];
-  sideworkCategoryPosts: PostType[];
   javascriptCategoryPosts: PostType[];
 };
 
@@ -28,7 +27,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const Index = ({
   editorCategoryPosts,
-  sideworkCategoryPosts,
   javascriptCategoryPosts,
 }: Props) => {
   const classes = useStyles();
@@ -38,11 +36,6 @@ export const Index = ({
         headerComponent={"h1"}
         description={`みなさんこんにちは、かじりです。工場勤務からエンジニアになった'かじり'がObsidianやプログラミングの難しかったこと、健康についての記事を書いてます。A statically generated blog using Next.js by かじり.`}
       >
-        <Left1Right3Layout
-          categoryLink={"/category/sidework/"}
-          category={"副業"}
-          orderPosts={sideworkCategoryPosts}
-        />
         <Box width="100%" className={classes.pad}></Box>
         <Left1Right3Layout
           categoryLink={"/category/javascript/"}
@@ -85,14 +78,6 @@ export const getStaticProps = async () => {
   ];
   const editorCategoryPosts = getOrderPosts(allPosts, editorCategorySlugs);
 
-  // sidework category
-  const sideworkCategorySlugs: Slugs = [
-    "ive-been-doing-menta-for-almost-3-months-now",
-    "engineer-side-job-menta",
-    "engineer-side-job-once-a-week",
-  ];
-  const sideworkCategoryPosts = getOrderPosts(allPosts, sideworkCategorySlugs);
-
   // javascript category
   const javascriptCategorySlugs: Slugs = [
     "using-ffmpeg-wasm-with-nextjs",
@@ -106,11 +91,9 @@ export const getStaticProps = async () => {
   );
 
   // error handling // そのままreturnすると分かりづらいエラーが発生するため
-  const error = [
-    ...editorCategoryPosts,
-    ...sideworkCategoryPosts,
-    ...javascriptCategoryPosts,
-  ].some((p) => p === void 0);
+  const error = [...editorCategoryPosts, ...javascriptCategoryPosts].some(
+    (p) => p === void 0
+  );
   if (error) {
     throw Error("存在しないファイル名をCategorySlugsに指定していませんか??");
   }
@@ -118,7 +101,6 @@ export const getStaticProps = async () => {
   return {
     props: {
       editorCategoryPosts,
-      sideworkCategoryPosts,
       javascriptCategoryPosts,
     },
   };
