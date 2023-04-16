@@ -2,7 +2,7 @@
 title: "JavaScriptのpromiseの使い方"
 excerpt: "みなさんこんにちは、かじりです。この記事はJavaScriptのpromiseについての説明をする記事です。例題多めで書いていきますので、実行しながら確認してみると理解が深まると思います。"
 coverImage: "/assets/blog/javascript-promise/cover.png"
-date: "2021-07-05 23:07:59"
+date: "2023-04-17 00:25:40"
 author:
   name: かじり
   picture: "/me.jpg"
@@ -15,374 +15,69 @@ tags: [javascript, usage, promise]
 ---
 
 みなさんこんにちは、かじりです。この記事はJavaScriptのpromiseを解説しています。
-上に書いてあることを見逃すと下はわかりづらいと思うので上から読んで欲しいです。
 
 <Toc/>
 
-## JavaScriptのPromiseの簡単な例
+## JavaScriptのPromiseを少し掘り下げる
 
-ここからは当分、[devtool](https://www.google.com/search?q=devtool+chrome)や[playground](https://www.google.com/search?q=javascript+playground)で実行してもlogが出力されません。ご注意ください。上から順に繋がっているので飛ばさずに読んでもらえるとわかりやすいと思います。
-
-また、順番として先にfunctionがわかったほうが理解が楽だと思います。functionがちょっと自信ない方は[こちら](/javascript-function)を先に読んでおくとわかりやすくなると思います。
-
-一応完成形を先に記載しておきます。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc('hello')
-}).then(function (result){
-  console.log(result)
-})
-```
-
-### 一番簡単なJavaScriptのPromiseの書き方
-
-１番簡単なPromiseの書き方はこれだと思います。
-
-```javascript
-new Promise()
-```
+まずはこれを実行してみると、okと表示されるはずです。
 
 <MonacoEditor
-  code={`new Promise()`}
+  code={`new Promise((resolve) => {
+  resolve("ok");
+}).then((value) => {
+  console.log(value);
+});
+`}
 />
 
-これがPromiseの一番簡単な書き方です。
+なぜokと表示されるのでしょうか。
 
-### JavaScriptのPromiseの引数について
+まず、`new Promise((resolve) => { ... })`でPromiseオブジェクトを作成しています。
+resolveは、Promiseが成功した場合に呼び出される関数です。
+この例では、`resolve("ok")`でPromiseが成功したことを示し、成功時の値として文字列"ok"を渡しています。
 
-先ほどの`new Promise()`ですが、引数を受け取ることができます。
+次に、`then()`メソッドを使ってPromiseが成功したときに実行する関数を定義します。
+`then()`メソッドに渡される関数は、Promiseが成功したときに呼び出され、成功時の値が引数として渡されます。
+この例では、引数を`value`として定義して、コンソールに`value`の値を表示しています。
 
-mdnというJavaScriptの公式サイトのようなものに[書いてある](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#syntax)ので引用します。
+このコードを実行すると、Promiseオブジェクトが成功したため、`then()`メソッドに渡された関数が呼び出され、コンソールに"ok"という文字列が表示されます。
 
-```javascript
-new Promise(executor)
-```
+ここで気になるのは
 
-このように、`new Promise()`は`executor`を引数に受け取ることができます。ここが重要です。**new Promise()はexecutorを引数に受け取ることができます**。
+1. `new Promise((resolve) => { resolve("ok") })`の`(resolve) => { resolve("ok") }`
+2. `.then`
 
-では`executor`とはなんでしょうか。
+かなと思います。
 
-### JavaScriptのPromiseの引数に渡すexecutor
+1つ目の`(resolve) => { resolve("ok") }`は、アロー関数と呼ばれるJavaScriptの関数の形式の1つで、`resolve`という引数を受け取り、`resolve`関数を呼び出す関数を表します。  
+この関数をPromiseオブジェクトのコンストラクターに渡して、新しいPromiseオブジェクトを作成しています。Promiseオブジェクトは、非同期処理が完了したときに、成功時の値または失敗時の理由を返すことができます。  
+この場合、resolve関数に "ok"という文字列を渡しているため、Promiseが成功したという状態になり、"ok"という文字列がPromiseオブジェクトの成功時の値として返されます。  
+アロー関数は、`=>`という構文で定義され、`resolve`という引数を取ります。引数が1つだけの場合は、括弧を省略することができます。そして、`{}`で囲まれたブロック内のコードが関数の本体になります。最後に、`resolve("ok")`を呼び出すことで、Promiseオブジェクトの成功を示しています。
 
-`executor`もmdnというJavaScriptの公式サイトのようなものに[書いてある](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#parameters)ので引用します。
+2つ目の`.then()`は、Promiseオブジェクトのメソッドであり、Promiseオブジェクトの非同期処理が完了した後に呼び出されます。  
+`.then()`は、1つまたは2つのコールバック関数を引数として受け取ります。第1引数はPromiseオブジェクトが成功した場合に実行される関数であり、Promiseが成功した際に渡される値を引数として受け取ります。第2引数は、Promiseオブジェクトが失敗した場合に実行される関数であり、Promiseが失敗した理由を引数として受け取ります。  
+このように、`.then()`メソッドを使用することで、Promiseオブジェクトの非同期処理の完了後に実行する関数を指定することができます。例えば、先ほどのコードでは、`.then()`メソッドを使用して、Promiseオブジェクトの成功時に "ok" という文字列をコンソールに表示する関数を指定しています。  
+`.then()`メソッドは、Promiseオブジェクトが非同期処理を完了するまで待機するため、非同期処理の完了前に呼び出されることはありません。また、`.then()`メソッド自体もPromiseオブジェクトを返すため、複数の`.then()`メソッドをチェーン状に呼び出すことができます。
 
-```javascript
-function(resolutionFunc){
-  resolutionFunc(1) // 数値以外も渡せる
-}
-```
+これまでの説明を踏まえて、最初のコードを分解すると、以下のようになります。少しみづらくなっているかもしれませんが、結果は変わりません。
 
-このようにexecutorとは`resolutionFunc`を引数に受け取るfunctionです。
-
-ここが重要です。**executorとはresolutionFuncを引数に受け取るfunctionです**。
-
-ではresolutionFuncとは何かというと引数を受け取ることができるfunctionです。最後の方では重要な役割をはたしますが今は引数を受け取ることしかできません。
-
-### executorを引数に受け取るnew Promise()
-
-上で書いたように
-
-**new Promise()はexecutorを引数に受け取ることができます**。
-
-となっており、上で説明したように、これが`new Promise()`
-
-```javascript
-new Promise(executor)
-```
-これが`executor`でした。
-
-```javascript
-function(resolutionFunc){
-  resolutionFunc(1) // 数値以外も渡せる
-}
-```
-
-ちょっとわかりやすくするために`executor`の改行を消します。
-
-改行を消したexecutorはこのようになります。
-
-```javascript
-function(resolutionFunc){ resolutionFunc(1) }
-```
-
-先ほど書いたように、**new Promise()はexecutorを引数に受け取ることができる**。なので以下のようにできます。
-
-```javascript
-new Promise(function(resolutionFunc){ resolutionFunc(1) })
-```
-
-みてみると、`new Promise()`の引数に`executor`が書いてあるだけだと思います。
-
-これで、先ほど書いていた
-
-**new Promise()はexecutorを引数に受け取ることができます**。
-
-を達成することができました。
-
-### JavaScriptにconsole.hogeってあるの？
-
-後に出てくる文章をわかりやすくするために挟んでいます。決して不要なものではないです。
-
-JavaScriptには後ろに繋げて実行できるものがあります。例えばconsole.logです。consoleとlogを.で繋げていますね。
-
-```javascript
-console.log(1)
-```
-
-ではconsole.hogeはないのでしょうか？これをtypeofで調べたいと思います。typeofは型を調べてくれます。1ならnumber。'hello'ならstringという感じです。まずはconsole.logからです。注意ですが、console.log()ではないです。console.logです。
-
-```javascript
-console.log(typeof console.log)
-```
-
-どうでしょうか、functionと出力されたと思います。
-console.logは引数を受け取るfunction。なのでfunctionと出力されました。次にconsole.hogeです
-
-```javascript
-console.log(typeof console.hoge)
-```
-
-undefinedと出力されたとおもいます。このように存在しないものだとundefinedが出力されます。
-
-### new Promise()に繋げて実行できるのは?
-
-先ほど使用したnew Promiseとexecutorを合わせたものが以下です。
-
-```javascript
-new Promise(function(resolutionFunc){ resolutionFunc(1) })
-```
-
-後ろにhogeをつけます。
-
-```javascript
-new Promise(function(resolutionFunc){ resolutionFunc(1) }).hoge
-```
-
-これにtypeofをしたいと思います。
-
-```javascript
-console.log(typeof new Promise(function(resolutionFunc){ resolutionFunc(1) }).hoge)
-```
-
-undefinedと表示されたと思います。
-
-では次に、hoegをthenにしてtypeofをしたいと思います。
-
-```javascript
-console.log(typeof new Promise(function(resolutionFunc){ resolutionFunc(1) }).then)
-```
-
-functionと表示されたと思います。このようにthenがfunctionであることがわかりました。
-
-１行にしていたので改行を戻してみます。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc(1)
-}).then
-```
-
-このようにして、thenを使うことができます。では、thenとはなんでしょうか。
-
-### thenとは何か
-
-thenは引数にfunctionを受け取ります。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc(1)
-}).then( function () {} )
-```
-
-先ほど記載したものがこちらです。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc(1)
-}).then()
-```
-
-見比べるとわかりやすいと思います。
-
-thenとはこのように使うことができます。もっと詳しくみてみましょう。
-
-### thenで引数を受け取る
-
-thenの引数に書いたfunctionは引数を受け取ることができます。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc(1)
-}).then( function (result) {} )
-```
-
-先ほどの例と比べてみましょう。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc(1)
-}).then( function () {} )
-```
-
-このように引数を受け取ることができます。ではresultを表示してみましょう
-
-### thenで受け取った引数をconsole.logする
-
-先ほどはこのようになっていました。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc(1)
-}).then( function (result) {} )
-```
-
-resultをconsole.logしたいと思います。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc(1)
-}).then( function (result) { console.log(result) } )
-```
-
-1と表示されたと思います。どの1でしょうか？次にhelloと表示するとしたらこのようになります。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc('hello')
-}).then( function (result) { console.log(result) } )
-```
-
-このように、`resolutionFunc`の引数に入れたものがconsole.logで出力されました。1行が長く、みづらくなってきたので、改行したいと思います。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc('hello')
-}).then(function (result){
-  console.log(result)
-})
-```
-
-改行が完了しました。以上でnew Promiseとthenの使い方が終わりました。以下は番外編です。細かく区切ったので長くなりました。理解しやすくかけていればいいなぁ。
-
-## JavaScriptのPromiseの難しい例
-
-こちらは先ほどの応用を紹介します。
-
-### rejectionFunc
-
-rejectionFuncについて説明します。
-
-resolutionFuncに似ていますね。同じように使うことができます。
-
-```javascript
-new Promise(function(resolutionFunc, rejectionFunc){
-  rejectionFunc('hello')
-}).then(function (result){
-  console.log(result)
-})
-```
-
-どうでしょうか、helloと出力されませんね。もう一箇所変更する必要があります。
-
-```javascript
-new Promise(function(resolutionFunc, rejectionFunc){
-  rejectionFunc('hello')
-}).catch(function (result){
-  console.log(result)
-})
-```
-
-これでhelloと表示されたと思います。
-
-このように、rejectionFuncを使った場合、thenをcatchに変更する必要があります。
-
-### thenとcatchとresolutionFuncとrejectionFuncを同時に出力したい
-
-では、これを実行してみましょう。先ほどまでのものを全部繋げました。helloが２つだとわかりづらいのでhello1, hello2にしました
-
-```javascript
-new Promise(function(resolutionFunc, rejectionFunc){
-  resolutionFunc('hello1')
-  rejectionFunc('hello2')
-}).then(function (result){
-  console.log(result)
-}).catch(function (result){
-  console.log(result)
-})
-```
-
-hello1と表示されたと思います。resolutionFuncとrejectionFuncはどちらか先に実行されたらそこで終了します。なので、hello2は表示されませんでした。thenを消すとどうなるでしょう？
-
-```javascript
-new Promise(function(resolutionFunc, rejectionFunc){
-  resolutionFunc('hello1')
-  rejectionFunc('hello2')
-}).catch(function (result){
-  console.log(result)
-})
-```
-
-何も表示されませんね。resolutionFunc('hello1')はthenで使うことができます。
-rejectionFunc('hello2')はcatchで使うことができます。
-また、先に実行されたのがresolutionFuncなので、rejectionFuncは実行されませんでした。
-なのでhello2は表示されませんでした。
-
-### executorを切り出してみる
-
-ちょっと戻って、resolutionFuncだけの例を持ってきました。
-
-```javascript
-new Promise(function(resolutionFunc){
-  resolutionFunc('hello')
-}).then(function (result){
-  console.log(result)
-})
-```
-
-これのexecutorを切り出すと、以下になります。
-
-```javascript
-const executor = function(resolutionFunc){
-  resolutionFunc('hello')
+<MonacoEditor
+  code={`const promiseCallback = (resolve) => {
+  resolve("ok");
 }
 
-new Promise(executor).then(function (result){
-  console.log(result)
-})
-```
+const promise = new Promise(promiseCallback)
 
-thenも切り出してみましょう
-
-```javascript
-const executor = function(resolutionFunc){
-  resolutionFunc('hello')
+const thenCallback = (value) => {
+  console.log(value);
 }
 
-const then = function (result){
-  console.log(result)
-}
+promise.then(thenCallback);
+`}
+/>
 
-new Promise(executor).then(then)
-```
-
-promiseも切り出してみましょう。
-
-```javascript
-const executor = function(resolutionFunc){
-  resolutionFunc('hello')
-}
-
-const then = function (result){
-  console.log(result)
-}
-
-const promise = new Promise(executor)
-
-promise.then(then)
-```
-
-これでもhelloと表示されたと思います。このようにfunctionを切り出すことができるので頭の片隅にでも残しておいてもらえればと思います。
+ここまでのコードでは、`resove()`しか使っていませんが、`reject()`や`.catch()`を使ったり、`setTimeout()`で実行を遅らせてみると面白いと思います。
 
 ---
 

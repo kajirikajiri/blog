@@ -57,7 +57,7 @@ export const MonacoEditor = ({ code }: Props) => {
     <iframe
       ref={ref}
       style={{ width: "100%" }}
-      height="200"
+      height="500"
       src={origin}
       title="MonacoEditor"
     ></iframe>
