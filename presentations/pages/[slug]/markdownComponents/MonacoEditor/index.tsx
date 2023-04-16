@@ -7,7 +7,7 @@ type Props = {
 
 export const MonacoEditor = ({ code }: Props) => {
   const id = `iframe-${v4()}`;
-  const origin = "https://monaco-editor.pages.dev/";
+  const origin = "https://monaco-editor.pages.dev";
   useEffect(() => {
     if (!document) return;
     const iframe = document.querySelector<HTMLIFrameElement>(`#${id}`);
