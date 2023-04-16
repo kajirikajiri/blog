@@ -24,6 +24,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import html from "remark-html";
 import remarkGfm from "remark-gfm";
+import { MonacoEditor } from "./markdownComponents/MonacoEditor";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -58,6 +59,7 @@ export const Slug = ({ post, preview, readingTimeText, source }: Props) => {
     MyLink: (props: any) => <MyLink {...props} />,
     Youtube: (props: any) => <Youtube {...props} />,
     Hint: (props: any) => <Hint {...props} />,
+    MonacoEditor: (props: any) => <MonacoEditor {...props} />,
   };
   useEffect(() => {
     mediumZoom("article img");
