@@ -8,9 +8,12 @@ export const MonacoEditor = ({ code }: Props) => {
   const ref = useRef<HTMLIFrameElement>(null);
   const origin = "https://monaco-editor.pages.dev";
   useEffect(() => {
+    console.log(code, origin);
     const iframe = ref.current;
+    console.log(iframe);
     if (!iframe) return;
     const iframeWindow = iframe.contentWindow;
+    console.log(iframeWindow);
     if (!iframeWindow) return;
     iframeWindow.postMessage(code, origin);
   }, []);
