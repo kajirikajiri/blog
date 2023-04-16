@@ -1,23 +1,26 @@
-import { useEffect } from "react";
-import { v4 } from "uuid";
+import { useEffect, useRef } from "react";
 
 type Props = {
   code: string;
 };
 
 export const MonacoEditor = ({ code }: Props) => {
-  const id = `iframe-${v4()}`;
-  const origin = "https://monaco-editor.pages.dev";
+  const ref = useRef<HTMLIFrameElement>(null);
+  const origin = "http://monaco-editor.pages.dev";
   useEffect(() => {
-    if (!document) return;
-    const iframe = document.querySelector<HTMLIFrameElement>(`#${id}`);
-    console.log(iframe);
+    const iframe = ref.current;
     if (!iframe) return;
     const iframeWindow = iframe.contentWindow;
     if (!iframeWindow) return;
     iframeWindow.postMessage(code, origin);
   }, []);
   return (
-    <iframe id={id} height="200" src={origin} title="MonacoEditor"></iframe>
+    <iframe
+      ref={ref}
+      style={{ width: "100%" }}
+      height="200"
+      src={origin}
+      title="MonacoEditor"
+    ></iframe>
   );
 };
