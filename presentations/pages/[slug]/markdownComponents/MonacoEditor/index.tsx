@@ -6,7 +6,7 @@ type Props = {
 
 export const MonacoEditor = ({ code }: Props) => {
   const ref = useRef<HTMLIFrameElement>(null);
-  const origin = "http://monaco-editor.pages.dev";
+  const origin = "https://monaco-editor.pages.dev";
   useEffect(() => {
     const iframe = ref.current;
     if (!iframe) return;
