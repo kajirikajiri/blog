@@ -9,26 +9,27 @@ export const MonacoEditor = ({ code }: Props) => {
   const origin = "https://monaco-editor.pages.dev";
   useEffect(() => {
     (async () => {
-      const messageListener = new Promise<{ success: boolean }>((resolve) => {
-        setTimeout(() => {
-          window.removeEventListener("message", callback);
-          resolve({
-            success: false,
-          });
-        }, 1000);
-        const callback = (
-          event: MessageEvent<Partial<{ success: boolean }>>
-        ) => {
-          if (event.origin !== origin) return;
-          if (!event.data?.success) return;
-          window.removeEventListener("message", callback);
-          resolve({
-            success: true,
-          });
-        };
-        window.addEventListener("message", callback);
-      });
       for await (const _ of Array.from({ length: 5 })) {
+        const messageListener = new Promise<{ success: boolean }>((resolve) => {
+          const callback = (
+            event: MessageEvent<Partial<{ success: boolean }>>
+          ) => {
+            if (event.origin !== origin) return;
+            if (!event.data?.success) return;
+
+            window.removeEventListener("message", callback);
+            resolve({
+              success: true,
+            });
+          };
+          window.addEventListener("message", callback);
+          setTimeout(() => {
+            window.removeEventListener("message", callback);
+            resolve({
+              success: false,
+            });
+          }, 1000);
+        });
         const iframeWindow = ref.current?.contentWindow;
         if (!iframeWindow) {
           await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -40,14 +41,12 @@ export const MonacoEditor = ({ code }: Props) => {
           iframeWindow.postMessage(code, origin),
         ])
           .then((value) => {
-            if (value[0].success) {
-              return true;
-            }
+            return value[0].success;
           })
           .catch((e) => {
             console.error(e);
+            return false;
           });
-        console.log(result);
         if (result) {
           break;
         }
