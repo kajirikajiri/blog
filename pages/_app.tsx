@@ -5,7 +5,6 @@ import { ThemeProvider as MaterialUIThemeProvider } from "@mui/material/styles";
 import { StylesProvider } from "@mui/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/styles/theme";
-import "./jsmind.css";
 
 const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   useEffect(() => {
