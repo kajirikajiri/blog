@@ -1,0 +1,10 @@
+a {
+	text-decoration: none;
+}
+a:hover[href] {
+	text-decoration: underline;
+}
+.link {
+	color: #808080;
+	font-size: 32px;
+}

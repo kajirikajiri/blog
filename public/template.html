@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<!---->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css" integrity="sha512-h/laqMqQKUXxFuu6aLAaSrXYwGYQ7qk4aYCQ+KJwHZMzAGaEoxMM6h8C+haeJTU1V6E9jrSUnjpEzX23OmV/Aw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="global.css">
+		<script src="web_components.js"></script>
+		<title>かじりブログ</title>
+	</head>
+	<body class="markdown-body" style="max-width:450px;margin:0 auto;padding: 20px 28px;word-wrap: break-word;">
+		<template id="blog-name-template">
+			<link rel="stylesheet" href="blog_name.css">
+			<div>
+				<a class="link" href="/">
+					かじりブログ
+				</a>
+			</div>
+		</template>
+		<template id="blog-author-template">
+			<link rel="stylesheet" href="blog_author.css">
+			<div class="outer">
+				<a class="link" href="profile.html">
+					著: 中村 一貴(かじり)
+				</a>
+			</div>
+		</template>
+		<template id="hint-box-template">
+			<link rel="stylesheet" href="hint_box.css">
+			<div class="hint-box"><slot name="content"></slot></div>
+		</template>
+		<template id="post-link-template">
+			<link rel="stylesheet" href="post_link.css">
+			<slot name="link"></slot>
+		</template>
+		<template id="post-link-content-template">
+			<div style="margin-bottom:8px;"><slot name="title">タイトル</slot></div>
+			<div style="font-size:14px;"><slot name="excerpt">概要</slot></div>
+			<div style="font-size:14px;"><slot name="date">日付</slot></div>
+			<div style="margin-bottom:48px;"></div>
+		</template>
+		<blog-name href="/"></blog-name>
+		<blog-author></blog-author>
+<!---->
+	</body>
+</html>
