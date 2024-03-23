@@ -1,7 +1,18 @@
 const path = require('path');
 const fs = require('fs-extra');
 const fm = require('front-matter');
-const marked = require('marked');
+const { markedHighlight } = require("marked-highlight");
+const hljs = require('highlight.js');
+const { Marked } = require('marked');
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight(code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      return hljs.highlight(code, { language }).value;
+    }
+  })
+);
 const [html1, html2, html3] = fs.readFileSync('public/template.html', 'utf8').split('<!---->\n')
 const links = []
 const directoryPath = '_posts';
