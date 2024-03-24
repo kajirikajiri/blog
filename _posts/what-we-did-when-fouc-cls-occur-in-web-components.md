@@ -55,3 +55,4 @@ before
 ChromeのdevtoolでPerformanceタブを使用して、Web componentsでFOUC, CLSが発生している場所を入念に見ましたが、何も発生していませんでした。
 次に、:defined擬似クラスを使用して、Web componentsでFOUC, CLSが発生しないようにしましたが、何も変わりませんでした。 https://web.dev/articles/custom-elements-v1?hl=ja#prestyle
 次に、原因が思い当たらないので、関連しそうなものを探していたところ、cssはファイルだとダウンロードと解析に時間がかかるのでstyleタグで記述しましょうという記事を見つけました。 https://web.dev/extract-critical-css?hl=ja#extract-critical-css
+しばらく時間が経過して確認したら再度再現していた。私はcloudflareにデプロイしているのだが、preview環境では再現せず、本番環境では再現した。先ほどのPerformanceタブで確認すると、本番ではrocket-loaderとbeaconなるものが先に読み込まれている点が異なっていた。rocket-loaderはjsの読み込み遅延。beaconはanalyticsだった。また、ブラウザの同時ファイル読み込み数は6くらいだった。つまり、rocket-loaderによって、webcomponent用のjsが遅延読み込みされた場合に発生しているようだ。ということで、一部無効化するために、data-cfasync="false"を追加。 https://stackoverflow.com/questions/985431/max-parallel-http-connections-in-a-browser https://developers.cloudflare.com/speed/optimization/content/rocket-loader/ignore-javascripts/
