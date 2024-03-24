@@ -13,7 +13,7 @@ tags: [FOUC, CLS, WebComponents, style, link]
 OS: macOS: 14.3.1（23D60）
 ブラウザ: chrome: バージョン: 123.0.6312.58（Official Build） （arm64）
 
-## 対処
+## 対処1
 
 以下のように、templateタグの内部でcssをlinkタグで読み込むと、Web componentsでFOUC, CLSが発生するので、styleタグで記述しましょう。
 
@@ -49,6 +49,22 @@ before
     </a>
 </template>
 ```
+
+## 対処2
+
+chromeはリソースを並列に6つしかダウンロードできないようです。 https://stackoverflow.com/questions/985431/max-parallel-http-connections-in-a-browser
+
+rocket-loaderはテキスト、画像、フォントなどの読み込みを早めるようです。これによって、WebComponentsのjsファイルの読み込みが遅延していました。 https://developers.cloudflare.com/speed/optimization/content/rocket-loader/
+
+rocket-loaderはscriptタグごとに無効化できる。 https://developers.cloudflare.com/speed/optimization/content/rocket-loader/ignore-javascripts/
+
+これは動作確認ベースですが、cloudflareのPagesのpreviewでは、rocket-loaderが含まれていません。また、previewではFOUC, CLSが発生しませんでした。
+
+これは動作確認ベースですが、6つのダウンロードが終わると、次の6つのダウンロードが始まります。この最初の6つにWebComponentsのjsファイルがが含まれていれば、FOUC, CLSが発生しませんでした。
+
+これは動作確認ベースですが、headタグの中身は上から読み込まれます。
+
+これらを元に、WebComponentsのjsファイルをrocket-loaderから除外して、headタグの上の方に記載したところ、FOUC, CLSの発生がとまりました。
 
 ## 調査方法
 
