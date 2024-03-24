@@ -39,16 +39,22 @@ const convertDate = (str) => new Date(str).toISOString().split('T')[0].replace(/
         </post-link-content>
       </a>
     </post-link>`
+
+    // rootページに追加するためにリンクを配列に追加
     links.push([attributes.updated_at, postLink]);
 
-    // titleをh1に変換して追加
+    // titleをh1タグにする。更新日と作成日を作成する。これらをmarkdownの先頭に追加
     const html = marked.parse(`# ${attributes.title}
 <div style='text-align:end; color:#9E9E9E;font-size:12px;margin-bottom:16px;'>
   更新: ${convertDate(attributes.updated_at)}, 作成: ${convertDate(attributes.created_at)}
 </div>
 
 ${body}`);
+
+    // metaタグのdescriptionを追加
     const metaDescription = `<meta name="description" content="${attributes.excerpt}">`
+
+    // distディレクトリにhtmlファイルを作成
     fs.writeFileSync(`dist/${fname}.html`, html1+metaDescription+html2+html+html3);
   });
   fs.copy('public', 'dist', {
@@ -56,8 +62,12 @@ ${body}`);
     overwrite: true,
     filter: (src) => !path.basename(src).match(/^template\.html$/),
   })
+
+  // 更新日で降順に並び替え
   links.sort((a,b)=>a[0]<b[0]?1:-1);
   const metaDescription = `<meta name="description" content="みなさんこんにちは、かじりです。このブログは中村 一貴(かじり）が作成しています！">`
+
+  // rootページを作成
   fs.writeFileSync('dist/index.html', html1+metaDescription+html2+links.map(l=>l[1]).join('')+html3);
 })();
 
