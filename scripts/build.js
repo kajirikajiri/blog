@@ -13,10 +13,11 @@ const marked = new Marked(
     }
   })
 );
-const [html1, html2, html3] = fs.readFileSync('public/template.html', 'utf8').split('<!---->\n')
+const [html1, html2, html3, html4] = fs.readFileSync('public/template.html', 'utf8').split('<!---->\n')
 const links = []
 const directoryPath = '_posts';
 const convertDate = (str) => new Date(str).toISOString().split('T')[0].replace(/-/g, '/');
+const webComponentTemplate = fs.readFileSync('public/web_component_templates.html', 'utf8');
 
 ;(async () => {
   fs.rmSync('dist', { recursive: true, force: true });
@@ -55,12 +56,12 @@ ${body}`);
     const metaDescription = `<meta name="description" content="${attributes.excerpt}">`
 
     // distディレクトリにhtmlファイルを作成
-    fs.writeFileSync(`dist/${fname}.html`, html1+metaDescription+html2+html+html3);
+    fs.writeFileSync(`dist/${fname}.html`, html1+metaDescription+html2+webComponentTemplate+html3+html+html4);
   });
   fs.copy('public', 'dist', {
     recursive: true,
     overwrite: true,
-    filter: (src) => !path.basename(src).match(/^template\.html$/),
+    filter: (src) => !path.basename(src).match(/^(template|web_component_templates)\.html$/),
   })
 
   // 更新日で降順に並び替え
@@ -68,6 +69,6 @@ ${body}`);
   const metaDescription = `<meta name="description" content="みなさんこんにちは、かじりです。このブログは中村 一貴(かじり）が作成しています！">`
 
   // rootページを作成
-  fs.writeFileSync('dist/index.html', html1+metaDescription+html2+links.map(l=>l[1]).join('')+html3);
+  fs.writeFileSync('dist/index.html', html1+metaDescription+html2+webComponentTemplate+html3+links.map(l=>l[1]).join('')+html4);
 })();
 
