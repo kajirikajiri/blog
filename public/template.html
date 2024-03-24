@@ -2,11 +2,14 @@
 <html lang="ja">
 	<head>
 		<!---->
-		<title>かじりブログ</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+		<!--レンダリングに関係あるので最優先-->
+		<script data-cfasync="false" src="web_components.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css" integrity="sha512-h/laqMqQKUXxFuu6aLAaSrXYwGYQ7qk4aYCQ+KJwHZMzAGaEoxMM6h8C+haeJTU1V6E9jrSUnjpEzX23OmV/Aw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<link rel="stylesheet" href="global.css">
+		<!--レンダリングに関係あるので最優先-->
+		<!--そこまで急ぎじゃない-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+		<script src="global.js"></script>
+		<!--そこまで急ぎじゃない-->
 		<!--favicon-->
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -15,9 +18,20 @@
 		<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="theme-color" content="#ffffff">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!--favicon-->
-		<script data-cfasync="false" src="web_components.js"></script>
-		<script src="global.js"></script>
+		<style>
+		img {
+			max-width: 100%;
+		}
+		a:visited {
+			color: #c58af9;
+		}
+		a {
+			color: #8ab4f8
+		}
+		</style>
+		<title>かじりブログ</title>
 	</head>
 	<body class="markdown-body" style="max-width:450px;margin:0 auto;padding: 20px 28px;word-wrap: break-word;">
 		<template id="blog-name-template">
