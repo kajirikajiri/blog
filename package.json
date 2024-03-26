@@ -1,4 +1,5 @@
 {
+  "license": "MIT",
   "dependencies": {
     "front-matter": "^4.0.2",
     "fs-extra": "^11.2.0",
