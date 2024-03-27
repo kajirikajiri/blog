@@ -149,7 +149,7 @@ puts 1 + 1
 
 これは ![バナナ](https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bananavarieties.jpg/220px-Bananavarieties.jpg) 画像です。
 
-これは ![egg](./salty_egg.jpg) ローカルの画像です
+これは ![egg](assets/blog/markdown-test/salty_egg.jpg) ローカルの画像です
 
 
 [^1]: 参照先です
