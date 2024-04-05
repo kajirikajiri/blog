@@ -2,13 +2,17 @@
 title: "Cloudflareのビルドをnodeからbunに変えた"
 excerpt: "みなさんこんにちは、かじりです。Cloudflareのビルドをbunでできるという情報をみたのでbunにしました！"
 created_at: "2024-04-05 21:44:44"
-updated_at: "2024-04-05 21:44:44"
+updated_at: "2024-04-05 22:06:55"
 tags: [Cloudflare, Bun, CloudflarePages, Node]
 ---
 
 みなさんこんにちは、かじりです。Cloudflareのビルドをbunでできるという情報をみたのでこのブログのビルドをnodeからbunにしました！
 
-BUN_VERSIONを設定して、最新を使うこともできる
+BUN_VERSIONを設定して、最新を使うこともできる。2024/04/05現在では、1.0.1のようだ。Cloudflare Pagesのログは以下
+
+```
+Detected the following tools from environment: bun@1.0.1, nodejs@18.17.1
+```
 
 https://gist.github.com/Hebilicious/88e5a444f42b8dc09fb86dfa865c6ed3
 
