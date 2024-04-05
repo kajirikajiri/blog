@@ -1,2 +1,2 @@
-npm install marked fs-extra front-matter highlight.js marked-highlight
-node scripts/build.js
+bun install --production --frozen-lockfile marked fs-extra front-matter highlight.js marked-highlight
+bun scripts/build.js
