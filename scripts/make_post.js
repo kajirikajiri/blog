@@ -1,15 +1,24 @@
 const fs = require('fs');
-const path = require('path');
+const path = require('path').join(__dirname, '..', '_posts', '0.md');
 
-const today = new Date();
-const formattedDate = today.getFullYear() + "-" 
+fs.open(path, 'wx', (err, fd) => {
+  if (err) {
+    if (err.code === 'EEXIST') {
+      console.error('ファイルが既に存在します');
+      return;
+    }
+    throw err;
+  }
+
+  const today = new Date();
+  const formattedDate = today.getFullYear() + "-"
     + String(today.getMonth() + 1).padStart(2, '0') + "-" 
     + String(today.getDate()).padStart(2, '0') + " " 
     + String(today.getHours()).padStart(2, '0') + ":" 
     + String(today.getMinutes()).padStart(2, '0') + ":" 
     + String(today.getSeconds()).padStart(2, '0');
 
-const content = `\
+  const content = `\
 ---
 title: "title"
 excerpt: "みなさんこんにちは、かじりです。概要"
@@ -20,8 +29,9 @@ tags: [a, b]
 
 みなさんこんにちは、かじりです。本文`;
 
-fs.writeFile(path.join('_posts', '0.md'), content, (err) => {
-  if (err) throw err;
-  console.log('File created successfully.');
-});
+  fs.writeFile(fd, content, (err) => {
+    if (err) throw err;
+    console.log('File created successfully.');
+  });
+})
 
