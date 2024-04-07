@@ -2,7 +2,7 @@
 title: "自分の職種はプロダクトエンジニア"
 excerpt: "みなさんこんにちは、かじりです。自分の職種はプロダクトエンジニアだと感じたのでその経緯をまとめます"
 created_at: "2024-04-07 09:39:42"
-updated_at: "2024-04-07 10:37:21"
+updated_at: "2024-04-07 14:11:21"
 tags: [carrier, product-engineer]
 ---
 
@@ -22,8 +22,8 @@ tags: [carrier, product-engineer]
 
 ---
 
-azuさんのOpen Job Letter v2を読んだり、自分の職務経歴書を書いたりする中でこのように考えました。
+azuさんのOpen Job Letter v2[^azu-open-job-letter]を読んだり、自分の職務経歴書[^my-cv]を書いたりする中でこのように考えました。また、leerobさんのProduct and Platform Engineers[^leerob-product-and-platform-engineers]も参考になりました。
 
-https://leerob.io/blog/product-engineers
-https://efcl.notion.site/Open-Job-Letter-v2-ce8b95c88bb74eff9dc4d0f347fcaf9d
-https://github.com/kajirikajiri/cv
+[^azu-open-job-letter]: https://efcl.notion.site/Open-Job-Letter-v2-ce8b95c88bb74eff9dc4d0f347fcaf9d
+[^my-cv]: https://github.com/kajirikajiri/cv
+[^leerob-product-and-platform-engineers]: https://leerob.io/blog/product-engineers
