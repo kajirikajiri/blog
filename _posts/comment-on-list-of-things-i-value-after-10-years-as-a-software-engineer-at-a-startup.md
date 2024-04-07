@@ -2,7 +2,7 @@
 title: "スタートアップでソフトウェアエンジニアとして10年たって大事にしていることリストを読んだ"
 excerpt: "みなさんこんにちは、かじりです。10年たって大事にしていることという記事を読んでほぼ一緒だなと思ったので、自分なりに思ったことを追記しました。"
 created_at: "2024-04-07 14:17:55"
-updated_at: "2024-04-07 15:35:22"
+updated_at: "2024-04-07 15:42:22"
 tags: [startup, five-years]
 ---
 
@@ -40,13 +40,18 @@ LOGAF(https://blog.danlew.net/2020/04/15/the-logaf-scale/)ルールを周知す�
 
 → 良さそうに見えた。sentryのもあった[^logaf-sentry]。確かにPRのレビューは白熱する可能性が高い。
 
+[^logaf-sentry]: https://github.com/getsentry/sentry-javascript/blob/develop/CONTRIBUTING.md
+
 YAGNIとKISS、次にDRY
 
 → 2年くらい前からそう思ってる。プロダクトのREADME.mdに書いた。DRYは難しい。
 
 とにかく手順書や作業メモを残せ。人とのやりとりは議事録を書け。これらはいつも自分や誰かを助ける。
 
-→ とてもだいじ。commitメッセージに残してる。[github blog](https://github.blog/)[^github-blog]とか、[aaronjensenさん](https://github.com/aaronjensen)の記事[^aaronjensen-repo]を参考に、最初の方に大事なことを持ってくるコミットメッセージにしている。それに伴って、不要なコミットはrebaseしてる。議事録も残す。話した内容をまとめて、確認をとるようにしている。
+→ とてもだいじ。commitメッセージに残してる。[github blog](https://github.blog/)の記事[^github-blog]とか、[aaronjensenさん](https://github.com/aaronjensen)の記事[^aaronjensen-repo]を参考に、最初の方に大事なことを持ってくるコミットメッセージにしている。それに伴って、不要なコミットはrebaseしてる。議事録も残す。話した内容をまとめて、確認をとるようにしている。
+
+[^aaronjensen-repo]: https://github.com/aaronjensen/software-development/blob/master/commit-messages.md
+[^github-blog]: https://github.blog/2022-06-30-write-better-commits-build-better-projects/
 
 ベストプラクティスや世の中の人の知見に頼れ。大体の問題は誰かが取り組んでいる。
 
@@ -85,8 +90,6 @@ YAGNIとKISS、次にDRY
 → 集中した後とかによく忘れる。元気にいきたい。基本他者から見るとテンション高くないと思うので、気をつけたい。
 
 [tomoima525さん](https://tomoima525.hatenablog.com/about)の記事[^tomoima525s-blog-post]を読んで似ているなと思ったので書いてみました。
-[^logaf-sentry]: https://github.com/getsentry/sentry-javascript/blob/develop/CONTRIBUTING.md
-[^aaronjensen-repo]: https://github.com/aaronjensen/software-development/blob/master/commit-messages.md
-[^github-blog]: https://github.blog/2022-06-30-write-better-commits-build-better-projects/
+
 [^tomoima525s-blog-post]: https://tomoima525.hatenablog.com/entry/2024/04/01/150049
 
