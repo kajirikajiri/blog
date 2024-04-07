@@ -5,6 +5,7 @@
     "fs-extra": "^11.2.0",
     "highlight.js": "^11.9.0",
     "marked": "^12.0.1",
+    "marked-footnote": "^1.2.2",
     "marked-highlight": "^2.1.1",
     "remark-cli": "^12.0.0"
   }

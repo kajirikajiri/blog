@@ -4,6 +4,8 @@ const fm = require('front-matter');
 const { markedHighlight } = require("marked-highlight");
 const hljs = require('highlight.js');
 const { Marked } = require('marked');
+const markedFootnote = require('marked-footnote')
+
 const marked = new Marked(
   markedHighlight({
     langPrefix: 'hljs language-',
@@ -12,7 +14,7 @@ const marked = new Marked(
       return hljs.highlight(code, { language }).value;
     }
   })
-);
+).use(markedFootnote({description: '脚注'}));
 const [html1, html2, html3, html4] = fs.readFileSync('public/template.html', 'utf8').split('<!---->\n')
 const links = []
 const directoryPath = '_posts';
