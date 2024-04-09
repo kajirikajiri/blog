@@ -32,3 +32,15 @@ customElements.define('my-link', class extends HTMLElement {
   }
 });
 
+customElements.define('my-pre', class extends HTMLElement {
+  connectedCallback() {
+    // https://stackoverflow.com/a/53813523
+    setTimeout(() => {
+      const pre = this.querySelector('pre')
+      const paddingX = 60
+      const width = (window.innerWidth - pre.clientWidth) / 2 + pre.clientWidth - paddingX
+      pre.style.minWidth = `${width}px`
+    })
+  }
+});
+

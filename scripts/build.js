@@ -6,6 +6,26 @@ const hljs = require('highlight.js');
 const { Marked } = require('marked');
 const markedFootnote = require('marked-footnote')
 
+// myPreを作りたかったので、markedのpreを拡張した
+// https://github.com/markedjs/marked/blob/f0fb744f5ee3d8b683c9ce87abde4f8fdcfb9bda/src/Renderer.ts#L17-L33
+const myPreRenderer = { renderer: {code : (code, infostring, escaped) => {
+  const lang = (infostring || '').match(/^\S*/)?.[0];
+
+  code = code.replace(/\n$/, '') + '\n';
+
+  if (!lang) {
+    return '<my-pre><pre><code>'
+      + (escaped ? code : escape(code, true))
+      + '</code></pre></my-pre>\n';
+  }
+
+  return '<my-pre><pre><code class="language-'
+    + escape(lang)
+    + '">'
+    + (escaped ? code : escape(code, true))
+    + '</code></pre></my-pre>\n';
+}}};
+
 const marked = new Marked(
   markedHighlight({
     langPrefix: 'hljs language-',
@@ -14,7 +34,8 @@ const marked = new Marked(
       return hljs.highlight(code, { language }).value;
     }
   })
-).use(markedFootnote({description: '脚注'}));
+).use(markedFootnote({description: '脚注'}))
+  .use(myPreRenderer)
 const [html1, html2, html3, html4] = fs.readFileSync('public/template.html', 'utf8').split('<!---->\n')
 const links = []
 const directoryPath = '_posts';
