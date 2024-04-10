@@ -2,7 +2,7 @@
 title: "RspecでYAGNIとKISSを考えた"
 excerpt: "みなさんこんにちは、かじりです。RspecでYAGNIとKISSを考えたので少しまとめました。"
 created_at: "2024-04-10 22:30:58"
-updated_at: "2024-04-10 22:30:58"
+updated_at: "2024-04-10 22:49:58"
 tags: [Rspec, YAGNI, KISS]
 ---
 
