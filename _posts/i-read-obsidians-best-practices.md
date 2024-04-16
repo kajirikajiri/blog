@@ -1,7 +1,7 @@
 ---
 title: "Obsidianのベストプラクティスを読んだ"
 excerpt: "みなさんこんにちは、かじりです。Obsidianを始めようとした時、まずは真似することから始めようと思い、ベストプラクティスを調べました"
-created_at: "2020-12-31 21:57:22"
+created_at: "2020-11-22 20:26:39"
 updated_at: "2020-12-31 21:57:22"
 tags: [obsidian, best-practice]
 ---

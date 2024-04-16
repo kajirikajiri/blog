@@ -1,7 +1,7 @@
 ---
 title: "JavaScriptの数値の判定とイベントの処理で詰まったはなし"
 excerpt: "みなさんこんにちは、かじりです。JavaScriptの数値の判定にはtypeofを使っていましたが結果、詰まったので共有します"
-created_at: "2020-12-31 21:57:23"
+created_at: "2020-12-06 20:09:30"
 updated_at: "2020-12-31 21:57:23"
 tags: [javascript, number]
 ---
