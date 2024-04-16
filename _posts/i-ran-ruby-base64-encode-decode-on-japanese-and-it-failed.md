@@ -34,6 +34,4 @@ p decoded.force_encoding('utf-8')
 最初は英語のhelloをエンコードして成功。次に日本語も見ておくか、と思いやってみたら変な文字に。
 過去にcsvの文字コードで色々やっていた同僚にhelpを求めたところ、上記解決策を教えてもらいました。
 ASCII-8BITはよく知りませんが
-rubyで文字がおかしくなったら、
-- TEXT.encoding
-で確認するようにします
+rubyで文字がおかしくなったら、 TEXT.encoding で確認するようにします
