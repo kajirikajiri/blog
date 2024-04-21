@@ -35,7 +35,7 @@ dev.mysql.comにドキュメントがあった。[^acid-mysql-1] [^acid-mysql-2]
 
 長いが、これが正確に表していそうだ。
 
-mysql.comからの引用
+dev.mysql.comからの引用
 
 > An acronym standing for atomicity, consistency, isolation, and durability. These properties are all desirable in a database system, and are all closely tied to the notion of a transaction. The transactional features of InnoDB adhere to the ACID principles.
 > Transactions are atomic units of work that can be committed or rolled back. When a transaction makes multiple changes to the database, either all the changes succeed when the transaction is committed, or all the changes are undone when the transaction is rolled back.
@@ -70,3 +70,5 @@ Durability(耐久性)
 isolation level(隔離レベル)[^isolation-level]
 
 [^isolation-level]: https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_isolation_level
+
+
