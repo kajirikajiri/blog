@@ -23,15 +23,15 @@ GPT-4に聞いてまとめた
 
 ACID原則は、データベース管理システムのトランザクションが満たすべき四つの特性を指す。それは、原子性(Atomicity)、一貫性(Consistency)、独立性(Isolation)、持続性(Durability)である。
 
-www.postgresql.orgにあった。
+www.postgresql.orgにあった。[^acid-postgresql]
 
-https://www.postgresql.org/docs/current/glossary.html#GLOSSARY-ACID
+[^acid-postgresql]: https://www.postgresql.org/docs/current/glossary.html#GLOSSARY-ACID
 
-dev.mysql.comにドキュメントがあった。
+dev.mysql.comにドキュメントがあった。[^acid-mysql-1] [^acid-mysql-2]
 
-https://dev.mysql.com/doc/refman/8.0/en/mysql-acid.html
+[^acid-mysql-1]: https://dev.mysql.com/doc/refman/8.0/en/mysql-acid.html
 
-https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_acid
+[^acid-mysql-2]: https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_acid
 
 長いが、これが正確に表していそうだ。
 
@@ -62,8 +62,11 @@ Durability(耐久性)
 
 アトミック、コミット、同時実行、ダブルライトバッファ、分離レベル、ロック、ロールバック、トランザクションも参照のこと。
 
-経験豊富なユーザーであればのあたりが気になる。
+隔離レベルのあたりが気になる。
 
 停電やシステムクラッシュから保護されるってすごいな。
 
 
+isolation level(隔離レベル)[^isolation-level]
+
+[^isolation-level]: https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_isolation_level
