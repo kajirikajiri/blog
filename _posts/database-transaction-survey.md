@@ -23,11 +23,11 @@ GPT-4に聞いてまとめた
 
 ACID原則は、データベース管理システムのトランザクションが満たすべき四つの特性を指す。それは、原子性(Atomicity)、一貫性(Consistency)、独立性(Isolation)、持続性(Durability)である。
 
-www.postgresql.orgにあった。 [^acid-postgresql]
+www.postgresql.org にあった。[^acid-postgresql]
 
 [^acid-postgresql]: https://www.postgresql.org/docs/current/glossary.html#GLOSSARY-ACID
 
-dev.mysql.comにドキュメントがあった。[^acid-mysql-1] [^acid-mysql-2]
+dev.mysql.com にドキュメントがあった。[^acid-mysql-1] [^acid-mysql-2]
 
 [^acid-mysql-1]: https://dev.mysql.com/doc/refman/8.0/en/mysql-acid.html
 
