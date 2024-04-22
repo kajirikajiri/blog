@@ -74,9 +74,7 @@ docker image公式で調べた[^hub.docker.com]、ソケットファイルの場
 
 [^hub.docker.com]: https://hub.docker.com/_/mysql
 
-```
-The default configuration for MySQL can be found in /etc/mysql/my.cnf, which may !includedir additional directories such as /etc/mysql/conf.d or /etc/mysql/mysql.conf.d. Please inspect the relevant files and directories within the mysql image itself for more details.
-```
+>The default configuration for MySQL can be found in /etc/mysql/my.cnf, which may !includedir additional directories such as /etc/mysql/conf.d or /etc/mysql/mysql.conf.d. Please inspect the relevant files and directories within the mysql image itself for more details.
 
 これで、my.cnfが見つかったので接続して成功。ログは以下
 
