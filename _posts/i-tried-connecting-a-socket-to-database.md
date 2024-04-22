@@ -20,7 +20,7 @@ docker compose buildが実行されず、docker compose upでエラーが発生
 
 [^jizya_post]: https://qiita.com/jizya/items/38f15271903de629d1ab
 
-```
+```yml
   db:
     platform: linux/x86_64 // この行を追加。
 ```
