@@ -8,24 +8,26 @@ tags: [db, mysql, socket]
 
 みなさんこんにちは、かじりです。DBにsocket接続してみました
 
-まずは環境構築。docker composeでmysqlを立ち上げる
+まずは環境構築。docker composeでmysqlを立ち上げる[^mstn__post]
 
-https://zenn.dev/mstn_/articles/ad5d7c7ad7e2d6
+[^mstn__post]: https://zenn.dev/mstn_/articles/ad5d7c7ad7e2d6
 
 docker compose buildが実行されず、docker compose upでエラーが発生
 
 > no matching manifest for linux/arm64/v8 in the manifest list entries
 
-調べてみると、compose.ymlにplatformの記載が足りないので追記
+調べてみると、compose.ymlにplatformの記載が足りない[^jizya_post]ので追記
 
-https://qiita.com/jizya/items/38f15271903de629d1ab
+[^jizya_post]: https://qiita.com/jizya/items/38f15271903de629d1ab
 
 >```
 >  db:
 >    platform: linux/x86_64 // この行を追加。
 >```
 
-これでcompose.ymlが以下のようになり、起動成功
+これでcompose.yml[^compose.yml]が以下のようになり、起動成功
+
+[^compose.yml]: https://github.com/kajirikajiri/toy/blob/eb1469a56a6ddf925d30d62027bc5e989d99d215/projects/mysql-docker-compose/compose.yml
 
 ```yml
 version: '3.9'
@@ -68,7 +70,9 @@ my.cnfの場所がわからないのでGPT-4に聞いたがよくわからない
 >5. `~/.my.cnf` 
 >存在を確認するには、ターミナルで `sudo find / -name my.cnf` を実行。
 
-docker image公式で調べた、ソケットファイルの場所。 https://hub.docker.com/_/mysql
+docker image公式で調べた[^hub.docker.com]、ソケットファイルの場所。 
+
+[^hub.docker.com]: https://hub.docker.com/_/mysql
 
 ```
 The default configuration for MySQL can be found in /etc/mysql/my.cnf, which may !includedir additional directories such as /etc/mysql/conf.d or /etc/mysql/mysql.conf.d. Please inspect the relevant files and directories within the mysql image itself for more details.
@@ -101,5 +105,4 @@ mysql> ^DBye
 mysql: [Warning] Using a password on the command line interface can be insecure.
 ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.socc' (2)
 ```
-
 
