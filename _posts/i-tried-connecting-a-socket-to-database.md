@@ -8,9 +8,40 @@ tags: [db, mysql, socket]
 
 みなさんこんにちは、かじりです。DBにsocket接続してみました
 
-とりあえず雑にまとめた。
+まずは環境構築。docker composeでmysqlを立ち上げる
 
-GPT-4に聞いたsocket接続方法
+https://zenn.dev/mstn_/articles/ad5d7c7ad7e2d6
+
+docker compose buildが実行されず、docker compose upでエラーが発生
+
+> no matching manifest for linux/arm64/v8 in the manifest list entries
+
+調べてみると、compose.ymlにplatformの記載が足りないので追記
+
+https://qiita.com/jizya/items/38f15271903de629d1ab
+
+>```
+>  db:
+>    platform: linux/x86_64 // この行を追加。
+>```
+
+これでcompose.ymlが以下のようになり、起動成功
+
+```yml
+version: '3.9'
+
+services:
+  mysql:
+    platform: linux/x86_64
+    image: mysql:8.0.27
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+```
+
+次にsocket接続方法がわからなかったのでGPT-4に聞いた
 
 >1. MySQLサーバーでソケットファイルの場所を確認。
 >2. MySQLクライアントでソケットファイルを指定して接続。
@@ -20,14 +51,14 @@ GPT-4に聞いたsocket接続方法
 >```
 >`[username]`をあなたのMySQLのユーザー名に、`/path/to/mysql.sock`をソケットファイルのパスに置き換えて実行。
 
-GPT-4に聞いたsocketファイルの場所
+socketファイルの場所がわからないのでGPT-4に聞いた
 
 >MySQLのデフォルトのsocketファイルの場所は通常、以下のいずれかです:
 >- `/var/run/mysqld/mysqld.sock`
 >- `/tmp/mysql.sock`
 >システムや設定によって異なる場合があるので、`my.cnf` を確認すると確実です。
 
-GPT-4に聞いたmy.cnfの場所。よくわからん。
+my.cnfの場所がわからないのでGPT-4に聞いたがよくわからない
 
 >`my.cnf`の場所はシステムによって異なるが、一般的な場所は以下の通り:
 >1. `/etc/my.cnf`
@@ -37,13 +68,13 @@ GPT-4に聞いたmy.cnfの場所。よくわからん。
 >5. `~/.my.cnf` 
 >存在を確認するには、ターミナルで `sudo find / -name my.cnf` を実行。
 
-docker image公式で調べた、ソケットファイルの場所 https://hub.docker.com/_/mysql
+docker image公式で調べた、ソケットファイルの場所。 https://hub.docker.com/_/mysql
 
 ```
 The default configuration for MySQL can be found in /etc/mysql/my.cnf, which may !includedir additional directories such as /etc/mysql/conf.d or /etc/mysql/mysql.conf.d. Please inspect the relevant files and directories within the mysql image itself for more details.
 ```
 
-成功ログ
+これで、my.cnfが見つかったので接続して成功。ログは以下
 
 ```
 mysql -uroot -pmysql --socket /var/run/mysqld/mysqld.sock
@@ -63,7 +94,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> ^DBye
 ```
 
-失敗ログ socc
+試しにsocketファイルの名前をsockからsoccにして接続してみると接続に失敗。ログは以下
 
 ```
 #  mysql -uroot -pmysql --socket /var/run/mysqld/mysqld.socc
