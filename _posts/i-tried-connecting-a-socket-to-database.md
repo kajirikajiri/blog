@@ -20,10 +20,10 @@ docker compose buildが実行されず、docker compose upでエラーが発生
 
 [^jizya_post]: https://qiita.com/jizya/items/38f15271903de629d1ab
 
-```yml
-  db:
-    platform: linux/x86_64 // この行を追加。
-```
+>```yml
+>  db:
+>    platform: linux/x86_64 // この行を追加。
+>```
 
 これでcompose.yml[^compose.yml]が以下のようになり、起動成功
 
@@ -48,9 +48,9 @@ services:
 >1. MySQLサーバーでソケットファイルの場所を確認。
 >2. MySQLクライアントでソケットファイルを指定して接続。
 >コマンド:
-```shell
-mysql -u [username] -p --socket=/path/to/mysql.sock
-```
+>```
+>mysql -u [username] -p --socket=/path/to/mysql.sock
+>```
 >`[username]`をあなたのMySQLのユーザー名に、`/path/to/mysql.sock`をソケットファイルのパスに置き換えて実行。
 
 socketファイルの場所がわからないのでGPT-4に聞いた
