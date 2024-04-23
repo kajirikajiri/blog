@@ -8,6 +8,31 @@ const markedFootnote = require('marked-footnote')
 
 // myPreを作りたかったので、markedのpreを拡張した
 // https://github.com/markedjs/marked/blob/f0fb744f5ee3d8b683c9ce87abde4f8fdcfb9bda/src/Renderer.ts#L17-L33
+const escapeTest = /[&<>"']/;
+const escapeReplace = new RegExp(escapeTest.source, 'g');
+const escapeTestNoEncode = /[<>"']|&(?!(#\d{1,7}|#[Xx][a-fA-F0-9]{1,6}|\w+);)/;
+const escapeReplaceNoEncode = new RegExp(escapeTestNoEncode.source, 'g');
+const escapeReplacements = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+};
+const getEscapeReplacement = (ch) => escapeReplacements[ch];
+export function escape(html, encode) {
+  if (encode) {
+    if (escapeTest.test(html)) {
+      return html.replace(escapeReplace, getEscapeReplacement);
+    }
+  } else {
+    if (escapeTestNoEncode.test(html)) {
+      return html.replace(escapeReplaceNoEncode, getEscapeReplacement);
+    }
+  }
+
+  return html;
+}
 const myPreRenderer = { renderer: {code : (code, infostring, escaped) => {
   const lang = (infostring || '').match(/^\S*/)?.[0];
 
