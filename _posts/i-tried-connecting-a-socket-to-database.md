@@ -48,7 +48,7 @@ services:
 >1. MySQLサーバーでソケットファイルの場所を確認。
 >2. MySQLクライアントでソケットファイルを指定して接続。
 >コマンド:
-```sh
+```shell
 mysql -u [username] -p --socket=/path/to/mysql.sock
 ```
 >`[username]`をあなたのMySQLのユーザー名に、`/path/to/mysql.sock`をソケットファイルのパスに置き換えて実行。
