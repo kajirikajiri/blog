@@ -1,5 +1,7 @@
 make postで_postsに記事ができるので作成。
 
+make filename a='I am title'でファイル名を生成できる
+
 public/assets/blog/記事のtitle/*.(jpg|png|.*)に画像をおく。
 
 scripts/build.jsでビルドしている。やや複雑。sh scripts/build.jsでdistにhtmlができるので確認する。
