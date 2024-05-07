@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const filename = process.argv[2].replace(/ /g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase()
-const newFilename = `_posts/${filename}`
+const newFilename = `_posts/${filename}.md`
 
 fs.access(newFilename, fs.constants.F_OK, (err) => {
   if (err) {
