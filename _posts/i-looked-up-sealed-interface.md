@@ -103,3 +103,7 @@ puts SingletonObject.instance == SingletonObject.instance
 ```
 
 SingletonObjectクラスのロード時に@instance変数がnewで初期化され、SingletonObject.instanceメソッドは毎回同じインスタンスを呼び出す。
+
+Sealed Interfaceはこの記事のコメント欄[^zenn]で気になった
+
+[^zenn]: https://zenn.dev/koduki/articles/e9373cb78fcfef#discuss
